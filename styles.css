@@ -5,9 +5,10 @@
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
+/* Global reset */
 * {
   margin: 0;
   padding: 0;
@@ -15,12 +16,12 @@ html {
 }
 
 body {
-  font-family: 'Cormorant Garamond', sans-serif;
+  font-family: "Cormorant Garamond", serif;
   color: var(--dark);
   font-size: 1.1rem;
 }
 
-/* NAV */
+/* ---------- NAV ---------- */
 .nav {
   position: absolute;
   top: 0;
@@ -30,27 +31,50 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 10;
-  
-}
-
-.nav-names:hover {
-    filter: brightness(.8);
-    transition: .5s;
 }
 
 .logo img {
   height: 42px;
   display: block;
-  
 }
 
-.nav nav a {
-  margin: 0 14px;
+/* Main nav links group */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Base link styles */
+.nav-links a {
   text-decoration: none;
   color: white;
   font-weight: 500;
 }
 
+/* Shared hover "pill" behaviour for both text + icon links */
+.nav-names,
+.nav-insta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 999px;
+  opacity: 0.85;
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+}
+
+.nav-insta {
+  margin-left: 6px; /* slight separation from text links */
+}
+
+.nav-names:hover,
+.nav-insta:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* CTA button */
 .cta {
   background: var(--red);
   color: white;
@@ -58,24 +82,38 @@ body {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
+  transition: filter 0.25s ease;
 }
 
-.cta:hover {
-    filter: brightness(.9);
-    transition: .5s;
-}
+.cta:hover,
 .logo:hover {
-    filter: brightness(.9);
-    transition: .5s;
+  filter: brightness(0.9);
 }
 
-/* HERO */
+/* Nav responsive */
+@media (max-width: 900px) {
+  .nav {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-insta {
+    padding: 6px;
+  }
+}
+
+/* ---------- HERO ---------- */
 .hero {
   height: 100vh;
-  background: linear-gradient(
-      rgba(0,0,0,0.25),
-      rgba(0,0,0,0.25)
-    ),
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
     url("images/hero.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -84,32 +122,37 @@ body {
 }
 
 .hero h1 {
-  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(4rem, 6vw, 5rem);
   padding-bottom: 80px;
   color: white;
   font-weight: 400;
 }
 
-/* SECTIONS */
+/* ---------- SECTIONS ---------- */
 section {
   padding: 100px 80px;
 }
 
-
-
-h1, h2, h3 {
-  font-family: 'Cormorant Garamond', serif;
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", serif;
 }
 
 section h2 {
-  font-family: 'Cormorant Garamond', serif;
   color: var(--red);
   font-size: 42px;
   margin-bottom: 40px;
 }
 
-/* TOURS */
+/* Section responsive padding */
+@media (max-width: 900px) {
+  section {
+    padding: 60px 24px;
+  }
+}
+
+/* ---------- TOURS ---------- */
 .tour-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -124,8 +167,8 @@ section h2 {
 }
 
 .tour-card:hover {
-    filter: brightness(.6);
-    transition: .5s;
+  filter: brightness(0.6);
+  transition: 0.5s;
 }
 
 .tour-card h3 {
@@ -138,7 +181,7 @@ section h2 {
   font-weight: 600;
 }
 
-/* ABOUT */
+/* ---------- ABOUT ---------- */
 .about-me {
   background: var(--cream);
 }
@@ -150,10 +193,10 @@ section h2 {
   align-items: start;
 }
 
-/* IMAGE */
+/* Sticky image (nice editorial feel) */
 .about-photo {
   position: sticky;
-  top: 120px; /* subtle editorial effect */
+  top: 120px;
 }
 
 .about-photo img {
@@ -170,14 +213,12 @@ section h2 {
   text-align: center;
 }
 
-/* TEXT */
 .about-text p {
   margin-bottom: 1.4em;
   line-height: 1.9;
   max-width: 720px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .about-layout {
     grid-template-columns: 1fr;
@@ -194,13 +235,36 @@ section h2 {
   }
 }
 
+/* ---------- GALLERY ---------- */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;         /* controlled spacing (instead of default margins) */
+  margin-bottom: 20px;
+}
 
-/* GALLERY */
+/* Remove default margins that cause “mystery gaps” */
+.section-head h2,
+.section-head p {
+  margin: 0;
+}
+
+.gallery-cta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.subtle {
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
-  
 }
 
 .gallery-grid img {
@@ -210,11 +274,119 @@ section h2 {
   border-radius: 10px;
 }
 
-/* CONTACT */
+.insta-gallery {
+  color: var(--red);
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: var(--dark);
+  background: transparent;
+
+  transition: transform 0.25s ease, filter 0.25s ease, border-color 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 0, 0, 0.18);
+  filter: brightness(0.98);
+}
+
+.btn .icon {
+  display: inline-flex;
+}
+
+/* ---------- CONTACT ---------- */
 .contact {
+  background: var(--cream);
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
+.contact-card {
+  width: min(900px, 100%);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 28px;
+  padding: 42px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-top h2 {
+  margin-bottom: 10px;
+}
+
+.contact-note {
+  max-width: 55ch;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+.contact-grid {
+  margin-top: 26px;
+  display: grid;
+  gap: 12px;
+  width: 80%;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding: 14px 16px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--dark);
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  transition: transform 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+}
+
+.contact-row:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 0, 0, 0.14);
+  filter: brightness(0.98);
+}
+
+.contact-row .label {
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.contact-row .value {
+  font-family: Inter, sans-serif;
+  font-size: 0.98rem;
+  opacity: 0.9;
+  text-align: right;
+}
+
+.contact-actions {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Bigger CTA variant */
 .cta.big {
   display: inline-block;
   margin-top: 32px;
@@ -222,27 +394,18 @@ section h2 {
   padding: 16px 36px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .nav {
-    padding: 16px 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
+/* Contact responsive */
+@media (max-width: 700px) {
+  .contact-card {
+    padding: 26px;
   }
 
-  .nav nav {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: center;
+  .contact-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  section {
-    padding: 60px 24px;
-  }
-
-  .about-images img {
-    min-height: 400px;
+  .contact-row .value {
+    text-align: left;
   }
 }

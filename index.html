@@ -3,176 +3,251 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./favicon.ico?v=2" type="image/x-icon">
+  <link rel="icon" href="./favicon.ico?v=2" type="image/x-icon" />
   <title>Inaka Tours Japan</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Fonts (try to keep to 1–2 families for performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
 
   <!-- CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
-<!-- NAV -->
-<header class="nav">
-  <a href="https://www.instagram.com/stoked_inaka_tours/" target="_blank" class="logo">
-    <img src="images/logo.png" alt="Inaka Tours Japan">
-  </a>
+  <!-- NAV -->
+  <header class="nav">
+    <!-- Logo links to Instagram (acts like "home" brand link) -->
+    <a href="https://www.instagram.com/stoked_inaka_tours/" target="_blank" rel="noopener" class="logo">
+      <img src="images/logo.png" alt="Inaka Tours Japan" />
+    </a>
 
-  <nav>
-    <a href="#tours" class="nav-names">Tours</a>
-    <a href="#about" class="nav-names">About</a>
-    <a href="#gallery" class="nav-names">Gallery</a>
-    <a href="#contact" class="nav-names">Contact</a>
-  </nav>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#tours" class="nav-names">Tours</a>
+      <a href="#about" class="nav-names">About</a>
+      <a href="#gallery" class="nav-names">Gallery</a>
+      <a href="#contact" class="nav-names">Contact</a>
 
-  <a class="cta" href="https://calendar.google.com" target="_blank">
-    Book Now
-  </a>
-</header>
+      <!-- Instagram icon button -->
+      <a
+        href="https://www.instagram.com/stoked_inaka_tours/"
+        target="_blank"
+        rel="noopener"
+        class="nav-insta"
+        aria-label="Instagram"
+      >
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+          <path
+            d="M7.5 2.75h9A4.75 4.75 0 0 1 21.25 7.5v9A4.75 4.75 0 0 1 16.5 21.25h-9A4.75 4.75 0 0 1 2.75 16.5v-9A4.75 4.75 0 0 1 7.5 2.75Z"
+            stroke="currentColor"
+            stroke-width="1.6"
+          />
+          <path
+            d="M12 16.1a4.1 4.1 0 1 0 0-8.2 4.1 4.1 0 0 0 0 8.2Z"
+            stroke="currentColor"
+            stroke-width="1.6"
+          />
+          <path
+            d="M17.2 6.9h.01"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+          />
+        </svg>
+      </a>
+    </nav>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <h1>Immerse yourself in<br>rural Japan</h1>
-</section>
+    <!-- Primary CTA -->
+    <a class="cta" href="https://calendar.google.com" target="_blank" rel="noopener">
+      Book Now
+    </a>
+  </header>
 
-<!-- TOURS -->
-<section id="tours" class="tours">
-  <h2>Our Tours</h2>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <h1>Immerse yourself in<br />rural Japan</h1>
+  </section>
 
-  <div class="tour-grid">
-    <div class="tour-card">
-      <img src="images/tour-morning.jpg" alt="Morning Tour">
-      <h3>Morning Tour</h3>
-      <p>
-        A relaxed introduction to local streets, quiet scenery,
-        and hidden spots. Perfect for experiencing everyday rural life.
-      </p>
-      <span class="price">¥30,000</span>
+  <!-- TOURS -->
+  <section id="tours" class="tours">
+    <h2>Our Tours</h2>
+
+    <div class="tour-grid">
+      <div class="tour-card">
+        <img src="images/tour-morning.jpg" alt="Morning Tour" />
+        <h3>Morning Tour</h3>
+        <p>
+          A relaxed introduction to local streets, quiet scenery, and hidden spots.
+          Perfect for experiencing everyday rural life.
+        </p>
+        <span class="price">¥30,000</span>
+      </div>
+
+      <div class="tour-card">
+        <img src="images/tour-afternoon.jpg" alt="Afternoon Tour" />
+        <h3>Afternoon Tour</h3>
+        <p>
+          Explore local sights and activities, then finish the day with dinner at a local restaurant.
+        </p>
+        <span class="price">¥45,000</span>
+      </div>
+
+      <div class="tour-card">
+        <img src="images/tour-full.jpg" alt="Full Day Tour" />
+        <h3>Full Day Tour</h3>
+        <p>
+          A fully immersive day including lunch, activities, dinner, and travel through rural Japan.
+        </p>
+        <span class="price">¥60,000</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-me">
+    <h2>About Me</h2>
+
+    <div class="about-layout">
+      <figure class="about-photo">
+        <img src="images/about1.jpg" alt="Shota" />
+        <figcaption>Founder of Inaka Tours</figcaption>
+      </figure>
+
+      <div class="about-text">
+        <p>
+          Inaka Tours began with a simple comment from someone I deeply respect:
+          “I wish more people would come to this island.”
+        </p>
+        <p>
+          That moment made me realize something important. This area is special,
+          but there was no way for visitors to truly experience it. So I decided
+          to study English and moved to Australia for two years.
+        </p>
+        <p>
+          Living overseas gave me many new experiences and helped me learn about
+          different cultures — but it also made me appreciate Japan even more.
+        </p>
+        <p>
+          When I returned to Japan in October 2025, I decided to start Inaka Tours here.
+        </p>
+        <p>
+          This island doesn’t have a long list of famous attractions. But I believe
+          that’s exactly the beauty of rural Japan.
+        </p>
+        <p>
+          As I explored this region more deeply, I realized its greatest charm
+          isn’t places — it’s people.
+        </p>
+        <p>
+          With Inaka Tours, my goal is to share that feeling with visitors who want
+          to experience the real Japan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="gallery">
+    <div class="section-head">
+      <h2>Gallery</h2>
+
+      <div class="gallery-cta">
+        <p class="subtle">See more on Instagram</p>
+
+        <a
+          class="btn insta-gallery"
+          href="https://www.instagram.com/stoked_inaka_tours/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+              <path
+                d="M7.5 2.75h9A4.75 4.75 0 0 1 21.25 7.5v9A4.75 4.75 0 0 1 16.5 21.25h-9A4.75 4.75 0 0 1 2.75 16.5v-9A4.75 4.75 0 0 1 7.5 2.75Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+              <path
+                d="M12 16.1a4.1 4.1 0 1 0 0-8.2 4.1 4.1 0 0 0 0 8.2Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+              <path
+                d="M17.2 6.9h.01"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          Instagram
+        </a>
+      </div>
     </div>
 
-    <div class="tour-card">
-      <img src="images/tour-afternoon.jpg" alt="Afternoon Tour">
-      <h3>Afternoon Tour</h3>
-      <p>
-        Explore local sights and activities, then finish the day
-        with dinner at a local restaurant.
-      </p>
-      <span class="price">¥45,000</span>
+    <div class="gallery-grid">
+      <img src="images/g1.jpg" alt="" />
+      <img src="images/g2.jpg" alt="" />
+      <img src="images/g3.jpg" alt="" />
+      <img src="images/g4.png" alt="" />
+      <img src="images/g5.jpg" alt="" />
+      <img src="images/g6.jpg" alt="" />
+      <img src="images/g7.jpg" alt="" />
+      <img src="images/g8.jpg" alt="" />
+      <img src="images/g9.jpg" alt="" />
+      <img src="images/ama_diver.jpg" alt="Ama divers in Shima" />
     </div>
 
-    <div class="tour-card">
-      <img src="images/tour-full.jpg" alt="Full Day Tour">
-      <h3>Full Day Tour</h3>
-      <p>
-        A fully immersive day including lunch, activities,
-        dinner, and travel through rural Japan.
-      </p>
-      <span class="price">¥60,000</span>
+    <!-- Add more images by copying this line:
+      <img src="images/IMAGE_NAME.jpg" alt="Describe the image">
+    -->
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="contact-card">
+      <div class="contact-top">
+        <h2>Contact</h2>
+        <p class="contact-note">Questions, custom requests, or availability — send a message anytime.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Optional: Email -->
+        <a class="contact-row" href="mailto:inakatoursjp@gmail.com">
+          <span class="label">Email</span>
+          <span class="value">inakatoursjp@gmail.com</span>
+        </a>
+
+        <!-- Optional: Phone -->
+        <a class="contact-row" href="tel:+819053661544">
+          <span class="label">Phone</span>
+          <span class="value">+81 90 5366 1544</span>
+        </a>
+
+        <!-- Optional: WhatsApp -->
+        <a class="contact-row" href="https://wa.me/819053661544" target="_blank" rel="noopener">
+          <span class="label">WhatsApp</span>
+          <span class="value">Message on WhatsApp</span>
+        </a>
+      </div>
+
+      <div class="contact-actions">
+        <a
+          class="cta big"
+          href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ360ngHN619QsbwwClAqhjd9ohCeAnZhazmCmPuyvPg8Cz-vg1IZL1LUDokYPYjf4E2gWEmiP3z"
+          target="_blank"
+          rel="noopener"
+        >
+          Book Now
+        </a>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="about-me">
-  <h2>About Me</h2>
-
-  <div class="about-layout">
-    
-    <figure class="about-photo">
-      <img src="images/about1.jpg" alt="Shota">
-      <figcaption>Founder of Inaka Tours</figcaption>
-    </figure>
-
-    <div class="about-text">
-      <p>
-        Inaka Tours began with a simple comment from someone I deeply respect:
-        “I wish more people would come to this island.”
-      </p>
-
-      <p>
-        That moment made me realize something important. This area is special,
-        but there was no way for visitors to truly experience it. So I decided
-        to study English and moved to Australia for two years.
-      </p>
-
-      <p>
-        Living overseas gave me many new experiences and helped me learn about
-        different cultures — but it also made me appreciate Japan even more.
-      </p>
-
-      <p>
-        When I returned to Japan in October 2025, I decided to start Inaka Tours
-        here.
-      </p>
-
-      <p>
-        This island doesn’t have a long list of famous attractions. But I believe
-        that’s exactly the beauty of rural Japan.
-      </p>
-
-      <p>
-        As I explored this region more deeply, I realized its greatest charm
-        isn’t places — it’s people.
-      </p>
-
-      <p>
-        With Inaka Tours, my goal is to share that feeling with visitors who want
-        to experience the real Japan.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- GALLERY -->
-<section id="gallery" class="gallery">
-  <h2>Gallery</h2>
-
-  <div class="gallery-grid">
-    <img src="images/g1.jpg" alt="">
-    <img src="images/g2.jpg">
-    <img src="images/g3.jpg">
-    <img src="images/g4.png">
-    <img src="images/g5.jpg">
-    <img src="images/g6.jpg">
-    <img src="images/g7.jpg">
-    <img src="images/g8.jpg">
-    <img src="images/g9.jpg">
-    <img src="images/ama_diver.jpg" alt="ama divers from shima tourist area pearl harbour">
-
-    <!-- If you want to add more images, copy this and add in your image name in the 'IMAGE_NAME' section --DO NOT FORGET TO ADD THE EXACT FILE EXTENSION-- .jpg, .png, .webp-->
-    <!-- <img src="images/IMAGE_NAME" alt="describe this image"> -->
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>Contact</h2>
-
-  <p>Email: <a href="mailto:inakatoursjp@gmail.com">inakatoursjp@gmail.com</a></p>
-  <p>Phone: <a href="tel:+819053661544">+81 90 5366 1544</a></p>
-
-  <a class="cta big" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ360ngHN619QsbwwClAqhjd9ohCeAnZhazmCmPuyvPg8Cz-vg1IZL1LUDokYPYjf4E2gWEmiP3z" target="_blank">
-    Book Now
-  </a>
-</section>
+  </section>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
