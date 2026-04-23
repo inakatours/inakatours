@@ -321,102 +321,184 @@ Both stations can be reached from Osaka in about 2 to 2.5 hours by limited expre
 </body>
 </html>
 ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
-<!-- Reviews -->
-<section id="reviews" class="reviews">
-  <div class="reviews-container">
+<!-- ===== Jump Button ===== -->
+<div style="text-align:center; margin:40px 0;">
+  <a href="#reviews" class="review-btn">See Reviews</a>
+</div>
+
+<!-- ===== Reviews Section ===== -->
+<section id="reviews" class="reviews-section">
+  <h2 class="reviews-title">Reviews</h2>
+
+  <div class="slider-wrapper">
     
-    <div class="reviews-top">
-      <h2>Reviews</h2>
+    <button class="slider-btn prev" onclick="scrollSlider(-1)">‹</button>
+
+    <div class="review-slider" id="reviewSlider">
+
+      <!-- Card 1 -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">
+          A great tour to truly experience the region.<br>
+          Shota is welcoming, fun, and insightful with real passion.<br>
+          The itinerary is well-paced and connecting with locals was valuable.
+        </p>
+        <p class="reviewer">– Guest from UK</p>
+        <p class="source">Source: GetYourGuide</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">
+          Shota was incredibly welcoming and knowledgeable.<br>
+          It felt like visiting a local friend.
+        </p>
+        <p class="reviewer">– Guest from UK</p>
+        <p class="source">Source: Google Reviews</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">
+          An unforgettable local experience.<br>
+          Highly recommended for deeper cultural insight.
+        </p>
+        <p class="reviewer">– Guest from US</p>
+        <p class="source">Source: Google Reviews</p>
+      </div>
+
     </div>
 
-    <div class="review-container">
-      <!-- レビューカード -->
-    </div>
+    <button class="slider-btn next" onclick="scrollSlider(1)">›</button>
 
   </div>
 </section>
+
+<!-- ===== CSS ===== -->
+<style>
+
+.reviews-section {
+  padding: 60px 20px;
+}
+
+.reviews-title {
+  color: #c0392b;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+/* スライダー全体 */
+.slider-wrapper {
+  position: relative;
+}
+
+/* 横スクロール */
+.review-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+
+/* スクロールバー非表示（任意） */
+.review-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* カード */
 .review-card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
   background: #f3ede0;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 25px;
   border: 1px solid #e0d8c8;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .review-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .stars {
   color: #f5a623;
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .review-text {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #222;
-  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .reviewer {
   font-weight: bold;
-  font-size: 14px;
-  color: #111;
+  margin-bottom: 5px;
 }
 
 .source {
-  font-size: 12px;
-  color: #666;
-  margin-top: 5px;
+  font-size: 13px;
+  color: #777;
 }
+
+/* ボタン */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.slider-btn.prev {
+  left: -10px;
+}
+
+.slider-btn.next {
+  right: -10px;
+}
+
+.slider-btn:hover {
+  background: #a93226;
+}
+
+/* ジャンプボタン */
+.review-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #c0392b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
 </style>
-<div class="review-container">
-  <div class="review-card">
-    <div class="stars">★★★★★</div>
-    <div class="review-text">
-      <p>
-A great tour to truly experience the region.<br>
-Shota is welcoming, fun, and insightful, with a real passion for the area.<br>
-The itinerary is well-paced, and connecting with locals made it especially valuable.<br>
-Relaxed yet professional—highly recommended.
-    </div>
-    <div class="reviewer">– Guest from UK</div>
-    <div class="source">Source: GetYourGuide</div>
-  </div>
 
-  <div class="review-card">
-    <div class="stars">★★★★★</div>
-    <div class="review-text">
-      Shota was incredibly welcoming and knowledgeable. It felt like visiting a local friend.
-    </div>
-    <div class="reviewer">– Guest from UK</div>
-    <div class="source">Source: Google Reviews</div>
-  </div>
-
-  <div class="review-card">
-    <div class="stars">★★★★★</div>
-    <div class="review-text">
-      Inaka Tours Japan was one of our favorite experiences in Japan. 
-      It was so special to get to know the Ise-shima area from the eyes of a true local. 
-      Thank you Shota for the amazing experience.
-    </div>
-    <div class="reviewer">– Guest from US</div>
-    <div class="source">Source: Google Reviews</div>
-  </div>
-  
-<div class="review-card">
-    <div class="stars">★★★★★</div>
-    <div class="review-text">
-      I’ve joined Shota’s tours several times and highly recommend them to anyone wanting to truly immerse themselves in Japanese culture. 
-      He’s positive, easy to communicate with, and offers an authentic experience of rural Japan and local life.
-    </div>
-    <div class="reviewer">– Guest from  Australia</div>
-    <div class="source">Source: Google Reviews</div>
-  </div>
-  </section>
+<!-- ===== JS ===== -->
+<script>
+function scrollSlider(direction) {
+  const slider = document.getElementById('reviewSlider');
+  const scrollAmount = 320; // カード幅＋余白
+  slider.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
+</script>
   
 </div>
 
