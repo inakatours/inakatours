@@ -25,9 +25,20 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
 </head>
 
 <body>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+  <script>
+const lightbox = GLightbox({
+  selector: '.glightbox',
+  touchNavigation: true,
+  loop: true
+});
+</script>
 
   <!-- NAV -->
   <header class="nav">
@@ -250,31 +261,35 @@ Both stations can be reached from Osaka in about 2 to 2.5 hours by limited expre
       </div>
     </div>
 
-    <div class="gallery-grid">
-      <img src="images/ama_diver.jpg" alt="inaka Ama divers in Shima" />
-      <img src="images/Oharaimachi2.jpg" alt="Oharaimachi">
-      <img src="images/Oharaimachi3.jpg" alt="Oharaimachi">
-      <img src="images/Oharaimachi4.jpg" alt="Oharaimachi">
-      <img src="images/Oharaimachi5.jpg" alt="Oharaimachi">
-      <img src="images/Salt in Ise SHima.jpg" alt="Salt in Ise SHima">
-      <img src="images/Shaved-Bonito.jpg" alt="Shaved Bonito">
-      <img src="images/Yokoyama 3.JPG" alt="View point Shima">
-      <img src="images/Yokoyama2.jpg" alt="View point Shima">
-      <img src="images/Ise-Jingu-Geku2.jpg" alt="Ise-Jingu Geku">
-      <img src="images/Ise-Jingu-Geku.jpg" alt="Ise-Jingu Geku">
-      <img src="images/360yearsold_Sakura.jpg" alt="Things_to_do_Shima">
-      <img src="images/Boat_PealShop.jpg" alt="Things_to_do_Shima">
-      <img src="images/G_fams.jpg" alt="Things_to_do_Shima">
-      <img src="images/Jingu_house.jpg" alt="Things_to_do_Shima">
-      <img src="images/Lu_amaLunch.jpg" alt="Things_to_do_Shima">
-      <img src="images/Lu_driedfish.jpg" alt="Things_to_do_Shima">
-      <img src="images/Lu_onthebridge.jpg" alt="Things_to_do_Shima">
-      <img src="images/Patt_jingu_coolshot.jpg" alt="Things_to_do_Shima">
-      <img src="images/Rorys_beach.jpg" alt="Things_to_do_Shima">
-      <img src="images/Rorys_yokoyama.jpg" alt="Things_to_do_Shima">
-      <img src="images/Sakura_tunnel.jpg" alt="Things_to_do_Shima">
-      
-    </div>
+<div class="gallery-grid">
+
+<a href="images/ama_diver.jpg" class="glightbox" data-gallery="shima"><img src="images/ama_diver.jpg" alt="inaka Ama divers in Shima" /></a>
+<a href="images/Oharaimachi2.jpg" class="glightbox" data-gallery="shima"><img src="images/Oharaimachi2.jpg" alt="Oharaimachi"></a>
+<a href="images/Oharaimachi3.jpg" class="glightbox" data-gallery="shima"><img src="images/Oharaimachi3.jpg" alt="Oharaimachi"></a>
+<a href="images/Oharaimachi4.jpg" class="glightbox" data-gallery="shima"><img src="images/Oharaimachi4.jpg" alt="Oharaimachi"></a>
+<a href="images/Oharaimachi5.jpg" class="glightbox" data-gallery="shima"><img src="images/Oharaimachi5.jpg" alt="Oharaimachi"></a>
+
+<a href="images/Salt in Ise SHima.jpg" class="glightbox" data-gallery="shima"><img src="images/Salt in Ise SHima.jpg" alt="Salt in Ise Shima"></a>
+<a href="images/Shaved-Bonito.jpg" class="glightbox" data-gallery="shima"><img src="images/Shaved-Bonito.jpg" alt="Shaved Bonito"></a>
+<a href="images/Yokoyama 3.JPG" class="glightbox" data-gallery="shima"><img src="images/Yokoyama 3.JPG" alt="View point Shima"></a>
+<a href="images/Yokoyama2.jpg" class="glightbox" data-gallery="shima"><img src="images/Yokoyama2.jpg" alt="View point Shima"></a>
+
+<a href="images/Ise-Jingu-Geku2.jpg" class="glightbox" data-gallery="shima"><img src="images/Ise-Jingu-Geku2.jpg" alt="Ise Jingu Geku"></a>
+<a href="images/Ise-Jingu-Geku.jpg" class="glightbox" data-gallery="shima"><img src="images/Ise-Jingu-Geku.jpg" alt="Ise Jingu Geku"></a>
+
+<a href="images/360yearsold_Sakura.jpg" class="glightbox" data-gallery="shima"><img src="images/360yearsold_Sakura.jpg" alt="Things to do Shima"></a>
+<a href="images/Boat_PealShop.jpg" class="glightbox" data-gallery="shima"><img src="images/Boat_PealShop.jpg" alt="Things to do Shima"></a>
+<a href="images/G_fams.jpg" class="glightbox" data-gallery="shima"><img src="images/G_fams.jpg" alt="Things to do Shima"></a>
+<a href="images/Jingu_house.jpg" class="glightbox" data-gallery="shima"><img src="images/Jingu_house.jpg" alt="Things to do Shima"></a>
+<a href="images/Lu_amaLunch.jpg" class="glightbox" data-gallery="shima"><img src="images/Lu_amaLunch.jpg" alt="Things to do Shima"></a>
+<a href="images/Lu_driedfish.jpg" class="glightbox" data-gallery="shima"><img src="images/Lu_driedfish.jpg" alt="Things to do Shima"></a>
+<a href="images/Lu_onthebridge.jpg" class="glightbox" data-gallery="shima"><img src="images/Lu_onthebridge.jpg" alt="Things to do Shima"></a>
+<a href="images/Patt_jingu_coolshot.jpg" class="glightbox" data-gallery="shima"><img src="images/Patt_jingu_coolshot.jpg" alt="Things to do Shima"></a>
+<a href="images/Rorys_beach.jpg" class="glightbox" data-gallery="shima"><img src="images/Rorys_beach.jpg" alt="Things to do Shima"></a>
+<a href="images/Rorys_yokoyama.jpg" class="glightbox" data-gallery="shima"><img src="images/Rorys_yokoyama.jpg" alt="Things to do Shima"></a>
+<a href="images/Sakura_tunnel.jpg" class="glightbox" data-gallery="shima"><img src="images/Sakura_tunnel.jpg" alt="Things to do Shima"></a>
+
+</div>
 
     <!-- Add more images by copying this line:
       <img src="images/IMAGE_NAME.jpg" alt="Describe the image">
