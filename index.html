@@ -26,6 +26,88 @@
       max-height: 80vh !important;
     }
   </style>
+  <!-- Reviews CSS -->
+  <style>
+    .reviews-section {
+      padding: 60px 20px;
+    }
+    .reviews-title {
+      color: #c0392b;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+    .slider-wrapper {
+      position: relative;
+    }
+    .review-slider {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 10px;
+    }
+    .review-slider::-webkit-scrollbar {
+      display: none;
+    }
+    .review-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: #f3ede0;
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid #e0d8c8;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    .stars {
+      color: #f5a623;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    .review-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .reviewer {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .source {
+      font-size: 13px;
+      color: #777;
+    }
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #c0392b;
+      color: #fff;
+      border: none;
+      font-size: 24px;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .slider-btn.prev {
+      left: -10px;
+    }
+    .slider-btn.next {
+      right: -10px;
+    }
+    .slider-btn:hover {
+      background: #a93226;
+    }
+  </style>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -273,4 +355,98 @@
             We particularly valued the ability to engage with local people through Shota, which is something often missing from travel when you do not speak the language.<br>
             The whole day has a really chilled vibe, but at the same time professional and totally worthwhile. Highly recommended.
           </p>
-          <p class="reviewer">–
+          <p class="reviewer">–  Nicholas From UK</p>
+          <p class="source">Source: GetYourGuide</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            The tour with Shota was a fantastic way to experience the highlights of the region all within a single day.<br>
+            Communication beforehand was smooth, and he was very accommodating where needed.<br>
+            Shota really tailors the experience to your interests, whether it's your first time visiting Mie or you've already explored much of Shima before.<br>
+            He had something interesting to share everywhere we went, and besides that, he's just a genuinely fun person to spend the day with. Because of that, it never felt like a typical tour, but more like a road trip with a good friend.<br>
+            We even got lucky enough to spot two ama divers diving along the coast before visiting them later for lunch, which made the experience feel even more special.<br>
+            It's also quite difficult to quickly reach many of these places without your own car, so having everything organized this way was perfect.<br>
+            You can really tell Shota has strong connections to the area and the local people, which made the experience feel very authentic. 10/10!!
+          </p>
+          <p class="reviewer">– Lucas From Netherlands</p>
+          <p class="source">Source: GetYourGuide</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            Inaka Tours Japan was one of our favorite experiences in Japan.<br>
+            It was so special to get to know the Ise-shima area from the eyes of a true local.<br>
+            Thank you Shota for the amazing experience.
+          </p>
+          <p class="reviewer">– Anna & Evan From US</p>
+          <p class="source">Source: Google Reviews</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            I have been on a few tours with Shota and I can 100% recommend this to anyone coming to Japan with the intent of really immersing themselves in the culture.<br>
+            Shota is just such a great character with such a positive attitude and great communication skills.<br>
+            Through Shota's services, I was able to explore the countryside ("Inaka") of Japan and experience the authentic Japanese way of life.
+          </p>
+          <p class="reviewer">– Noah From Australia</p>
+          <p class="source">Source: Google Reviews</p>
+        </div>
+        <!-- Card 5 -->
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            We had a wonderful experience. Shota is bilingual, has deep knowledge about the local area & culture, flexible, personable, meticulous and fun.<br>
+            We were treated with comfortable spacious van to visit multiple attractive sites guided with English.<br>
+            Our family of 5, some are young adults, some are seniors, all enjoyed the tour so much.<br>
+            I highly recommend the Ise-Shima Tour by Inaka Tours. It helps people to touch the soul of Japan.
+          </p>
+          <p class="reviewer">– Gauntt Family From US</p>
+          <p class="source">Source: Google Reviews</p>
+        </div>
+        <!-- Card 6 -->
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            Shota-san took me beautiful, wonderful places, I would never have discovered on my own!<br>
+            His knowledge about the area is vast and shows a true love for the Ise-Shima area!<br>
+            Shota-san adjusted the tour to fit my wishes and gave me tons of new information of interest to me; and not just the facts, but also the whys!<br>
+            I am sure he will adjust the tour to fit anyone's whishes! I can not recommend highly enough!
+          </p>
+          <p class="reviewer">– Hansen From Denmark</p>
+          <p class="source">Source: GetYourGuide</p>
+        </div>
+      </div>
+      <button class="slider-btn next" onclick="scrollSlider(1)">›</button>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      zoomable: true,
+      draggable: true,
+      openEffect: 'zoom',
+      closeEffect: 'fade'
+    });
+  </script>
+  <script>
+    function scrollSlider(direction) {
+      const slider = document.getElementById('reviewSlider');
+      const scrollAmount = 320;
+      slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+</body>
+</html>
