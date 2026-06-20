@@ -17,9 +17,119 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&family=Dancing+Script:wght@600&display=swap"
     rel="stylesheet"
   />
+  <!-- Opening Screen CSS -->
+  <style>
+    #opening {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      animation: openingFadeOut 1s ease forwards 4.5s;
+      pointer-events: all;
+    }
+    #opening.hidden {
+      display: none;
+    }
+    #opening-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/opening.jpg') center center / cover no-repeat;
+      animation: openingZoom 5.5s ease forwards;
+    }
+    #opening-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.25) 0%,
+        rgba(0,0,0,0.45) 50%,
+        rgba(0,0,0,0.55) 100%
+      );
+    }
+    #opening-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 0 24px;
+      animation: openingTextIn 1.2s ease forwards 0.6s;
+      opacity: 0;
+    }
+    #opening-text .script {
+      display: block;
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      color: #e8b84b;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+    #opening-text .main {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(3.5rem, 14vw, 8rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 0.9;
+      text-transform: uppercase;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+    }
+    #opening-text .sub {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.85rem, 2.5vw, 1.3rem);
+      font-weight: 300;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      margin-top: 14px;
+      opacity: 0.85;
+    }
+    #opening-skip {
+      position: absolute;
+      bottom: 36px;
+      right: 36px;
+      z-index: 3;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 100px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s;
+      animation: openingTextIn 1s ease forwards 1.2s;
+      opacity: 0;
+    }
+    #opening-skip:hover {
+      background: rgba(255,255,255,0.28);
+    }
+    @keyframes openingFadeOut {
+      0%   { opacity: 1; pointer-events: all; }
+      100% { opacity: 0; pointer-events: none; }
+    }
+    @keyframes openingZoom {
+      0%   { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    @keyframes openingTextIn {
+      0%   { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    body.opening-active {
+      overflow: hidden;
+    }
+  </style>
+
   <style>
     .glightbox-container .gslide img {
       max-width: 80vw !important;
@@ -180,7 +290,19 @@
     }
   </style>
 </head>
-<body>
+<body class="opening-active">
+
+  <!-- OPENING SCREEN -->
+  <div id="opening">
+    <div id="opening-bg"></div>
+    <div id="opening-overlay"></div>
+    <div id="opening-text">
+      <span class="script">What you missed on your trip to</span>
+      <span class="main">Ise-Shima</span>
+      <span class="sub">Japan</span>
+    </div>
+    <button id="opening-skip" onclick="closeOpening()">Skip ›</button>
+  </div>
 
   <!-- NAV -->
   <header class="nav">
@@ -380,9 +502,6 @@
       <a href="images/Rorys_yokoyama.jpg" class="glightbox" data-gallery="shima"><img src="images/Rorys_yokoyama.jpg" alt="Things to do Shima"></a>
       <a href="images/Sakura_tunnel.jpg" class="glightbox" data-gallery="shima"><img src="images/Sakura_tunnel.jpg" alt="Things to do Shima"></a>
     </div>
-    <!-- Add more images by copying this line:
-      <img src="images/IMAGE_NAME.jpg" alt="Describe the image">
-    -->
   </section>
 
   <!-- CONTACT -->
@@ -507,6 +626,24 @@
       openEffect: 'zoom',
       closeEffect: 'fade'
     });
+  </script>
+  <script>
+    // Opening screen logic
+    (function() {
+      var el = document.getElementById('opening');
+      setTimeout(function() {
+        el.classList.add('hidden');
+        document.body.classList.remove('opening-active');
+      }, 5600);
+    })();
+    function closeOpening() {
+      var el = document.getElementById('opening');
+      el.style.animation = 'openingFadeOut 0.5s ease forwards';
+      setTimeout(function() {
+        el.classList.add('hidden');
+        document.body.classList.remove('opening-active');
+      }, 500);
+    }
   </script>
   <script>
     function scrollSlider(direction) {
