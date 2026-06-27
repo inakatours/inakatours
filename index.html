@@ -13,454 +13,156 @@
   </script>
   <link rel="icon" href="./favicon.ico?v=2" type="image/x-icon" />
   <title>Inaka Tours Japan</title>
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&family=Dancing+Script:wght@600&display=swap"
-    rel="stylesheet"
-  />
-  <!-- Opening Screen CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
   <style>
     #opening {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      animation: openingFadeOut 1s ease forwards 4.5s;
-      pointer-events: all;
+      position: fixed; inset: 0; z-index: 99999; background: #000;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; animation: openingFadeOut 1s ease forwards 4.5s; pointer-events: all;
     }
-    #opening.hidden {
-      display: none;
-    }
+    #opening.hidden { display: none; }
     #opening-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: url('images/opening.jpg') center center / cover no-repeat;
       animation: openingZoom 5.5s ease forwards;
     }
     #opening-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.25) 0%,
-        rgba(0,0,0,0.45) 50%,
-        rgba(0,0,0,0.55) 100%
-      );
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.55) 100%);
     }
     #opening-text {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      color: #fff;
-      padding: 0 24px;
-      animation: openingTextIn 1.2s ease forwards 0.6s;
-      opacity: 0;
+      position: relative; z-index: 2; text-align: center; color: #fff;
+      padding: 0 24px; animation: openingTextIn 1.2s ease forwards 0.6s; opacity: 0;
     }
     #opening-text .script {
-      display: block;
-      font-family: 'Dancing Script', cursive;
-      font-size: clamp(1.2rem, 4vw, 2rem);
-      color: #e8b84b;
-      letter-spacing: 0.02em;
-      margin-bottom: 8px;
+      display: block; font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.2rem, 4vw, 2rem); color: #e8b84b; letter-spacing: 0.02em; margin-bottom: 8px;
     }
     #opening-text .main {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(3.5rem, 14vw, 8rem);
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      line-height: 0.9;
-      text-transform: uppercase;
+      display: block; font-family: 'Inter', sans-serif;
+      font-size: clamp(3.5rem, 14vw, 8rem); font-weight: 800;
+      letter-spacing: -0.01em; line-height: 0.9; text-transform: uppercase;
       text-shadow: 0 4px 40px rgba(0,0,0,0.5);
     }
     #opening-text .sub {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.85rem, 2.5vw, 1.3rem);
-      font-weight: 300;
-      letter-spacing: 0.45em;
-      text-transform: uppercase;
-      margin-top: 14px;
-      opacity: 0.85;
+      display: block; font-family: 'Inter', sans-serif;
+      font-size: clamp(0.85rem, 2.5vw, 1.3rem); font-weight: 300;
+      letter-spacing: 0.45em; text-transform: uppercase; margin-top: 14px; opacity: 0.85;
     }
     #opening-skip {
-      position: absolute;
-      bottom: 36px;
-      right: 36px;
-      z-index: 3;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.4);
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 10px 22px;
-      border-radius: 100px;
-      cursor: pointer;
-      backdrop-filter: blur(6px);
-      transition: background 0.2s;
-      animation: openingTextIn 1s ease forwards 1.2s;
-      opacity: 0;
+      position: absolute; bottom: 36px; right: 36px; z-index: 3;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4);
+      color: #fff; font-family: 'Inter', sans-serif; font-size: 0.78rem;
+      letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 22px;
+      border-radius: 100px; cursor: pointer; backdrop-filter: blur(6px);
+      transition: background 0.2s; animation: openingTextIn 1s ease forwards 1.2s; opacity: 0;
     }
-    #opening-skip:hover {
-      background: rgba(255,255,255,0.28);
-    }
-    @keyframes openingFadeOut {
-      0%   { opacity: 1; pointer-events: all; }
-      100% { opacity: 0; pointer-events: none; }
-    }
-    @keyframes openingZoom {
-      0%   { transform: scale(1.08); }
-      100% { transform: scale(1); }
-    }
-    @keyframes openingTextIn {
-      0%   { opacity: 0; transform: translateY(18px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    body.opening-active {
-      overflow: hidden;
-    }
+    #opening-skip:hover { background: rgba(255,255,255,0.28); }
+    @keyframes openingFadeOut { 0% { opacity: 1; pointer-events: all; } 100% { opacity: 0; pointer-events: none; } }
+    @keyframes openingZoom { 0% { transform: scale(1.08); } 100% { transform: scale(1); } }
+    @keyframes openingTextIn { 0% { opacity: 0; transform: translateY(18px); } 100% { opacity: 1; transform: translateY(0); } }
+    body.opening-active { overflow: hidden; }
   </style>
-
   <style>
-    .glightbox-container .gslide img {
-      max-width: 80vw !important;
-      max-height: 80vh !important;
-    }
+    .glightbox-container .gslide img { max-width: 80vw !important; max-height: 80vh !important; }
   </style>
-  <!-- Reviews CSS -->
   <style>
-    .reviews-section {
-      padding: 60px 20px;
-    }
-    .reviews-title {
-      color: #c0392b;
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
-    .slider-wrapper {
-      position: relative;
-    }
+    .reviews-section { padding: 60px 20px; }
+    .reviews-title { color: #c0392b; font-size: 36px; margin-bottom: 30px; }
+    .slider-wrapper { position: relative; }
     .review-slider {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      padding: 10px;
+      display: flex; gap: 20px; overflow-x: auto;
+      scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 10px;
     }
-    .review-slider::-webkit-scrollbar {
-      display: none;
-    }
+    .review-slider::-webkit-scrollbar { display: none; }
     .review-card {
-      flex: 0 0 300px;
-      scroll-snap-align: start;
-      background: #f3ede0;
-      border-radius: 16px;
-      padding: 25px;
-      border: 1px solid #e0d8c8;
+      flex: 0 0 300px; scroll-snap-align: start; background: #f3ede0;
+      border-radius: 16px; padding: 25px; border: 1px solid #e0d8c8;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .review-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
-    .stars {
-      color: #f5a623;
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-    .review-text {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #333;
-      margin-bottom: 20px;
-    }
-    .reviewer {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    .source {
-      font-size: 13px;
-      color: #777;
-    }
+    .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+    .stars { color: #f5a623; font-size: 20px; margin-bottom: 15px; }
+    .review-text { font-size: 16px; line-height: 1.7; color: #333; margin-bottom: 20px; }
+    .reviewer { font-weight: bold; margin-bottom: 5px; }
+    .source { font-size: 13px; color: #777; }
     .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #c0392b;
-      color: #fff;
-      border: none;
-      font-size: 24px;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 10;
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: #c0392b; color: #fff; border: none; font-size: 24px;
+      padding: 10px 15px; cursor: pointer; border-radius: 50%; z-index: 10;
     }
-    .slider-btn.prev {
-      left: -10px;
-    }
-    .slider-btn.next {
-      right: -10px;
-    }
-    .slider-btn:hover {
-      background: #a93226;
-    }
+    .slider-btn.prev { left: -10px; }
+    .slider-btn.next { right: -10px; }
+    .slider-btn:hover { background: #a93226; }
   </style>
-  <!-- Main CSS -->
   <link rel="stylesheet" href="styles.css" />
   <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
-  <!-- Tour Card: Luxury Redesign (overrides styles.css) -->
   <style>
     .tour-card {
-      background: #fff;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 6px 40px rgba(0,0,0,0.09);
-      border: 1px solid rgba(0,0,0,0.06);
-      padding: 0 44px 52px;
-      transition: box-shadow 0.35s ease, transform 0.35s ease;
+      background: #fff; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 6px 40px rgba(0,0,0,0.09); border: 1px solid rgba(0,0,0,0.06);
+      padding: 0 44px 52px; transition: box-shadow 0.35s ease, transform 0.35s ease;
     }
-    .tour-card:hover {
-      filter: none;
-      box-shadow: 0 14px 56px rgba(0,0,0,0.13);
-      transform: translateY(-3px);
-    }
+    .tour-card:hover { filter: none; box-shadow: 0 14px 56px rgba(0,0,0,0.13); transform: translateY(-3px); }
     .tour-card img {
-      width: calc(100% + 88px);
-      margin: 0 -44px;
-      height: 320px;
-      border-radius: 0;
-      object-fit: cover;
-      display: block;
+      width: calc(100% + 88px); margin: 0 -44px; height: 320px;
+      border-radius: 0; object-fit: cover; display: block;
     }
-    .tour-card h3 {
-      font-size: 2rem;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-      margin-top: 40px;
-      margin-bottom: 18px;
-    }
-    h4.section-title {
-      height: 0;
-      overflow: hidden;
-      border: none;
-      border-top: 1px solid rgba(0,0,0,0.1);
-      margin: 38px 0;
-      padding: 0;
-    }
+    .tour-card h3 { font-size: 2rem; font-weight: 400; letter-spacing: 0.02em; margin-top: 40px; margin-bottom: 18px; }
+    h4.section-title { height: 0; overflow: hidden; border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 38px 0; padding: 0; }
     .tour-card h4:not(.section-title) {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--red);
-      font-weight: 500;
-      margin-bottom: 14px;
+      font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--red); font-weight: 500; margin-bottom: 14px;
     }
-    .tour-card p,
-    .tour-description p {
-      line-height: 1.9;
-      color: #444;
-      margin-bottom: 0.8em;
-    }
+    .tour-card p, .tour-description p { line-height: 1.9; color: #444; margin-bottom: 0.8em; }
     .price {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.65rem;
-      font-weight: 500;
-      color: var(--red);
-      margin-top: 40px;
-      padding-top: 28px;
+      display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.65rem;
+      font-weight: 500; color: var(--red); margin-top: 40px; padding-top: 28px;
       border-top: 1px solid rgba(0,0,0,0.1);
     }
-    .group-price {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.87rem;
-      opacity: 0.6;
-      margin-top: 6px;
+    .group-price { font-family: 'Inter', sans-serif; font-size: 0.87rem; opacity: 0.6; margin-top: 6px; }
+    .tour-badge {
+      display: inline-block; background: #8B5E3C; color: #fff;
+      font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px;
+      border-radius: 100px; margin-bottom: 10px; margin-top: 32px;
     }
   </style>
-  <!-- Digital Guide CSS -->
   <style>
-    .digital-guide-section {
-      padding: 80px 40px;
-      background: #f3ede0;
-    }
-    .digital-guide-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      gap: 64px;
-      align-items: center;
-    }
-    .digital-guide-mock {
-      flex-shrink: 0;
-      width: 200px;
-    }
-    .digital-guide-phone {
-      width: 180px;
-      height: 320px;
-      background: #fff;
-      border-radius: 28px;
-      border: 6px solid #2B2118;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-      overflow: hidden;
-      position: relative;
-    }
-    .digital-guide-phone::before {
-      content: '';
-      position: absolute;
-      top: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 48px;
-      height: 5px;
-      background: #2B2118;
-      border-radius: 3px;
-      z-index: 1;
-    }
-    .digital-guide-phone-inner {
-      margin-top: 30px;
-      height: calc(100% - 30px);
-      background: linear-gradient(158deg, #2F463A 0%, #21302A 52%, #15201B 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      text-align: center;
-    }
-    .ph-eyebrow {
-      font-family: 'Inter', sans-serif;
-      font-size: 7px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #CBA75F;
-      margin-bottom: 8px;
-    }
-    .ph-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      color: #fff;
-      line-height: 1.2;
-      margin-bottom: 4px;
-    }
-    .ph-sub {
-      font-family: 'Inter', sans-serif;
-      font-size: 8px;
-      color: rgba(255,255,255,0.5);
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-    }
-    .ph-btn {
-      background: #CBA75F;
-      color: #21302A;
-      font-family: 'Inter', sans-serif;
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      padding: 7px 14px;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .digital-guide-content {
-      flex: 1;
-    }
+    .digital-guide-section { padding: 80px 40px; background: #f3ede0; }
+    .digital-guide-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 64px; align-items: center; }
+    .digital-guide-img { flex-shrink: 0; width: 280px; height: 380px; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+    .digital-guide-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .digital-guide-content { flex: 1; }
     .digital-guide-eyebrow {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #8B5E3C;
-      font-weight: 500;
-      margin-bottom: 14px;
+      font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: #8B5E3C; font-weight: 500; margin-bottom: 14px;
     }
     .digital-guide-content h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 400;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      color: #1a1a1a;
+      font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 400;
+      line-height: 1.15; margin-bottom: 20px; color: #1a1a1a;
     }
-    .digital-guide-content p {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      line-height: 1.9;
-      color: #444;
-      margin-bottom: 20px;
-    }
-    .digital-guide-content ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 28px;
-    }
+    .digital-guide-content p { font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.9; color: #444; margin-bottom: 20px; }
+    .digital-guide-content ul { list-style: none; padding: 0; margin: 0 0 28px; }
     .digital-guide-content ul li {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      color: #444;
-      padding: 6px 0 6px 20px;
-      position: relative;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #444;
+      padding: 6px 0 6px 20px; position: relative; line-height: 1.6;
     }
-    .digital-guide-content ul li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: #8B5E3C;
-    }
-    .digital-guide-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      color: #8B5E3C;
-      margin-bottom: 24px;
-    }
-    .digital-guide-price span {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      color: #888;
-      font-weight: 300;
-    }
+    .digital-guide-content ul li::before { content: '—'; position: absolute; left: 0; color: #8B5E3C; }
+    .digital-guide-price { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #8B5E3C; margin-bottom: 24px; }
+    .digital-guide-price span { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #888; font-weight: 300; }
     .digital-guide-btn {
-      display: inline-block;
-      background: #3C3028;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 16px 36px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.2s;
+      display: inline-block; background: #3C3028; color: #fff;
+      font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 36px;
+      border-radius: 6px; text-decoration: none; transition: background 0.2s;
     }
-    .digital-guide-btn:hover {
-      background: #5a4538;
-    }
+    .digital-guide-btn:hover { background: #5a4538; }
     @media (max-width: 700px) {
-      .digital-guide-section {
-        padding: 60px 24px;
-      }
-      .digital-guide-inner {
-        flex-direction: column;
-        gap: 40px;
-        align-items: flex-start;
-      }
-      .digital-guide-mock {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
+      .digital-guide-section { padding: 60px 24px; }
+      .digital-guide-inner { flex-direction: column; gap: 40px; align-items: flex-start; }
+      .digital-guide-img { width: 100%; height: 240px; }
     }
   </style>
 </head>
@@ -490,32 +192,15 @@
       <a href="#gallery" class="nav-names">Gallery</a>
       <a href="#contact" class="nav-names">Contact</a>
       <a href="#reviews" class="review-btn">Reviews</a>
-      <!-- Instagram icon button -->
       <a href="https://www.instagram.com/stoked_inaka_tours/" target="_blank" rel="noopener" class="nav-insta" aria-label="Instagram">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
-          <path
-            d="M7.5 2.75h9A4.75 4.75 0 0 1 21.25 7.5v9A4.75 4.75 0 0 1 16.5 21.25h-9A4.75 4.75 0 0 1 2.75 16.5v-9A4.75 4.75 0 0 1 7.5 2.75Z"
-            stroke="currentColor"
-            stroke-width="1.6"
-          />
-          <path
-            d="M12 16.1a4.1 4.1 0 1 0 0-8.2 4.1 4.1 0 0 0 0 8.2Z"
-            stroke="currentColor"
-            stroke-width="1.6"
-          />
-          <path
-            d="M17.2 6.9h.01"
-            stroke="currentColor"
-            stroke-width="2.4"
-            stroke-linecap="round"
-          />
+          <path d="M7.5 2.75h9A4.75 4.75 0 0 1 21.25 7.5v9A4.75 4.75 0 0 1 16.5 21.25h-9A4.75 4.75 0 0 1 2.75 16.5v-9A4.75 4.75 0 0 1 7.5 2.75Z" stroke="currentColor" stroke-width="1.6" />
+          <path d="M12 16.1a4.1 4.1 0 1 0 0-8.2 4.1 4.1 0 0 0 0 8.2Z" stroke="currentColor" stroke-width="1.6" />
+          <path d="M17.2 6.9h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
         </svg>
       </a>
     </nav>
-    <!-- Primary CTA -->
-    <a class="cta" href="https://calendar.app.google/6iiMygUuQqJfbtVq7" target="_blank" rel="noopener">
-      Book Now
-    </a>
+    <a class="cta" href="https://calendar.app.google/6iiMygUuQqJfbtVq7" target="_blank" rel="noopener">Book Now</a>
   </header>
 
   <!-- HERO -->
@@ -527,8 +212,10 @@
   <section id="tours" class="tours">
     <h2>Our Tours</h2>
     <div class="tour-grid">
+
+      <!-- Basic Tour -->
       <div class="tour-card">
-        <img src="images/tour-morning.jpg" alt="Basic Tour" />
+        <img src="images/bay.jpg" alt="Basic Tour" />
         <h3>Basic Tour</h3>
         <p>
           This is a fully private walking tour designed exclusively for you and your family.<br>
@@ -547,12 +234,8 @@
         </div>
         <h4 class="section-title">　</h4>
         <h4>What's Not Included</h4>
-        <p>
-          Meal costs, optional personal experience fees, and shopping expenses are not included.
-        </p>
-        <p>
-          Transportation between locations is provided by car at no additional charge.
-        </p>
+        <p>Meal costs, optional personal experience fees, and shopping expenses are not included.</p>
+        <p>Transportation between locations is provided by car at no additional charge.</p>
         <h4 class="section-title">　</h4>
         <h4>Access & Pick-up</h4>
         <p>
@@ -562,31 +245,57 @@
         </p>
         <h4 class="section-title">　</h4>
         <h4>Optional Dinner</h4>
-        <p>
-          Dinner can be added for an additional 6,000 JPY per person.
-        </p>
-        <p>
-          If you have any questions or special requests, please feel free to contact me.
-          I would be very happy to help you plan a memorable day in Mie.
-        </p>
+        <p>Dinner can be added for an additional 6,000 JPY per person.</p>
+        <p>If you have any questions or special requests, please feel free to contact me. I would be very happy to help you plan a memorable day in Mie.</p>
         <span class="price">¥30,000~36,000 / per person</span>
         <p class="group-price">* For groups of 4–5 people: ¥35,000~41,000 / person</p>
       </div>
+
+      <!-- Ise Jingu Tour -->
+      <div class="tour-card">
+        <img src="images/tour-isejingu.jpg" alt="Ise Jingu Tour" />
+        <div class="tour-badge">New</div>
+        <h3>Ise Jingu Tour</h3>
+        <p>
+          A private guided experience at Japan's most sacred shrine.<br>
+          Walk the ancient forest path to Ise Jingu's inner sanctum, with a local guide to illuminate the deep history and rituals that most visitors never know.<br>
+          The tour begins around 9:00 a.m and concludes around 5:00 p.m.
+        </p>
+        <h4 class="section-title">　</h4>
+        <h4>About this tour</h4>
+        <div class="tour-description">
+          <p>Ise Jingu is Japan's holiest Shinto shrine — yet most visitors spend only an hour and leave without understanding what they have seen.</p>
+          <p>This tour is designed to change that. With a local guide who knows the shrine's rhythms and stories, you will move through the forested approach at the right pace, visiting both the Outer and Inner Shrines along with surrounding sacred sites.</p>
+          <p>We also visit the Okage Yokocho merchant district, where the atmosphere of old Japan remains almost entirely intact.</p>
+          <p>The experience is quiet, unhurried, and deeply connected to the place — the way a visit to Ise Jingu should be.</p>
+        </div>
+        <h4 class="section-title">　</h4>
+        <h4>What's Not Included</h4>
+        <p>Meal costs, optional personal experience fees, and shopping expenses are not included.</p>
+        <p>Transportation between locations is provided by car at no additional charge.</p>
+        <h4 class="section-title">　</h4>
+        <h4>Access & Pick-up</h4>
+        <p>
+          Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>
+          For all other guests, pickup is available at Ugata Station or Iseshi Station.<br>
+          Both stations can be reached from Osaka in about 2 to 2.5 hours by limited express train, with no transfers required.
+        </p>
+        <h4 class="section-title">　</h4>
+        <h4>Optional Dinner</h4>
+        <p>Dinner can be added for an additional 6,000 JPY per person.</p>
+        <p>Feel free to contact me with any questions or special requests.</p>
+        <span class="price">¥30,000~36,000 / per person</span>
+        <p class="group-price">* For groups of 4–5 people: ¥35,000~41,000 / person</p>
+      </div>
+
     </div>
   </section>
 
   <!-- DIGITAL GUIDE -->
   <section id="guide" class="digital-guide-section">
     <div class="digital-guide-inner">
-      <div class="digital-guide-mock">
-        <div class="digital-guide-phone">
-          <div class="digital-guide-phone-inner">
-            <div class="ph-eyebrow">Inaka Tours Japan</div>
-            <div class="ph-title">Ise-Shima</div>
-            <div class="ph-sub">Mobile Travel Guide</div>
-            <a href="https://ise-shima-guide.vercel.app" class="ph-btn">Open Guide</a>
-          </div>
-        </div>
+      <div class="digital-guide-img">
+        <img src="images/coast.jpg" alt="Ise-Shima coastline" />
       </div>
       <div class="digital-guide-content">
         <div class="digital-guide-eyebrow">Digital Guide</div>
@@ -613,40 +322,15 @@
         <figcaption>Founder of Inaka Tours</figcaption>
       </figure>
       <div class="about-text">
-        <p>
-          Inaka Tours began with a simple comment from someone I deeply respect:
-          "I wish more people would come to this region."
-        </p>
-        <p>
-          That moment made me realize something important. This area is special,
-          but there was no way for visitors to truly experience it. So I decided
-          to study English and moved to Australia for two years.
-        </p>
-        <p>
-          Living overseas gave me many new experiences and helped me learn about
-          different cultures — but it also made me appreciate Japan even more.
-        </p>
-        <p>
-          When I returned to Japan in October 2025, I decided to start Inaka Tours here.
-        </p>
-        <p>
-          This region doesn't have a long list of famous attractions. But I believe
-          that's exactly the beauty of rural Japan.
-        </p>
-        <p>
-          As I explored this region more deeply, I realized its greatest charm
-          isn't places — it's what we call "Shima time," a slow and relaxed atmosphere.
-        </p>
-        <p>
-          With Inaka Tours, my goal is to share it with visitors who want
-          to experience the real Japan.
-        </p>
-        <p>
-          Leave everyday life behind and embrace "Shima time" in the beautiful Ise-Shima region — an unforgettable retreat experience during your trip to Japan.
-        </p>
-        <p>
-          I look forward to meeting you and sharing this special experience with you.
-        </p>
+        <p>Inaka Tours began with a simple comment from someone I deeply respect: "I wish more people would come to this region."</p>
+        <p>That moment made me realize something important. This area is special, but there was no way for visitors to truly experience it. So I decided to study English and moved to Australia for two years.</p>
+        <p>Living overseas gave me many new experiences and helped me learn about different cultures — but it also made me appreciate Japan even more.</p>
+        <p>When I returned to Japan in October 2025, I decided to start Inaka Tours here.</p>
+        <p>This region doesn't have a long list of famous attractions. But I believe that's exactly the beauty of rural Japan.</p>
+        <p>As I explored this region more deeply, I realized its greatest charm isn't places — it's what we call "Shima time," a slow and relaxed atmosphere.</p>
+        <p>With Inaka Tours, my goal is to share it with visitors who want to experience the real Japan.</p>
+        <p>Leave everyday life behind and embrace "Shima time" in the beautiful Ise-Shima region — an unforgettable retreat experience during your trip to Japan.</p>
+        <p>I look forward to meeting you and sharing this special experience with you.</p>
       </div>
     </div>
   </section>
@@ -660,22 +344,9 @@
         <a class="btn insta-gallery" href="https://www.instagram.com/stoked_inaka_tours/" target="_blank" rel="noopener">
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
-              <path
-                d="M7.5 2.75h9A4.75 4.75 0 0 1 21.25 7.5v9A4.75 4.75 0 0 1 16.5 21.25h-9A4.75 4.75 0 0 1 2.75 16.5v-9A4.75 4.75 0 0 1 7.5 2.75Z"
-                stroke="currentColor"
-                stroke-width="1.6"
-              />
-              <path
-                d="M12 16.1a4.1 4.1 0 1 0 0-8.2 4.1 4.1 0 0 0 0 8.2Z"
-                stroke="currentColor"
-                stroke-width="1.6"
-              />
-              <path
-                d="M17.2 6.9h.01"
-                stroke="currentColor"
-                stroke-width="2.4"
-                stroke-linecap="round"
-              />
+              <path d="M7.5 2.75h9A4.75 4.75 0 0 1 21.25 7.5v9A4.75 4.75 0 0 1 16.5 21.25h-9A4.75 4.75 0 0 1 2.75 16.5v-9A4.75 4.75 0 0 1 7.5 2.75Z" stroke="currentColor" stroke-width="1.6" />
+              <path d="M12 16.1a4.1 4.1 0 1 0 0-8.2 4.1 4.1 0 0 0 0 8.2Z" stroke="currentColor" stroke-width="1.6" />
+              <path d="M17.2 6.9h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
             </svg>
           </span>
           Instagram
@@ -683,7 +354,7 @@
       </div>
     </div>
     <div class="gallery-grid">
-      <a href="images/ama_diver.jpg" class="glightbox" data-gallery="shima"><img src="images/ama_diver.jpg" alt="inaka Ama divers in Shima" /></a>
+      <a href="images/ama_diver.jpg" class="glightbox" data-gallery="shima"><img src="images/ama_diver.jpg" alt="Ama divers in Shima" /></a>
       <a href="images/Oharaimachi2.jpg" class="glightbox" data-gallery="shima"><img src="images/Oharaimachi2.jpg" alt="Oharaimachi"></a>
       <a href="images/Oharaimachi3.jpg" class="glightbox" data-gallery="shima"><img src="images/Oharaimachi3.jpg" alt="Oharaimachi"></a>
       <a href="images/Oharaimachi4.jpg" class="glightbox" data-gallery="shima"><img src="images/Oharaimachi4.jpg" alt="Oharaimachi"></a>
@@ -726,9 +397,7 @@
         </a>
       </div>
       <div class="contact-actions">
-        <a class="cta big" href="https://calendar.app.google/6iiMygUuQqJfbtVq7" target="_blank" rel="noopener">
-          Book Now
-        </a>
+        <a class="cta big" href="https://calendar.app.google/6iiMygUuQqJfbtVq7" target="_blank" rel="noopener">Book Now</a>
       </div>
     </div>
   </section>
@@ -739,77 +408,39 @@
     <div class="slider-wrapper">
       <button class="slider-btn prev" onclick="scrollSlider(-1)">‹</button>
       <div class="review-slider" id="reviewSlider">
-        <!-- Card 1 -->
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p class="review-text">
-            Such a great tour to get a true impression of the region.<br>
-            Shota is such a welcoming, fun and insightful person, and has so much enthusiasm for the area and welcoming guests.<br>
-            The different stops are perfectly paced and well considered.<br>
-            We particularly valued the ability to engage with local people through Shota, which is something often missing from travel when you do not speak the language.<br>
-            The whole day has a really chilled vibe, but at the same time professional and totally worthwhile. Highly recommended.
-          </p>
-          <p class="reviewer">–  Nicholas From UK</p>
+          <p class="review-text">Such a great tour to get a true impression of the region.<br>Shota is such a welcoming, fun and insightful person, and has so much enthusiasm for the area and welcoming guests.<br>The different stops are perfectly paced and well considered.<br>We particularly valued the ability to engage with local people through Shota, which is something often missing from travel when you do not speak the language.<br>The whole day has a really chilled vibe, but at the same time professional and totally worthwhile. Highly recommended.</p>
+          <p class="reviewer">– Nicholas From UK</p>
           <p class="source">Source: GetYourGuide</p>
         </div>
-        <!-- Card 2 -->
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p class="review-text">
-            The tour with Shota was a fantastic way to experience the highlights of the region all within a single day.<br>
-            Communication beforehand was smooth, and he was very accommodating where needed.<br>
-            Shota really tailors the experience to your interests, whether it's your first time visiting Mie or you've already explored much of Shima before.<br>
-            He had something interesting to share everywhere we went, and besides that, he's just a genuinely fun person to spend the day with. Because of that, it never felt like a typical tour, but more like a road trip with a good friend.<br>
-            We even got lucky enough to spot two ama divers diving along the coast before visiting them later for lunch, which made the experience feel even more special.<br>
-            It's also quite difficult to quickly reach many of these places without your own car, so having everything organized this way was perfect.<br>
-            You can really tell Shota has strong connections to the area and the local people, which made the experience feel very authentic. 10/10!!
-          </p>
+          <p class="review-text">The tour with Shota was a fantastic way to experience the highlights of the region all within a single day.<br>Communication beforehand was smooth, and he was very accommodating where needed.<br>Shota really tailors the experience to your interests, whether it's your first time visiting Mie or you've already explored much of Shima before.<br>He had something interesting to share everywhere we went, and besides that, he's just a genuinely fun person to spend the day with. Because of that, it never felt like a typical tour, but more like a road trip with a good friend.<br>We even got lucky enough to spot two ama divers diving along the coast before visiting them later for lunch, which made the experience feel even more special.<br>It's also quite difficult to quickly reach many of these places without your own car, so having everything organized this way was perfect.<br>You can really tell Shota has strong connections to the area and the local people, which made the experience feel very authentic. 10/10!!</p>
           <p class="reviewer">– Lucas From Netherlands</p>
           <p class="source">Source: GetYourGuide</p>
         </div>
-        <!-- Card 3 -->
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p class="review-text">
-            Inaka Tours Japan was one of our favorite experiences in Japan.<br>
-            It was so special to get to know the Ise-shima area from the eyes of a true local.<br>
-            Thank you Shota for the amazing experience.
-          </p>
+          <p class="review-text">Inaka Tours Japan was one of our favorite experiences in Japan.<br>It was so special to get to know the Ise-shima area from the eyes of a true local.<br>Thank you Shota for the amazing experience.</p>
           <p class="reviewer">– Anna & Evan From US</p>
           <p class="source">Source: Google Reviews</p>
         </div>
-        <!-- Card 4 -->
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p class="review-text">
-            I have been on a few tours with Shota and I can 100% recommend this to anyone coming to Japan with the intent of really immersing themselves in the culture.<br>
-            Shota is just such a great character with such a positive attitude and great communication skills.<br>
-            Through Shota's services, I was able to explore the countryside ("Inaka") of Japan and experience the authentic Japanese way of life.
-          </p>
+          <p class="review-text">I have been on a few tours with Shota and I can 100% recommend this to anyone coming to Japan with the intent of really immersing themselves in the culture.<br>Shota is just such a great character with such a positive attitude and great communication skills.<br>Through Shota's services, I was able to explore the countryside ("Inaka") of Japan and experience the authentic Japanese way of life.</p>
           <p class="reviewer">– Noah From Australia</p>
           <p class="source">Source: Google Reviews</p>
         </div>
-        <!-- Card 5 -->
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p class="review-text">
-            We had a wonderful experience. Shota is bilingual, has deep knowledge about the local area & culture, flexible, personable, meticulous and fun.<br>
-            We were treated with comfortable spacious van to visit multiple attractive sites guided with English.<br>
-            Our family of 5, some are young adults, some are seniors, all enjoyed the tour so much.<br>
-            I highly recommend the Ise-Shima Tour by Inaka Tours. It helps people to touch the soul of Japan.
-          </p>
+          <p class="review-text">We had a wonderful experience. Shota is bilingual, has deep knowledge about the local area & culture, flexible, personable, meticulous and fun.<br>We were treated with comfortable spacious van to visit multiple attractive sites guided with English.<br>Our family of 5, some are young adults, some are seniors, all enjoyed the tour so much.<br>I highly recommend the Ise-Shima Tour by Inaka Tours. It helps people to touch the soul of Japan.</p>
           <p class="reviewer">– Gauntt Family From US</p>
           <p class="source">Source: Google Reviews</p>
         </div>
-        <!-- Card 6 -->
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p class="review-text">
-            Shota-san took me beautiful, wonderful places, I would never have discovered on my own!<br>
-            His knowledge about the area is vast and shows a true love for the Ise-Shima area!<br>
-            Shota-san adjusted the tour to fit my wishes and gave me tons of new information of interest to me; and not just the facts, but also the whys!<br>
-            I am sure he will adjust the tour to fit anyone's whishes! I can not recommend highly enough!
-          </p>
+          <p class="review-text">Shota-san took me beautiful, wonderful places, I would never have discovered on my own!<br>His knowledge about the area is vast and shows a true love for the Ise-Shima area!<br>Shota-san adjusted the tour to fit my wishes and gave me tons of new information of interest to me; and not just the facts, but also the whys!<br>I am sure he will adjust the tour to fit anyone's whishes! I can not recommend highly enough!</p>
           <p class="reviewer">– Hansen From Denmark</p>
           <p class="source">Source: GetYourGuide</p>
         </div>
@@ -818,45 +449,25 @@
     </div>
   </section>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
   <script>
-    const lightbox = GLightbox({
-      selector: '.glightbox',
-      touchNavigation: true,
-      loop: true,
-      zoomable: true,
-      draggable: true,
-      openEffect: 'zoom',
-      closeEffect: 'fade'
-    });
+    const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true, zoomable: true, draggable: true, openEffect: 'zoom', closeEffect: 'fade' });
   </script>
   <script>
-    // Opening screen logic
     (function() {
       var el = document.getElementById('opening');
-      setTimeout(function() {
-        el.classList.add('hidden');
-        document.body.classList.remove('opening-active');
-      }, 5600);
+      setTimeout(function() { el.classList.add('hidden'); document.body.classList.remove('opening-active'); }, 5600);
     })();
     function closeOpening() {
       var el = document.getElementById('opening');
       el.style.animation = 'openingFadeOut 0.5s ease forwards';
-      setTimeout(function() {
-        el.classList.add('hidden');
-        document.body.classList.remove('opening-active');
-      }, 500);
+      setTimeout(function() { el.classList.add('hidden'); document.body.classList.remove('opening-active'); }, 500);
     }
   </script>
   <script>
     function scrollSlider(direction) {
       const slider = document.getElementById('reviewSlider');
-      const scrollAmount = 320;
-      slider.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
-      });
+      slider.scrollBy({ left: direction * 320, behavior: 'smooth' });
     }
   </script>
 
