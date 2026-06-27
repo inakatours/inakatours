@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Google tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-79HEW88DH0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -72,26 +71,15 @@
     .reviews-section { padding: 60px 20px; }
     .reviews-title { color: #c0392b; font-size: 36px; margin-bottom: 30px; }
     .slider-wrapper { position: relative; }
-    .review-slider {
-      display: flex; gap: 20px; overflow-x: auto;
-      scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 10px;
-    }
+    .review-slider { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 10px; }
     .review-slider::-webkit-scrollbar { display: none; }
-    .review-card {
-      flex: 0 0 300px; scroll-snap-align: start; background: #f3ede0;
-      border-radius: 16px; padding: 25px; border: 1px solid #e0d8c8;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+    .review-card { flex: 0 0 300px; scroll-snap-align: start; background: #f3ede0; border-radius: 16px; padding: 25px; border: 1px solid #e0d8c8; transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
     .stars { color: #f5a623; font-size: 20px; margin-bottom: 15px; }
     .review-text { font-size: 16px; line-height: 1.7; color: #333; margin-bottom: 20px; }
     .reviewer { font-weight: bold; margin-bottom: 5px; }
     .source { font-size: 13px; color: #777; }
-    .slider-btn {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: #c0392b; color: #fff; border: none; font-size: 24px;
-      padding: 10px 15px; cursor: pointer; border-radius: 50%; z-index: 10;
-    }
+    .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #c0392b; color: #fff; border: none; font-size: 24px; padding: 10px 15px; cursor: pointer; border-radius: 50%; z-index: 10; }
     .slider-btn.prev { left: -10px; }
     .slider-btn.next { right: -10px; }
     .slider-btn:hover { background: #a93226; }
@@ -105,29 +93,45 @@
       padding: 0 44px 52px; transition: box-shadow 0.35s ease, transform 0.35s ease;
     }
     .tour-card:hover { filter: none; box-shadow: 0 14px 56px rgba(0,0,0,0.13); transform: translateY(-3px); }
-    .tour-card img {
-      width: calc(100% + 88px); margin: 0 -44px; height: 320px;
-      border-radius: 0; object-fit: cover; display: block;
-    }
-    .tour-card h3 { font-size: 2rem; font-weight: 400; letter-spacing: 0.02em; margin-top: 40px; margin-bottom: 18px; }
-    h4.section-title { height: 0; overflow: hidden; border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 38px 0; padding: 0; }
-    .tour-card h4:not(.section-title) {
-      font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--red); font-weight: 500; margin-bottom: 14px;
-    }
-    .tour-card p, .tour-description p { line-height: 1.9; color: #444; margin-bottom: 0.8em; }
-    .price {
-      display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.65rem;
-      font-weight: 500; color: var(--red); margin-top: 40px; padding-top: 28px;
-      border-top: 1px solid rgba(0,0,0,0.1);
-    }
-    .group-price { font-family: 'Inter', sans-serif; font-size: 0.87rem; opacity: 0.6; margin-top: 6px; }
+    .tour-card img { width: calc(100% + 88px); margin: 0 -44px; height: 320px; border-radius: 0; object-fit: cover; display: block; }
+    .tour-card h3 { font-size: 2rem; font-weight: 400; letter-spacing: 0.02em; margin-top: 40px; margin-bottom: 28px; }
     .tour-badge {
       display: inline-block; background: #8B5E3C; color: #fff;
       font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600;
       letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px;
       border-radius: 100px; margin-bottom: 10px; margin-top: 32px;
     }
+    /* ACCORDION */
+    .tour-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; background: none; border: none;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding: 18px 0; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-size: 0.72rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #8B5E3C; font-weight: 500;
+    }
+    .tour-toggle:hover { color: #5a3820; }
+    .toggle-icon {
+      font-size: 1.4rem; line-height: 1; font-weight: 300;
+      transition: transform 0.3s ease; display: inline-block;
+    }
+    .tour-toggle.open .toggle-icon { transform: rotate(45deg); }
+    .tour-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+    .tour-body.open { max-height: 4000px; }
+    h4.section-title { height: 0; overflow: hidden; border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 38px 0; padding: 0; }
+    .tour-body h4:not(.section-title) {
+      font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--red); font-weight: 500; margin-bottom: 14px; margin-top: 0;
+    }
+    .tour-body p, .tour-description p { line-height: 1.9; color: #444; margin-bottom: 0.8em; }
+    .price {
+      display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.65rem;
+      font-weight: 500; color: var(--red); margin-top: 40px; padding-top: 28px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    .group-price { font-family: 'Inter', sans-serif; font-size: 0.87rem; opacity: 0.6; margin-top: 6px; }
+    .tour-body-inner { padding-top: 28px; }
   </style>
   <style>
     .digital-guide-section { padding: 80px 40px; background: #f3ede0; }
@@ -135,29 +139,15 @@
     .digital-guide-img { flex-shrink: 0; width: 280px; height: 380px; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
     .digital-guide-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .digital-guide-content { flex: 1; }
-    .digital-guide-eyebrow {
-      font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em;
-      text-transform: uppercase; color: #8B5E3C; font-weight: 500; margin-bottom: 14px;
-    }
-    .digital-guide-content h2 {
-      font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 400;
-      line-height: 1.15; margin-bottom: 20px; color: #1a1a1a;
-    }
+    .digital-guide-eyebrow { font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: #8B5E3C; font-weight: 500; margin-bottom: 14px; }
+    .digital-guide-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 400; line-height: 1.15; margin-bottom: 20px; color: #1a1a1a; }
     .digital-guide-content p { font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.9; color: #444; margin-bottom: 20px; }
     .digital-guide-content ul { list-style: none; padding: 0; margin: 0 0 28px; }
-    .digital-guide-content ul li {
-      font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #444;
-      padding: 6px 0 6px 20px; position: relative; line-height: 1.6;
-    }
+    .digital-guide-content ul li { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #444; padding: 6px 0 6px 20px; position: relative; line-height: 1.6; }
     .digital-guide-content ul li::before { content: '—'; position: absolute; left: 0; color: #8B5E3C; }
     .digital-guide-price { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #8B5E3C; margin-bottom: 24px; }
     .digital-guide-price span { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #888; font-weight: 300; }
-    .digital-guide-btn {
-      display: inline-block; background: #3C3028; color: #fff;
-      font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 36px;
-      border-radius: 6px; text-decoration: none; transition: background 0.2s;
-    }
+    .digital-guide-btn { display: inline-block; background: #3C3028; color: #fff; font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 36px; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
     .digital-guide-btn:hover { background: #5a4538; }
     @media (max-width: 700px) {
       .digital-guide-section { padding: 60px 24px; }
@@ -168,7 +158,6 @@
 </head>
 <body class="opening-active">
 
-  <!-- OPENING SCREEN -->
   <div id="opening">
     <div id="opening-bg"></div>
     <div id="opening-overlay"></div>
@@ -180,7 +169,6 @@
     <button id="opening-skip" onclick="closeOpening()">Skip ›</button>
   </div>
 
-  <!-- NAV -->
   <header class="nav">
     <a href="https://www.instagram.com/stoked_inaka_tours/" target="_blank" rel="noopener" class="logo">
       <img src="images/logo.png" alt="Inaka Tours Japan" />
@@ -203,12 +191,10 @@
     <a class="cta" href="https://calendar.app.google/6iiMygUuQqJfbtVq7" target="_blank" rel="noopener">Book Now</a>
   </header>
 
-  <!-- HERO -->
   <section id="home" class="hero">
     <h1>Immerse yourself in<br />rural Japan</h1>
   </section>
 
-  <!-- TOURS -->
   <section id="tours" class="tours">
     <h2>Our Tours</h2>
     <div class="tour-grid">
@@ -217,38 +203,38 @@
       <div class="tour-card">
         <img src="images/bay.jpg" alt="Basic Tour" />
         <h3>Basic Tour</h3>
-        <p>
-          This is a fully private walking tour designed exclusively for you and your family.<br>
-          You will explore each location on foot, with transportation between points provided by car.<br>
-          The tour is planned to begin around 9:00 a.m and conclude around 5:00 p.m, without dinner included.
-        </p>
-        <h4 class="section-title">　</h4>
-        <h4>About this tour</h4>
-        <div class="tour-description">
-          <p>This tour follows a thoughtfully curated route, refined and tested by a local guide.</p>
-          <p>While the experience can be flexibly adjusted to suit your preferences, it is primarily conducted along a carefully designed itinerary to ensure a smooth and well-balanced journey.</p>
-          <p>The tour includes a harmonious blend of iconic highlights, such as Ise Grand Shrine, as well as hidden gems known mostly to locals.</p>
-          <p>It is designed to help you explore the Ise-Shima area in an efficient yet immersive way, going beyond the typical tourist experience.</p>
-          <p>Above all, I hope you will feel the unique atmosphere of this region.</p>
-          <p>In Ise-Shima, we call this "Shima Time" — a gentle, unhurried rhythm of life.</p>
+        <button class="tour-toggle" onclick="toggleTour(this)">
+          <span>Details</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="tour-body">
+          <div class="tour-body-inner">
+            <p>This is a fully private walking tour designed exclusively for you and your family.<br>You will explore each location on foot, with transportation between points provided by car.<br>The tour is planned to begin around 9:00 a.m and conclude around 5:00 p.m, without dinner included.</p>
+            <h4 class="section-title">　</h4>
+            <h4>About this tour</h4>
+            <div class="tour-description">
+              <p>This tour follows a thoughtfully curated route, refined and tested by a local guide.</p>
+              <p>While the experience can be flexibly adjusted to suit your preferences, it is primarily conducted along a carefully designed itinerary to ensure a smooth and well-balanced journey.</p>
+              <p>The tour includes a harmonious blend of iconic highlights, such as Ise Grand Shrine, as well as hidden gems known mostly to locals.</p>
+              <p>It is designed to help you explore the Ise-Shima area in an efficient yet immersive way, going beyond the typical tourist experience.</p>
+              <p>Above all, I hope you will feel the unique atmosphere of this region.</p>
+              <p>In Ise-Shima, we call this "Shima Time" — a gentle, unhurried rhythm of life.</p>
+            </div>
+            <h4 class="section-title">　</h4>
+            <h4>What's Not Included</h4>
+            <p>Meal costs, optional personal experience fees, and shopping expenses are not included.</p>
+            <p>Transportation between locations is provided by car at no additional charge.</p>
+            <h4 class="section-title">　</h4>
+            <h4>Access & Pick-up</h4>
+            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pickup is available at Ugata Station or Iseshi Station.<br>Both stations can be reached from Osaka in about 2 to 2.5 hours by limited express train, with no transfers required.</p>
+            <h4 class="section-title">　</h4>
+            <h4>Optional Dinner</h4>
+            <p>Dinner can be added for an additional 6,000 JPY per person.</p>
+            <p>If you have any questions or special requests, please feel free to contact me. I would be very happy to help you plan a memorable day in Mie.</p>
+            <span class="price">¥30,000~36,000 / per person</span>
+            <p class="group-price">* For groups of 4–5 people: ¥35,000~41,000 / person</p>
+          </div>
         </div>
-        <h4 class="section-title">　</h4>
-        <h4>What's Not Included</h4>
-        <p>Meal costs, optional personal experience fees, and shopping expenses are not included.</p>
-        <p>Transportation between locations is provided by car at no additional charge.</p>
-        <h4 class="section-title">　</h4>
-        <h4>Access & Pick-up</h4>
-        <p>
-          Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>
-          For all other guests, pickup is available at Ugata Station or Iseshi Station.<br>
-          Both stations can be reached from Osaka in about 2 to 2.5 hours by limited express train, with no transfers required.
-        </p>
-        <h4 class="section-title">　</h4>
-        <h4>Optional Dinner</h4>
-        <p>Dinner can be added for an additional 6,000 JPY per person.</p>
-        <p>If you have any questions or special requests, please feel free to contact me. I would be very happy to help you plan a memorable day in Mie.</p>
-        <span class="price">¥30,000~36,000 / per person</span>
-        <p class="group-price">* For groups of 4–5 people: ¥35,000~41,000 / person</p>
       </div>
 
       <!-- Ise Jingu Tour -->
@@ -256,36 +242,36 @@
         <img src="images/tour-isejingu.jpg" alt="Ise Jingu Tour" />
         <div class="tour-badge">New</div>
         <h3>Ise Jingu Tour</h3>
-        <p>
-          A private guided experience at Japan's most sacred shrine.<br>
-          Walk the ancient forest path to Ise Jingu's inner sanctum, with a local guide to illuminate the deep history and rituals that most visitors never know.<br>
-          The tour begins around 9:00 a.m and concludes around 5:00 p.m.
-        </p>
-        <h4 class="section-title">　</h4>
-        <h4>About this tour</h4>
-        <div class="tour-description">
-          <p>Ise Jingu is Japan's holiest Shinto shrine — yet most visitors spend only an hour and leave without understanding what they have seen.</p>
-          <p>This tour is designed to change that. With a local guide who knows the shrine's rhythms and stories, you will move through the forested approach at the right pace, visiting both the Outer and Inner Shrines along with surrounding sacred sites.</p>
-          <p>We also visit the Okage Yokocho merchant district, where the atmosphere of old Japan remains almost entirely intact.</p>
-          <p>The experience is quiet, unhurried, and deeply connected to the place — the way a visit to Ise Jingu should be.</p>
+        <button class="tour-toggle" onclick="toggleTour(this)">
+          <span>Details</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="tour-body">
+          <div class="tour-body-inner">
+            <p>A private guided experience at Japan's most sacred shrine.<br>Walk the ancient forest path to Ise Jingu's inner sanctum, with a local guide to illuminate the deep history and rituals that most visitors never know.<br>The tour begins around 9:00 a.m and concludes around 5:00 p.m.</p>
+            <h4 class="section-title">　</h4>
+            <h4>About this tour</h4>
+            <div class="tour-description">
+              <p>Ise Jingu is Japan's holiest Shinto shrine — yet most visitors spend only an hour and leave without understanding what they have seen.</p>
+              <p>This tour is designed to change that. With a local guide who knows the shrine's rhythms and stories, you will move through the forested approach at the right pace, visiting both the Outer and Inner Shrines along with surrounding sacred sites.</p>
+              <p>We also visit the Okage Yokocho merchant district, where the atmosphere of old Japan remains almost entirely intact.</p>
+              <p>The experience is quiet, unhurried, and deeply connected to the place — the way a visit to Ise Jingu should be.</p>
+            </div>
+            <h4 class="section-title">　</h4>
+            <h4>What's Not Included</h4>
+            <p>Meal costs, optional personal experience fees, and shopping expenses are not included.</p>
+            <p>Transportation between locations is provided by car at no additional charge.</p>
+            <h4 class="section-title">　</h4>
+            <h4>Access & Pick-up</h4>
+            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pickup is available at Ugata Station or Iseshi Station.<br>Both stations can be reached from Osaka in about 2 to 2.5 hours by limited express train, with no transfers required.</p>
+            <h4 class="section-title">　</h4>
+            <h4>Optional Dinner</h4>
+            <p>Dinner can be added for an additional 6,000 JPY per person.</p>
+            <p>Feel free to contact me with any questions or special requests.</p>
+            <span class="price">¥30,000~36,000 / per person</span>
+            <p class="group-price">* For groups of 4–5 people: ¥35,000~41,000 / person</p>
+          </div>
         </div>
-        <h4 class="section-title">　</h4>
-        <h4>What's Not Included</h4>
-        <p>Meal costs, optional personal experience fees, and shopping expenses are not included.</p>
-        <p>Transportation between locations is provided by car at no additional charge.</p>
-        <h4 class="section-title">　</h4>
-        <h4>Access & Pick-up</h4>
-        <p>
-          Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>
-          For all other guests, pickup is available at Ugata Station or Iseshi Station.<br>
-          Both stations can be reached from Osaka in about 2 to 2.5 hours by limited express train, with no transfers required.
-        </p>
-        <h4 class="section-title">　</h4>
-        <h4>Optional Dinner</h4>
-        <p>Dinner can be added for an additional 6,000 JPY per person.</p>
-        <p>Feel free to contact me with any questions or special requests.</p>
-        <span class="price">¥30,000~36,000 / per person</span>
-        <p class="group-price">* For groups of 4–5 people: ¥35,000~41,000 / person</p>
       </div>
 
     </div>
@@ -313,7 +299,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="about-me">
     <h2>About Me</h2>
     <div class="about-layout">
@@ -335,7 +320,6 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
   <section id="gallery" class="gallery">
     <div class="section-head">
       <h2>Gallery</h2>
@@ -379,7 +363,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="contact">
     <div class="contact-card">
       <div class="contact-top">
@@ -402,7 +385,6 @@
     </div>
   </section>
 
-  <!-- REVIEWS -->
   <section id="reviews" class="reviews-section">
     <h2 class="reviews-title">Reviews</h2>
     <div class="slider-wrapper">
@@ -463,11 +445,13 @@
       el.style.animation = 'openingFadeOut 0.5s ease forwards';
       setTimeout(function() { el.classList.add('hidden'); document.body.classList.remove('opening-active'); }, 500);
     }
-  </script>
-  <script>
     function scrollSlider(direction) {
-      const slider = document.getElementById('reviewSlider');
-      slider.scrollBy({ left: direction * 320, behavior: 'smooth' });
+      document.getElementById('reviewSlider').scrollBy({ left: direction * 320, behavior: 'smooth' });
+    }
+    function toggleTour(btn) {
+      const body = btn.nextElementSibling;
+      btn.classList.toggle('open');
+      body.classList.toggle('open');
     }
   </script>
 
