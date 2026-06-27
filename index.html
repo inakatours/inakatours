@@ -289,6 +289,180 @@
       margin-top: 6px;
     }
   </style>
+  <!-- Digital Guide CSS -->
+  <style>
+    .digital-guide-section {
+      padding: 80px 40px;
+      background: #f3ede0;
+    }
+    .digital-guide-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      gap: 64px;
+      align-items: center;
+    }
+    .digital-guide-mock {
+      flex-shrink: 0;
+      width: 200px;
+    }
+    .digital-guide-phone {
+      width: 180px;
+      height: 320px;
+      background: #fff;
+      border-radius: 28px;
+      border: 6px solid #2B2118;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      overflow: hidden;
+      position: relative;
+    }
+    .digital-guide-phone::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 5px;
+      background: #2B2118;
+      border-radius: 3px;
+      z-index: 1;
+    }
+    .digital-guide-phone-inner {
+      margin-top: 30px;
+      height: calc(100% - 30px);
+      background: linear-gradient(158deg, #2F463A 0%, #21302A 52%, #15201B 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      text-align: center;
+    }
+    .ph-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 7px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #CBA75F;
+      margin-bottom: 8px;
+    }
+    .ph-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .ph-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .ph-btn {
+      background: #CBA75F;
+      color: #21302A;
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 7px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .digital-guide-content {
+      flex: 1;
+    }
+    .digital-guide-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8B5E3C;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .digital-guide-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+    .digital-guide-content p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    .digital-guide-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+    }
+    .digital-guide-content ul li {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #444;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .digital-guide-content ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #8B5E3C;
+    }
+    .digital-guide-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: #8B5E3C;
+      margin-bottom: 24px;
+    }
+    .digital-guide-price span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: #888;
+      font-weight: 300;
+    }
+    .digital-guide-btn {
+      display: inline-block;
+      background: #3C3028;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .digital-guide-btn:hover {
+      background: #5a4538;
+    }
+    @media (max-width: 700px) {
+      .digital-guide-section {
+        padding: 60px 24px;
+      }
+      .digital-guide-inner {
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-start;
+      }
+      .digital-guide-mock {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body class="opening-active">
 
@@ -311,6 +485,7 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#tours" class="nav-names">Tours</a>
+      <a href="#guide" class="nav-names">Guide</a>
       <a href="#about" class="nav-names">About</a>
       <a href="#gallery" class="nav-names">Gallery</a>
       <a href="#contact" class="nav-names">Contact</a>
@@ -396,6 +571,35 @@
         </p>
         <span class="price">¥30,000~36,000 / per person</span>
         <p class="group-price">* For groups of 4–5 people: ¥35,000~41,000 / person</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIGITAL GUIDE -->
+  <section id="guide" class="digital-guide-section">
+    <div class="digital-guide-inner">
+      <div class="digital-guide-mock">
+        <div class="digital-guide-phone">
+          <div class="digital-guide-phone-inner">
+            <div class="ph-eyebrow">Inaka Tours Japan</div>
+            <div class="ph-title">Ise-Shima</div>
+            <div class="ph-sub">Mobile Travel Guide</div>
+            <a href="https://ise-shima-guide.vercel.app" class="ph-btn">Open Guide</a>
+          </div>
+        </div>
+      </div>
+      <div class="digital-guide-content">
+        <div class="digital-guide-eyebrow">Digital Guide</div>
+        <h2>Mobile Guide<br>Ise-Shima</h2>
+        <p>Can't join a tour? Explore Ise-Shima at your own pace with a guide built by a local. Hand-picked spots, transport tips, and hidden experiences — all on your phone.</p>
+        <ul>
+          <li>Local-only spots you won't find in any guidebook</li>
+          <li>Access &amp; transport tips for each location</li>
+          <li>Recommended food, experiences &amp; hidden gems</li>
+          <li>Route planner — build your itinerary in seconds</li>
+        </ul>
+        <div class="digital-guide-price">¥3,500 <span>· one-time purchase</span></div>
+        <a href="https://ise-shima-guide.vercel.app" class="digital-guide-btn" target="_blank" rel="noopener">Get Your Guide</a>
       </div>
     </div>
   </section>
