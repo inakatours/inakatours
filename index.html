@@ -183,6 +183,9 @@
     .howto-tab-content { display: none; }
     .howto-tab-content.active { display: block; }
     .howto-tab-content ol { font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #444; line-height: 1.9; padding-left: 20px; margin: 0 0 20px; }
+    .guide-lang-toggle { display: flex; gap: 8px; margin-bottom: 18px; }
+    .guide-lang-btn { background: none; border: 1px solid rgba(139,94,60,0.3); border-radius: 100px; padding: 6px 18px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; color: #8B5E3C; transition: all 0.2s; }
+    .guide-lang-btn.active { background: #8B5E3C; color: #fff; border-color: #8B5E3C; }
     @media (max-width: 700px) {
       .digital-guide-section { padding: 60px 24px; }
       .digital-guide-inner { flex-direction: column; gap: 40px; align-items: flex-start; }
@@ -322,23 +325,28 @@
         <img src="images/coast.jpg" alt="Ise-Shima coastline" />
       </div>
       <div class="digital-guide-content">
-        <div class="digital-guide-eyebrow">Digital Guide</div>
-        <h2>Mobile Guide<br>Ise-Shima</h2>
-        <p>Your complete travel companion for Ise-Shima, built by a local guide. Whether you're exploring by car or by rental bicycle, discover hidden spots, plan your itinerary, and navigate with confidence — everything you need, in one app.</p>
-<ul>
-  <li>Built for road trips and bicycle exploring — routes and pacing designed for getting around Ise-Shima by car or rental cycle</li>
-  <li>Available in English, Japanese, and French — easy for anyone to use</li>
-  <li>All-in-one: find places, build a 2-day itinerary &amp; get directions — no other app needed</li>
-          <li>One-time purchase — yours to keep and use on every future visit</li>
-          <li>Ready-made routes so you can travel stress-free from day one</li>
-          <li>Regularly updated with new spots — great for researching your next trip too</li>
-          <li>Local insider knowledge you won't find in any guidebook</li>
-          <li>Includes a detailed Ise Jingu Inner Shrine guide — walk through with real understanding</li>
-          <li>The perfect gift for anyone planning a trip to Ise-Shima</li>
+        <div class="guide-lang-toggle">
+          <button class="guide-lang-btn active" onclick="setGuideLang('en', this)">EN</button>
+          <button class="guide-lang-btn" onclick="setGuideLang('jp', this)">JP</button>
+          <button class="guide-lang-btn" onclick="setGuideLang('fr', this)">FR</button>
+        </div>
+        <div class="digital-guide-eyebrow" data-en="Digital Guide" data-jp="デジタルガイド" data-fr="Guide numérique">Digital Guide</div>
+        <h2 data-en="Mobile Guide&lt;br&gt;Ise-Shima" data-jp="モバイルガイド&lt;br&gt;伊勢志摩" data-fr="Guide Mobile&lt;br&gt;Ise-Shima">Mobile Guide<br>Ise-Shima</h2>
+        <p data-en="Your complete travel companion for Ise-Shima, built by a local guide. Whether you're exploring by car or by rental bicycle, discover hidden spots, plan your itinerary, and navigate with confidence — everything you need, in one app." data-jp="伊勢志摩を知り尽くしたローカルガイドが作った、旅の完全ガイド。車でもレンタル自転車でも、隠れた名所を見つけ、旅程を計画し、自信を持ってナビゲートできます — 必要なものはすべてこの1つのアプリに。" data-fr="Votre compagnon de voyage complet pour Ise-Shima, conçu par un guide local. Que vous exploriez en voiture ou à vélo de location, découvrez des lieux cachés, planifiez votre itinéraire et déplacez-vous en toute confiance — tout ce dont vous avez besoin, dans une seule application.">Your complete travel companion for Ise-Shima, built by a local guide. Whether you're exploring by car or by rental bicycle, discover hidden spots, plan your itinerary, and navigate with confidence — everything you need, in one app.</p>
+        <ul>
+          <li data-en="Built for road trips and bicycle exploring — routes and pacing designed for getting around Ise-Shima by car or rental cycle" data-jp="車での旅行や自転車での散策を想定して設計 — 伊勢志摩を車やレンタルサイクルで巡るためのルートとペース配分" data-fr="Conçu pour les road trips et les balades à vélo — itinéraires et rythme pensés pour parcourir Ise-Shima en voiture ou à vélo de location">Built for road trips and bicycle exploring — routes and pacing designed for getting around Ise-Shima by car or rental cycle</li>
+          <li data-en="Available in English, Japanese, and French — easy for anyone to use" data-jp="英語・日本語・フランス語に対応 — どなたでも気軽にご利用いただけます" data-fr="Disponible en anglais, japonais et français — facile à utiliser pour tous">Available in English, Japanese, and French — easy for anyone to use</li>
+          <li data-en="All-in-one: find places, build a 2-day itinerary &amp;amp; get directions — no other app needed" data-jp="オールインワン：スポット検索、2日間の旅程作成、道案内まで — 他のアプリは不要" data-fr="Tout-en-un : trouvez des lieux, créez un itinéraire de 2 jours et obtenez des directions — aucune autre application nécessaire">All-in-one: find places, build a 2-day itinerary &amp; get directions — no other app needed</li>
+          <li data-en="One-time purchase — yours to keep and use on every future visit" data-jp="買い切り型 — 一度購入すれば、今後の再訪でもずっとご利用いただけます" data-fr="Achat unique — à vous pour toujours, réutilisable à chaque futur voyage">One-time purchase — yours to keep and use on every future visit</li>
+          <li data-en="Ready-made routes so you can travel stress-free from day one" data-jp="作成済みのルートで、初日からストレスフリーに旅行を楽しめます" data-fr="Des itinéraires prêts à l'emploi pour voyager sans stress dès le premier jour">Ready-made routes so you can travel stress-free from day one</li>
+          <li data-en="Regularly updated with new spots — great for researching your next trip too" data-jp="新しいスポットが定期的に追加更新 — 次回の旅の下調べにも最適" data-fr="Mis à jour régulièrement avec de nouveaux lieux — idéal aussi pour préparer votre prochain voyage">Regularly updated with new spots — great for researching your next trip too</li>
+          <li data-en="Local insider knowledge you won't find in any guidebook" data-jp="どんなガイドブックにも載っていない、地元ならではの情報満載" data-fr="Des connaissances locales que vous ne trouverez dans aucun guide">Local insider knowledge you won't find in any guidebook</li>
+          <li data-en="Includes a detailed Ise Jingu Inner Shrine guide — walk through with real understanding" data-jp="伊勢神宮内宮の詳細ガイドも収録 — 本当の意味を理解しながら参拝できます" data-fr="Comprend un guide détaillé du sanctuaire intérieur d'Ise Jingu — pour une visite pleinement éclairée">Includes a detailed Ise Jingu Inner Shrine guide — walk through with real understanding</li>
+          <li data-en="The perfect gift for anyone planning a trip to Ise-Shima" data-jp="伊勢志摩への旅を計画している方への最高の贈り物にも" data-fr="Le cadeau parfait pour quiconque prévoit un voyage à Ise-Shima">The perfect gift for anyone planning a trip to Ise-Shima</li>
         </ul>
-        <p class="howto-note">This guide can be added to your home screen as a web app.</p>
+        <p class="howto-note" data-en="This guide can be added to your home screen as a web app." data-jp="このガイドはウェブアプリとしてホーム画面に追加できます。" data-fr="Ce guide peut être ajouté à votre écran d'accueil comme une application web.">This guide can be added to your home screen as a web app.</p>
         <button class="howto-toggle" onclick="toggleHowto(this)">
-          <span>How to add</span>
+          <span data-en="How to add" data-jp="追加方法" data-fr="Comment l'ajouter">How to add</span>
           <span class="toggle-icon">+</span>
         </button>
         <div class="howto-body">
@@ -348,23 +356,23 @@
           </div>
           <div id="howto-iphone" class="howto-tab-content active">
             <ol>
-              <li>Open the guide in <strong>your browser</strong></li>
-              <li>Tap the <strong>Share icon (□↑)</strong> at the bottom of the screen</li>
-              <li>Select <strong>"Add to Home Screen"</strong></li>
-              <li>Tap <strong>"Add"</strong></li>
+              <li data-en="Open the guide in &lt;strong&gt;your browser&lt;/strong&gt;" data-jp="&lt;strong&gt;お使いのブラウザ&lt;/strong&gt;でガイドを開く" data-fr="Ouvrez le guide dans &lt;strong&gt;votre navigateur&lt;/strong&gt;">Open the guide in <strong>your browser</strong></li>
+              <li data-en="Tap the &lt;strong&gt;Share icon (□↑)&lt;/strong&gt; at the bottom of the screen" data-jp="画面下部の&lt;strong&gt;共有アイコン（□↑）&lt;/strong&gt;をタップ" data-fr="Appuyez sur l'&lt;strong&gt;icône de partage (□↑)&lt;/strong&gt; en bas de l'écran">Tap the <strong>Share icon (□↑)</strong> at the bottom of the screen</li>
+              <li data-en="Select &lt;strong&gt;&quot;Add to Home Screen&quot;&lt;/strong&gt;" data-jp="&lt;strong&gt;「ホーム画面に追加」&lt;/strong&gt;を選択" data-fr="Sélectionnez &lt;strong&gt;« Sur l'écran d'accueil »&lt;/strong&gt;">Select <strong>"Add to Home Screen"</strong></li>
+              <li data-en="Tap &lt;strong&gt;&quot;Add&quot;&lt;/strong&gt;" data-jp="&lt;strong&gt;「追加」&lt;/strong&gt;をタップ" data-fr="Appuyez sur &lt;strong&gt;« Ajouter »&lt;/strong&gt;">Tap <strong>"Add"</strong></li>
             </ol>
           </div>
           <div id="howto-android" class="howto-tab-content">
             <ol>
-              <li>Open the guide in <strong>your browser</strong></li>
-              <li>Tap the <strong>menu icon (⋮)</strong> in the top right</li>
-              <li>Select <strong>"Add to Home Screen"</strong></li>
-              <li>Tap <strong>"Add"</strong></li>
+              <li data-en="Open the guide in &lt;strong&gt;your browser&lt;/strong&gt;" data-jp="&lt;strong&gt;お使いのブラウザ&lt;/strong&gt;でガイドを開く" data-fr="Ouvrez le guide dans &lt;strong&gt;votre navigateur&lt;/strong&gt;">Open the guide in <strong>your browser</strong></li>
+              <li data-en="Tap the &lt;strong&gt;menu icon (⋮)&lt;/strong&gt; in the top right" data-jp="右上の&lt;strong&gt;メニューアイコン（⋮）&lt;/strong&gt;をタップ" data-fr="Appuyez sur l'&lt;strong&gt;icône du menu (⋮)&lt;/strong&gt; en haut à droite">Tap the <strong>menu icon (⋮)</strong> in the top right</li>
+              <li data-en="Select &lt;strong&gt;&quot;Add to Home Screen&quot;&lt;/strong&gt;" data-jp="&lt;strong&gt;「ホーム画面に追加」&lt;/strong&gt;を選択" data-fr="Sélectionnez &lt;strong&gt;« Sur l'écran d'accueil »&lt;/strong&gt;">Select <strong>"Add to Home Screen"</strong></li>
+              <li data-en="Tap &lt;strong&gt;&quot;Add&quot;&lt;/strong&gt;" data-jp="&lt;strong&gt;「追加」&lt;/strong&gt;をタップ" data-fr="Appuyez sur &lt;strong&gt;« Ajouter »&lt;/strong&gt;">Tap <strong>"Add"</strong></li>
             </ol>
           </div>
         </div>
-        <div class="digital-guide-price">¥3,500 <span>· one-time purchase</span></div>
-        <a href="https://ise-shima-guide.vercel.app" class="digital-guide-btn" target="_blank" rel="noopener">Get Your Guide</a>
+        <div class="digital-guide-price">¥3,500 <span data-en="· one-time purchase" data-jp="・買い切り" data-fr="· achat unique">· one-time purchase</span></div>
+        <a href="https://ise-shima-guide.vercel.app" class="digital-guide-btn" target="_blank" rel="noopener" data-en="Get Your Guide" data-jp="ガイドを入手する" data-fr="Obtenir votre guide">Get Your Guide</a>
       </div>
     </div>
   </section>
@@ -552,6 +560,13 @@
       btn.closest('.howto-body').querySelectorAll('.howto-tab-content').forEach(c => c.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById('howto-' + id).classList.add('active');
+    }
+    function setGuideLang(lang, btn) {
+      document.querySelectorAll('#guide [data-en]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
+      });
+      btn.closest('.guide-lang-toggle').querySelectorAll('.guide-lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
     }
   </script>
 
