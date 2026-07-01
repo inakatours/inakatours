@@ -14,54 +14,59 @@
   <title>Inaka Tours Japan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&family=Dancing+Script:wght@600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet" />
   <style>
     #opening {
-      position: fixed; inset: 0; z-index: 99999; background: #000;
-      display: flex; align-items: center; justify-content: center;
+      position: fixed; inset: 0; z-index: 99999; background: #0b0d0f;
       overflow: hidden; animation: openingFadeOut 1s ease forwards 4.5s; pointer-events: all;
+      font-family: 'Montserrat', sans-serif;
     }
     #opening.hidden { display: none; }
     #opening-bg {
       position: absolute; inset: 0;
-      background: url('images/opening.jpg') center center / cover no-repeat;
-      animation: openingZoom 5.5s ease forwards;
+      background-image: url('images/opening.jpg'); background-size: cover; background-position: center 30%;
+      animation: op-zoom 11s ease-out both;
     }
-    #opening-overlay {
+    #opening-grad {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.55) 100%);
+      background: linear-gradient(to bottom, rgba(8,11,14,0.55) 0%, rgba(8,11,14,0.30) 34%, rgba(8,11,14,0.42) 66%, rgba(8,11,14,0.66) 100%);
+    }
+    #opening-vignette {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 62% 46% at 50% 50%, rgba(8,11,14,0.55) 0%, rgba(8,11,14,0.28) 45%, rgba(8,11,14,0) 78%);
     }
     #opening-text {
-      position: relative; z-index: 2; text-align: center; color: #fff;
-      padding: 0 24px; animation: openingTextIn 1.2s ease forwards 0.6s; opacity: 0;
+      position: absolute; inset: 0; z-index: 4;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 0 24px;
     }
-    #opening-text .script {
-      display: block; font-family: 'Dancing Script', cursive;
-      font-size: clamp(1.2rem, 4vw, 2rem); color: #e8b84b; letter-spacing: 0.02em; margin-bottom: 8px;
+    #opening-text .kicker {
+      font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(255,255,255,0.82); text-shadow: 0 1px 10px rgba(0,0,0,0.45);
+      margin-bottom: 26px; animation: op-rise 1.5s ease-out 0.5s both;
     }
-    #opening-text .main {
-      display: block; font-family: 'Inter', sans-serif;
-      font-size: clamp(3.5rem, 14vw, 8rem); font-weight: 800;
-      letter-spacing: -0.01em; line-height: 0.9; text-transform: uppercase;
-      text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+    #opening-text .title {
+      margin: 0; font-weight: 300; font-size: clamp(40px, 7vw, 92px); line-height: 1.05;
+      letter-spacing: 0.01em; color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+      animation: op-rise 1.6s ease-out 0.75s both;
     }
-    #opening-text .sub {
-      display: block; font-family: 'Inter', sans-serif;
-      font-size: clamp(0.85rem, 2.5vw, 1.3rem); font-weight: 300;
-      letter-spacing: 0.45em; text-transform: uppercase; margin-top: 14px; opacity: 0.85;
+    #opening-rule {
+      width: 48px; height: 1px; background: #CBA75F; margin-top: 34px;
+      transform-origin: center; animation: op-line 1.2s cubic-bezier(.2,.7,.2,1) 1.5s both;
     }
     #opening-skip {
-      position: absolute; bottom: 36px; right: 36px; z-index: 3;
+      position: absolute; bottom: 36px; right: 36px; z-index: 5;
       background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4);
-      color: #fff; font-family: 'Inter', sans-serif; font-size: 0.78rem;
+      color: #fff; font-size: 0.78rem;
       letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 22px;
       border-radius: 100px; cursor: pointer; backdrop-filter: blur(6px);
-      transition: background 0.2s; animation: openingTextIn 1s ease forwards 1.2s; opacity: 0;
+      transition: background 0.2s; animation: op-rise 1s ease-out 1.2s both;
     }
     #opening-skip:hover { background: rgba(255,255,255,0.28); }
     @keyframes openingFadeOut { 0% { opacity: 1; pointer-events: all; } 100% { opacity: 0; pointer-events: none; } }
-    @keyframes openingZoom { 0% { transform: scale(1.08); } 100% { transform: scale(1); } }
-    @keyframes openingTextIn { 0% { opacity: 0; transform: translateY(18px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes op-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes op-line { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes op-zoom { from { transform: scale(1.09); } to { transform: scale(1); } }
     body.opening-active { overflow: hidden; }
   </style>
   <style>
@@ -189,11 +194,12 @@
 
   <div id="opening">
     <div id="opening-bg"></div>
-    <div id="opening-overlay"></div>
+    <div id="opening-grad"></div>
+    <div id="opening-vignette"></div>
     <div id="opening-text">
-      <span class="script">What you missed on your trip to</span>
-      <span class="main">Ise-Shima</span>
-      <span class="sub">Japan</span>
+      <div class="kicker">Ise-Shima, Japan</div>
+      <div class="title">Inaka Tours</div>
+      <div id="opening-rule"></div>
     </div>
     <button id="opening-skip" onclick="closeOpening()">Skip ›</button>
   </div>
