@@ -471,6 +471,8 @@
       <button class="review-tab active" onclick="filterReviews('all', this)">All</button>
       <button class="review-tab" onclick="filterReviews('basic', this)">Basic Tour</button>
       <button class="review-tab" onclick="filterReviews('jingu', this)">Ise Jingu Tour</button>
+      <button class="review-tab" onclick="filterReviews('guide', this)">Mobile Guide</button>
+      <a class="review-tab" href="https://ise-shima-guide.vercel.app/review" target="_blank" rel="noopener" style="text-decoration:none;background:#f5a623;color:#fff;border-color:#f5a623;">⭐ Write a Review</a>
     </div>
     <div class="slider-wrapper">
       <button class="slider-btn prev" onclick="scrollSlider(-1)">‹</button>
@@ -515,7 +517,7 @@
           <div class="stars">★★★★★</div>
           <p class="review-text">Excellent Guide – Shota in Ise! Shota was an outstanding English-speaking guide during our visit to Ise Jingu.<br>He picked us up and dropped us off at our hotel and even kindly offered to drive us to the train station afterward.<br>He guided us through both the Outer and Inner Shrine with great knowledge and respect. He carefully showed us the correct way to pray and how to properly purify ourselves before entering the sacred areas.<br>What really impressed us was how polite, service-minded and flexible Shota was. He spoke excellent English and answered all our questions.<br>He also showed great patience with our children when they suddenly needed toilet breaks or snacks. His calm and positive attitude made the whole experience smooth and enjoyable for the entire family.<br>A small but very thoughtful gesture was that he brought water bottles for everyone. It really showed that he thinks about the little extras. We give Shota our highest recommendation and the top rating. Thank you so much!</p>
           <p class="reviewer">– Liselotte From Sweden</p>
-          <p class="source">Source: GetYourGuide</p>
+          <p class="source">Source: Google Reviews</p>
         </div>
       </div>
       <button class="slider-btn next" onclick="scrollSlider(1)">›</button>
@@ -547,6 +549,38 @@
       });
       document.getElementById('reviewSlider').scrollTo({ left: 0 });
     }
+    // お客様が投稿したレビューを読み込んでスライダーに追加する
+    (function loadSubmittedReviews() {
+      fetch('https://ise-shima-guide.vercel.app/api/reviews')
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (!data.reviews) return;
+          var slider = document.getElementById('reviewSlider');
+          data.reviews.forEach(function(r) {
+            var card = document.createElement('div');
+            card.className = 'review-card';
+            card.dataset.tour = r.service;
+            var stars = document.createElement('div');
+            stars.className = 'stars';
+            stars.textContent = '★★★★★'.slice(0, r.rating) + '☆☆☆☆☆'.slice(0, 5 - r.rating);
+            var text = document.createElement('p');
+            text.className = 'review-text';
+            text.textContent = r.body;
+            var reviewer = document.createElement('p');
+            reviewer.className = 'reviewer';
+            reviewer.textContent = '– ' + (r.reviewer_name || 'Guest') + ' From ' + r.country;
+            var source = document.createElement('p');
+            source.className = 'source';
+            source.textContent = 'Source: Website';
+            card.appendChild(stars);
+            card.appendChild(text);
+            card.appendChild(reviewer);
+            card.appendChild(source);
+            slider.appendChild(card);
+          });
+        })
+        .catch(function() { /* 読み込み失敗時は既存レビューのみ表示 */ });
+    })();
     function toggleTour(btn) {
       const body = btn.nextElementSibling;
       btn.classList.toggle('open');
