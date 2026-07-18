@@ -184,6 +184,21 @@
     .review-tab:hover { background: #f3ede0; }
     .review-tab.active { background: #c0392b; color: #fff; border-color: #c0392b; }
     .review-card.is-hidden { display: none; }
+    .write-review-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-left: auto; text-decoration: none;
+      font-size: 14px; font-weight: 600; letter-spacing: 0.03em;
+      color: #fff; background: #1a1a1a;
+      border: 1px solid #1a1a1a; border-radius: 20px; padding: 8px 20px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+      transition: all 0.25s ease;
+    }
+    .write-review-btn .star { color: #CBA75F; font-size: 13px; }
+    .write-review-btn:hover {
+      background: #c0392b; border-color: #c0392b;
+      transform: translateY(-1px); box-shadow: 0 6px 16px rgba(192, 57, 43, 0.3);
+    }
+    @media (max-width: 640px) { .write-review-btn { margin-left: 0; } }
   </style>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
@@ -568,7 +583,7 @@
             <circle cx="12" cy="13" r="3.6"/>
           </svg>
         </span>
-        <span class="gallery-more-label">View All 26 Photos</span>
+        <span class="gallery-more-label">View All</span>
         <span class="chev" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></svg>
         </span>
@@ -605,7 +620,7 @@
       <button class="review-tab" onclick="filterReviews('basic', this)">Basic Tour</button>
       <button class="review-tab" onclick="filterReviews('jingu', this)">Ise Jingu Tour</button>
       <button class="review-tab" onclick="filterReviews('guide', this)">Mobile Guide</button>
-      <a class="review-tab" href="https://ise-shima-guide.vercel.app/review" target="_blank" rel="noopener" style="text-decoration:none;background:#f5a623;color:#fff;border-color:#f5a623;">⭐ Write a Review</a>
+      <a class="write-review-btn" href="https://ise-shima-guide.vercel.app/review" target="_blank" rel="noopener"><span class="star">★</span>Write a Review</a>
     </div>
     <div class="slider-wrapper">
       <button class="slider-btn prev" onclick="scrollSlider(-1)">‹</button>
@@ -673,7 +688,7 @@
       btn.addEventListener('click', function () {
         var expanded = section.classList.toggle('expanded');
         btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-        label.textContent = expanded ? 'Show Less' : 'View All 26 Photos';
+        label.textContent = expanded ? 'Show Less' : 'View All';
         if (expanded) {
           hidden.forEach(function (el, i) { el.style.animationDelay = (i * 35) + 'ms'; });
         } else {
