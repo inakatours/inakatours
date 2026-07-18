@@ -88,10 +88,13 @@
 }
   </script>
   <style>
+    .hero { position: relative; }
     .hero-sub {
-      margin-top: 18px; font-family: 'Inter', sans-serif; font-weight: 300;
-      font-size: clamp(14px, 2.2vw, 17px); letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.88); text-shadow: 0 1px 8px rgba(0,0,0,0.45);
+      position: absolute; left: 50%; bottom: 42px; transform: translateX(-50%);
+      margin: 0; width: max-content; max-width: 90vw; text-align: center;
+      font-family: 'Inter', sans-serif; font-weight: 300;
+      font-size: clamp(11px, 1.3vw, 14.5px); letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.85); text-shadow: 0 1px 10px rgba(0,0,0,0.5);
     }
     .tours-intro {
       max-width: 660px; margin: -8px auto 36px; padding: 0 20px;
@@ -279,6 +282,30 @@
       .digital-guide-inner { flex-direction: column; gap: 40px; align-items: flex-start; }
       .digital-guide-img { width: 100%; height: 240px; }
     }
+  </style>
+  <style>
+    /* Gallery: click-to-open (最初は6枚のみ表示) */
+    .gallery-grid .gl-hidden { display: none; }
+    .gallery.expanded .gallery-grid .gl-hidden { display: block; animation: galleryReveal 0.55s ease both; }
+    @keyframes galleryReveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .gallery-more-wrap { display: flex; justify-content: center; margin-top: 28px; }
+    .gallery-more-btn {
+      display: inline-flex; align-items: center; gap: 11px;
+      padding: 13px 32px; border-radius: 999px;
+      font-family: 'Montserrat', 'Inter', sans-serif; font-size: 13.5px; font-weight: 400;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--dark, #1a1a1a); background: #fff;
+      border: 1px solid rgba(200, 50, 30, 0.4);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .gallery-more-btn:hover, .gallery-more-btn:focus-visible {
+      background: var(--red, #c8321e); border-color: var(--red, #c8321e); color: #fff;
+      transform: translateY(-2px); box-shadow: 0 8px 20px rgba(200, 50, 30, 0.28);
+    }
+    .gallery-more-btn .icon, .gallery-more-btn .chev { display: inline-flex; }
+    .gallery-more-btn .chev { transition: transform 0.3s ease; }
+    .gallery.expanded .gallery-more-btn .chev { transform: rotate(180deg); }
   </style>
 </head>
 <body class="opening-active">
@@ -508,28 +535,44 @@
     <div class="gallery-grid">
       <a href="images/ama_diver.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/ama_diver.jpg" alt="Ama divers in Shima" /></a>
       <a href="images/Oharaimachi2.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Oharaimachi2.jpg" alt="Oharaimachi"></a>
-      <a href="images/Oharaimachi3.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Oharaimachi3.jpg" alt="Oharaimachi"></a>
-      <a href="images/Oharaimachi4.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Oharaimachi4.jpg" alt="Oharaimachi"></a>
-      <a href="images/Oharaimachi5.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Oharaimachi5.jpg" alt="Oharaimachi"></a>
-      <a href="images/Salt in Ise SHima.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Salt in Ise SHima.jpg" alt="Salt in Ise Shima"></a>
+      <a href="images/Oharaimachi3.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Oharaimachi3.jpg" alt="Oharaimachi"></a>
+      <a href="images/Oharaimachi4.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Oharaimachi4.jpg" alt="Oharaimachi"></a>
+      <a href="images/Oharaimachi5.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Oharaimachi5.jpg" alt="Oharaimachi"></a>
+      <a href="images/Salt in Ise SHima.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Salt in Ise SHima.jpg" alt="Salt in Ise Shima"></a>
       <a href="images/Shaved-Bonito.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Shaved-Bonito.jpg" alt="Shaved Bonito"></a>
       <a href="images/Yokoyama 3.JPG" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Yokoyama 3.JPG" alt="View point Shima"></a>
-      <a href="images/Yokoyama2.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Yokoyama2.jpg" alt="View point Shima"></a>
+      <a href="images/Yokoyama2.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Yokoyama2.jpg" alt="View point Shima"></a>
       <a href="images/Ise-Jingu-Geku2.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Ise-Jingu-Geku2.jpg" alt="Ise Jingu Geku"></a>
-      <a href="images/Ise-Jingu-Geku.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Ise-Jingu-Geku.jpg" alt="Ise Jingu Geku"></a>
-      <a href="images/360yearsold_Sakura.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/360yearsold_Sakura.jpg" alt="Things to do Shima"></a>
-      <a href="images/Boat_PealShop.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Boat_PealShop.jpg" alt="Things to do Shima"></a>
-      <a href="images/G_fams.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/G_fams.jpg" alt="Things to do Shima"></a>
-      <a href="images/Jingu_house.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Jingu_house.jpg" alt="Things to do Shima"></a>
-      <a href="images/Lu_amaLunch.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Lu_amaLunch.jpg" alt="Things to do Shima"></a>
-      <a href="images/Lu_driedfish.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Lu_driedfish.jpg" alt="Things to do Shima"></a>
-      <a href="images/Lu_onthebridge.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Lu_onthebridge.jpg" alt="Things to do Shima"></a>
-      <a href="images/Patt_jingu_coolshot.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Patt_jingu_coolshot.jpg" alt="Things to do Shima"></a>
-      <a href="images/Rorys_beach.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Rorys_beach.jpg" alt="Things to do Shima"></a>
-      <a href="images/Rorys_yokoyama.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Rorys_yokoyama.jpg" alt="View point Shima"></a>
+      <a href="images/Ise-Jingu-Geku.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Ise-Jingu-Geku.jpg" alt="Ise Jingu Geku"></a>
+      <a href="images/360yearsold_Sakura.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/360yearsold_Sakura.jpg" alt="Things to do Shima"></a>
+      <a href="images/Boat_PealShop.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Boat_PealShop.jpg" alt="Things to do Shima"></a>
+      <a href="images/G_fams.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/G_fams.jpg" alt="Things to do Shima"></a>
+      <a href="images/Jingu_house.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Jingu_house.jpg" alt="Things to do Shima"></a>
+      <a href="images/Lu_amaLunch.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Lu_amaLunch.jpg" alt="Things to do Shima"></a>
+      <a href="images/Lu_driedfish.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Lu_driedfish.jpg" alt="Things to do Shima"></a>
+      <a href="images/Lu_onthebridge.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Lu_onthebridge.jpg" alt="Things to do Shima"></a>
+      <a href="images/Patt_jingu_coolshot.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Patt_jingu_coolshot.jpg" alt="Things to do Shima"></a>
+      <a href="images/Rorys_beach.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Rorys_beach.jpg" alt="Things to do Shima"></a>
+      <a href="images/Rorys_yokoyama.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/Rorys_yokoyama.jpg" alt="View point Shima"></a>
       <a href="images/Sakura_tunnel.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/Sakura_tunnel.jpg" alt="Things to do Shima"></a>
-      <a href="images/IMG_0138.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/IMG_0138.jpg" alt="Things to do Shima"></a>
-      <a href="images/IMG_0193.jpg" class="glightbox" data-gallery="shima"><img loading="lazy" src="images/IMG_0193.jpg" alt="Things to do Shima"></a>
+      <a href="images/IMG_0138.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/IMG_0138.jpg" alt="Things to do Shima"></a>
+      <a href="images/IMG_0193.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/IMG_0193.jpg" alt="Things to do Shima"></a>
+      <a href="images/IMG_0950.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/IMG_0950.jpg" alt="Guests exploring a historic wooden temple in Ise-Shima"></a>
+      <a href="images/IMG_0951.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/IMG_0951.jpg" alt="Guests on the red bridge of a hidden gem temple in Ise-Shima"></a>
+    </div>
+    <div class="gallery-more-wrap">
+      <button id="gallery-more-btn" class="gallery-more-btn" type="button" aria-expanded="false" aria-controls="gallery">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 7.5h2.6l1.5-2h7.8l1.5 2H20a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 20 19.5H4A1.5 1.5 0 0 1 2.5 18V9A1.5 1.5 0 0 1 4 7.5Z"/>
+            <circle cx="12" cy="13" r="3.6"/>
+          </svg>
+        </span>
+        <span class="gallery-more-label">View All 26 Photos</span>
+        <span class="chev" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></svg>
+        </span>
+      </button>
     </div>
   </section>
 
@@ -617,6 +660,27 @@
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
   <script>
     const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true, zoomable: true, draggable: true, openEffect: 'zoom', closeEffect: 'fade' });
+  </script>
+  <script>
+
+    // Gallery: click-to-open toggle
+    (function () {
+      var section = document.getElementById('gallery');
+      var btn = document.getElementById('gallery-more-btn');
+      if (!section || !btn) return;
+      var label = btn.querySelector('.gallery-more-label');
+      var hidden = section.querySelectorAll('.gl-hidden');
+      btn.addEventListener('click', function () {
+        var expanded = section.classList.toggle('expanded');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        label.textContent = expanded ? 'Show Less' : 'View All 26 Photos';
+        if (expanded) {
+          hidden.forEach(function (el, i) { el.style.animationDelay = (i * 35) + 'ms'; });
+        } else {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    })();
   </script>
   <script>
     (function() {
