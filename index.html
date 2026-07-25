@@ -251,8 +251,10 @@
   </style>
   <style>
     .digital-guide-section { padding: 80px 40px; background: #f3ede0; }
-    .digital-guide-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 64px; align-items: center; }
-    .digital-guide-img { flex-shrink: 0; width: 280px; height: 380px; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+    .digital-guide-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 64px; align-items: flex-start; }
+    /* 写真の上端を見出し「Mobile Guide / Ise-Shima」の高さに合わせる
+       （言語トグル 29px + 余白 18px + デジタルガイド 14px + 余白 14px = 75px 分だけ下げる） */
+    .digital-guide-img { flex-shrink: 0; width: 280px; height: 380px; margin-top: 75px; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
     .digital-guide-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .digital-guide-content { flex: 1; }
     .digital-guide-eyebrow { font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: #8B5E3C; font-weight: 500; margin-bottom: 14px; }
@@ -295,7 +297,7 @@
     @media (max-width: 700px) {
       .digital-guide-section { padding: 60px 24px; }
       .digital-guide-inner { flex-direction: column; gap: 40px; align-items: flex-start; }
-      .digital-guide-img { width: 100%; height: 240px; }
+      .digital-guide-img { width: 100%; height: 240px; margin-top: 0; }
     }
   </style>
   <style>
