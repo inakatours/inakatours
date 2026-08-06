@@ -11,20 +11,20 @@
     gtag('config', 'G-79HEW88DH0');
   </script>
   <link rel="icon" href="./favicon.ico?v=2" type="image/x-icon" />
-  <title>Ise-Shima Tours, Things to Do &amp; Hidden Gems | Inaka Tours Japan</title>
+  <title>Ise-Shima Tours &amp; Goma Fire Ritual | Things to Do | Inaka Tours Japan</title>
   <!-- ── SEO ── -->
-  <meta name="description" content="Discover the best things to do in Ise-Shima — hidden gems, Ise Jingu shrine, coastal villages, ama divers & local food, with a private local guide. Tours in English, plus a 3-language mobile travel guide." />
+  <meta name="description" content="Private tours in Ise-Shima — Ise Jingu, a goma fire ritual at a 1,300-year-old temple, coastal villages, ama divers &amp; local food, with an English-speaking local guide. Plus a 3-language mobile travel guide." />
   <link rel="canonical" href="https://www.inakatour.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Inaka Tours Japan" />
   <meta property="og:title" content="Ise-Shima Tours, Things to Do &amp; Hidden Gems | Inaka Tours Japan" />
-  <meta property="og:description" content="Discover the best things to do in Ise-Shima — hidden gems, Ise Jingu shrine, coastal villages, ama divers & local food, with a private local guide. Tours in English, plus a 3-language mobile travel guide." />
+  <meta property="og:description" content="Private tours in Ise-Shima — Ise Jingu, a goma fire ritual at a 1,300-year-old temple, coastal villages, ama divers &amp; local food, with an English-speaking local guide. Plus a 3-language mobile travel guide." />
   <meta property="og:url" content="https://www.inakatour.com/" />
   <meta property="og:image" content="https://www.inakatour.com/images/bay.jpg" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ise-Shima Tours, Things to Do &amp; Hidden Gems | Inaka Tours Japan" />
-  <meta name="twitter:description" content="Discover the best things to do in Ise-Shima — hidden gems, Ise Jingu shrine, coastal villages, ama divers & local food, with a private local guide. Tours in English, plus a 3-language mobile travel guide." />
+  <meta name="twitter:description" content="Private tours in Ise-Shima — Ise Jingu, a goma fire ritual at a 1,300-year-old temple, coastal villages, ama divers &amp; local food, with an English-speaking local guide. Plus a 3-language mobile travel guide." />
   <meta name="twitter:image" content="https://www.inakatour.com/images/bay.jpg" />
   <script type="application/ld+json">
 {
@@ -75,6 +75,24 @@
       "@type": "Offer",
       "itemOffered": {
         "@type": "TouristTrip",
+        "name": "Goma Fire Ritual in Ise-Shima",
+        "description": "Take part in goma, the sacred fire ritual of esoteric Shingon Buddhism, at a temple founded in 742 in Ise-Shima National Park, Mie. Sutras are chanted while gomagi prayer sticks burn in a yakuyoke ceremony to ward off bad luck. Includes a guided tour of the temple grounds, private car transport and an English-speaking local guide.",
+        "image": "https://www.inakatour.com/images/tour-goma-poster.jpg",
+        "touristType": [
+          "Couples",
+          "Families",
+          "Solo travellers"
+        ]
+      },
+      "price": "30000",
+      "priceCurrency": "JPY",
+      "availability": "https://schema.org/InStock",
+      "url": "https://guide.inakatour.com/book"
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "TouristTrip",
         "name": "Ise Jingu Tour",
         "description": "A private guided visit to Ise Jingu, Japan's most sacred Shinto shrine, with the old pilgrim town of Oharaimachi and Okage Yokocho.",
         "touristType": [
@@ -95,6 +113,30 @@
       font-family: 'Inter', sans-serif; font-weight: 300;
       font-size: clamp(11px, 1.3vw, 14.5px); letter-spacing: 0.14em;
       color: rgba(255,255,255,0.85); text-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    }
+    /* ツアーカードで動画を使う場合（.tour-card img と同じ見え方に揃える） */
+    .tour-card video.tour-media {
+      width: calc(100% + 88px); margin: 0 -44px; height: 320px;
+      border-radius: 0; object-fit: cover; display: block; background: #21302A;
+    }
+    /* 動画は既定で非表示。再生できる環境でのみ表示に切り替える */
+    .tour-card video.tour-media { display: none; }
+    .tour-card.video-ready video.tour-media { display: block; }
+    .tour-card.video-ready .tour-media-fallback { display: none; }
+    /* 動きを減らす設定の利用者には静止画のまま見せる */
+    @media (prefers-reduced-motion: reduce) {
+      .tour-card video.tour-media { display: none !important; }
+      .tour-card .tour-media-fallback { display: block !important; }
+    }
+    /* ツアーカードの副題 */
+    .tour-sub {
+      font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.86rem;
+      color: #8a8378; line-height: 1.6; margin: -18px 0 26px;
+    }
+    /* ナビの2段表示（Mobile Guide）— 他の項目と中央で揃える */
+    .nav-names.nav-two-line { padding-top: 4px; padding-bottom: 4px; }
+    .nav-names.nav-two-line span {
+      display: block; text-align: center; line-height: 1.12; font-size: 0.88em;
     }
     /* 写真はイメージである旨の注記 */
     .img-note {
@@ -353,7 +395,7 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#tours" class="nav-names">Tours</a>
-      <a href="#guide" class="nav-names">Guide</a>
+      <a href="#guide" class="nav-names nav-two-line"><span>Mobile<br>Guide</span></a>
       <a href="#about" class="nav-names">About</a>
       <a href="#gallery" class="nav-names">Gallery</a>
       <a href="#contact" class="nav-names">Contact</a>
@@ -377,7 +419,7 @@
   <section id="tours" class="tours">
     <h2>Our Tours</h2>
     <p class="tours-intro">Looking for the best things to do in Ise-Shima? Explore Japan's most sacred shrine and the hidden gems of the ria coastline — quiet fishing villages, ama divers and local food culture — on a fully private tour with an English-speaking local guide.</p>
-    <div class="tour-grid">
+      <div class="tour-grid">
 
       <!-- Basic Tour -->
       <div class="tour-card">
@@ -455,6 +497,58 @@
             <p>This tour is not suitable for guests with mobility impairments.</p>
             <p class="img-note">Photos are for illustration purposes / 写真はイメージです</p>
             <span class="price">¥15,000 / per person</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Goma Fire Ritual -->
+      <div class="tour-card">
+        <video class="tour-media" poster="images/tour-goma-poster.jpg" width="960" height="540"
+               muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
+               data-src="videos/tour-goma.mp4"></video>
+        <img class="tour-media tour-media-fallback" src="images/tour-goma-poster.jpg" width="960" height="540"
+             alt="A Shingon temple surrounded by forest in Ise-Shima National Park" />
+        <div class="tour-badge">New</div>
+        <h3>Goma Fire Ritual in Ise-Shima</h3>
+        <p class="tour-sub">A Shingon fire ceremony to burn away misfortune, at a temple founded in 742</p>
+        <button class="tour-toggle" onclick="toggleTour(this)">
+          <span>Details</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="tour-body">
+          <div class="tour-body-inner">
+            <p>Take part in <em>goma</em> — the sacred fire ritual of esoteric Shingon Buddhism — inside a temple founded in 742, in Ise-Shima National Park.<br>Monks chant sutras while <em>gomagi</em> prayer sticks burn: a <em>yakuyoke</em> ceremony to ward off bad luck and purify your wishes.<br>A morning of roughly 2.5 hours. Departs at 9:00. For guests aged 15 and over.</p>
+            <h4 class="section-title">　</h4>
+            <h4>About this experience</h4>
+            <div class="tour-description">
+              <p>This experience was created for travellers who want two things at once: the nature of Ise-Shima National Park, and Japanese culture as it is actually practised — not performed for visitors.</p>
+              <p>The temple was founded in 742, when Emperor Shomu prayed here for the safe construction of Todai-ji in Nara. According to temple tradition, Kukai — the founder of Shingon, Japan's esoteric Buddhist school — established its teachings here in 807, and the temple has kept them ever since.</p>
+              <p>At the heart of your visit is the <em>goma</em> ritual. Wooden prayer sticks are burned in a sacred hearth, and the rising flames carry prayers to Fudo Myoo, the fierce guardian of Shingon Buddhism. The fire is believed to burn away worldly desires and misfortune, purifying each wish before it reaches him.</p>
+              <p>You sit close to the fire, in the clear air of Ise-Shima, as the sutras are chanted. It is a quiet, direct encounter with Japan's spiritual culture — and something very few visitors ever see.</p>
+            </div>
+            <h4 class="section-title">　</h4>
+            <h4>Schedule</h4>
+            <p>9:00 — Pickup<br>9:30–11:00 — Goma ritual &amp; guided visit of the temple (1.5 hours)<br>11:30 — Drop-off</p>
+            <h4 class="section-title">　</h4>
+            <h4>What's Included</h4>
+            <p>The ritual participation fee is included in the price — there are no additional charges on the day, and we add no booking fee.</p>
+            <p>Private car transport, pickup and drop-off, and an English-speaking local guide throughout.</p>
+            <h4 class="section-title">　</h4>
+            <h4>What's Not Included</h4>
+            <p>Personal shopping and any expenses of a personal nature are not included.</p>
+            <h4 class="section-title">　</h4>
+            <h4>Access &amp; Pick-up</h4>
+            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pickup is available at Ugata Station.<br>This station can be reached from Osaka in about 2.5 hours by limited express train, with no transfers required.</p>
+            <h4 class="section-title">　</h4>
+            <h4>A Note on Respect</h4>
+            <p>This is a working temple, and the experience depends on the goodwill of the community. We ask that you keep your voice low, take your rubbish with you, and treat the place as the sacred site it is.</p>
+            <p>Please also refrain from sharing the location afterwards. Photographs are welcome — we simply ask that you post them without the temple's name or location data.</p>
+            <h4 class="section-title">　</h4>
+            <h4>Important Notes</h4>
+            <p>Please book at least 24 hours in advance. The temple may occasionally need to cancel; in that case you receive a full refund.</p>
+            <p>Maximum 5 guests. Minimum age 15.</p>
+            <p>Cancellations by guests within 24 hours of the start time are non-refundable. For cancellations made more than 24 hours in advance, please contact us.</p>
+            <span class="price">¥30,000 / per person</span>
           </div>
         </div>
       </div>
@@ -763,6 +857,24 @@
         })
         .catch(function() { /* 読み込み失敗時は既存レビューのみ表示 */ });
     })();
+    // ツアーカードの動画：画面に入ってから読み込み、動きを減らす設定なら静止画のまま
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (reduce.matches) return;
+      var v = document.querySelector('.tour-card video.tour-media');
+      if (!v || !('IntersectionObserver' in window)) return;
+      var card = v.closest('.tour-card');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) { if (!v.paused) v.pause(); return; }
+          if (!v.src) { v.src = v.dataset.src; card.classList.add('video-ready'); }
+          var p = v.play();
+          if (p && p.catch) p.catch(function () { card.classList.remove('video-ready'); });
+        });
+      }, { rootMargin: '200px' });
+      io.observe(card);
+    })();
+
     function toggleTour(btn) {
       const body = btn.nextElementSibling;
       btn.classList.toggle('open');
