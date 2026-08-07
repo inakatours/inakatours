@@ -374,6 +374,104 @@
     .gallery-more-btn .chev { transition: transform 0.3s ease; }
     .gallery.expanded .gallery-more-btn .chev { transform: rotate(180deg); }
   </style>
+  <style>
+    /* ツアーカード下のキャンセルポリシー */
+    .cancel-policy {
+      box-sizing: border-box;
+      max-width: 828px;
+      margin: 56px auto 0;
+      padding: 30px 34px 32px;
+      background: #fff;
+      border: 1px solid rgba(200, 50, 30, 0.16);
+      border-radius: 14px;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
+      text-align: left;
+    }
+    .cancel-policy-title {
+      font-family: 'Montserrat', 'Inter', sans-serif;
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--red, #c8321e);
+      margin: 0 0 18px;
+    }
+    .cancel-policy-list {
+      list-style: none; margin: 0; padding: 0;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .cancel-policy-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 14.5px; line-height: 1.75;
+      color: var(--dark, #1a1a1a);
+    }
+    .cancel-policy-list li::before {
+      content: ""; position: absolute;
+      left: 0; top: 0.68em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--red, #c8321e); opacity: 0.55;
+    }
+    .cancel-policy-list strong { font-weight: 600; }
+    .cancel-policy-note {
+      margin: 20px 0 0;
+      padding-top: 18px;
+      border-top: 1px solid rgba(0, 0, 0, 0.07);
+      font-size: 14px; line-height: 1.8;
+      color: #4a4a4a;
+    }
+    .cancel-policy-legal {
+      margin: 12px 0 0;
+      font-size: 12.5px; line-height: 1.7;
+      color: #7a7a7a;
+    }
+    .cancel-policy-legal a { color: var(--red, #c8321e); text-decoration: underline; }
+    @media (max-width: 600px) {
+      .cancel-policy { margin-top: 40px; padding: 24px 20px 26px; border-radius: 12px; }
+      .cancel-policy-list li { font-size: 14px; }
+    }
+
+    /* サイトフッター */
+    .site-footer {
+      background: #1a1a1a;
+      color: rgba(255, 255, 255, 0.72);
+      padding: 44px 24px 38px;
+      margin-top: 72px;
+    }
+    .site-footer-inner {
+      box-sizing: border-box;
+      max-width: 1000px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; align-items: flex-start;
+      gap: 24px 40px;
+    }
+    .site-footer-brand { flex: 1 1 260px; }
+    .site-footer-name {
+      font-family: 'Montserrat', 'Inter', sans-serif;
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #fff;
+    }
+    .site-footer-tag { margin-top: 8px; font-size: 13px; line-height: 1.7; color: rgba(255, 255, 255, 0.55); }
+    .site-footer-links {
+      flex: 1 1 auto;
+      display: flex; flex-wrap: wrap; gap: 10px 26px;
+      align-items: center;
+    }
+    .site-footer-links a {
+      font-size: 13px; color: rgba(255, 255, 255, 0.72);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .site-footer-links a:hover, .site-footer-links a:focus-visible { color: #fff; text-decoration: underline; }
+    .site-footer-copy {
+      flex: 1 1 100%;
+      padding-top: 22px; margin-top: 4px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 12px; color: rgba(255, 255, 255, 0.42);
+    }
+    @media (max-width: 600px) {
+      .site-footer { margin-top: 52px; padding: 34px 20px 30px; }
+      .site-footer-inner { gap: 20px; }
+      .site-footer-links { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
 </head>
 <body class="opening-active">
 
@@ -553,6 +651,18 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- CANCELLATION POLICY -->
+    <div class="cancel-policy">
+      <h3 class="cancel-policy-title">Cancellation Policy</h3>
+      <ul class="cancel-policy-list">
+        <li><strong>More than 24 hours before the start time</strong> — cancel free of charge. Any payment already made is refunded in full.</li>
+        <li><strong>Within 24 hours of the start time</strong> — the full tour fee is charged. This also applies if you do not appear on the day without contacting us.</li>
+        <li><strong>Cancelled by us, or by a venue on the itinerary</strong> — full refund, including cases of unsafe weather.</li>
+      </ul>
+      <p class="cancel-policy-note">Plans change, and we would much rather hear from you than not. If something comes up, just let us know as early as you can and we will do our best to help — including moving your booking to another date.</p>
+      <p class="cancel-policy-legal">The mobile guide is a digital product and cannot be refunded once purchased. See our <a href="https://guide.inakatour.com/legal">legal notice</a> for full details.</p>
     </div>
   </section>
 
@@ -779,6 +889,22 @@
     </div>
   </section>
 
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-brand">
+        <div class="site-footer-name">Inaka Tours Japan</div>
+        <div class="site-footer-tag">Private tours in Ise-Shima, guided by a local</div>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="#tours">Tours</a>
+        <a href="#guide">Mobile Guide</a>
+        <a href="#contact">Contact</a>
+        <a href="https://guide.inakatour.com/legal" target="_blank" rel="noopener">特定商取引法に基づく表記</a>
+      </nav>
+      <div class="site-footer-copy">© <span id="footer-year">2026</span> Inaka Tours Japan</div>
+    </div>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
   <script>
     const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true, zoomable: true, draggable: true, openEffect: 'zoom', closeEffect: 'fade' });
@@ -873,6 +999,12 @@
         });
       }, { rootMargin: '200px' });
       io.observe(card);
+    })();
+
+    // フッターの年号を自動更新
+    (function () {
+      var y = document.getElementById('footer-year');
+      if (y) y.textContent = new Date().getFullYear();
     })();
 
     function toggleTour(btn) {
