@@ -380,20 +380,27 @@
       box-sizing: border-box;
       max-width: 828px;
       margin: 56px auto 0;
-      padding: 30px 34px 32px;
+      padding: 4px 34px 6px;
       background: #fff;
       border: 1px solid rgba(200, 50, 30, 0.16);
       border-radius: 14px;
       box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
       text-align: left;
     }
-    .cancel-policy-title {
+    .cancel-policy-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; background: none; border: none;
+      padding: 22px 0; cursor: pointer;
       font-family: 'Montserrat', 'Inter', sans-serif;
       font-size: 13px; font-weight: 500;
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--red, #c8321e);
-      margin: 0 0 18px;
+      transition: opacity 0.2s ease;
     }
+    .cancel-policy-toggle:hover, .cancel-policy-toggle:focus-visible { opacity: 0.7; }
+    .cancel-policy-toggle .toggle-icon { color: var(--red, #c8321e); }
+    .cancel-policy-toggle.open .toggle-icon { transform: rotate(45deg); }
+    .cancel-policy-inner { padding: 4px 0 26px; }
     .cancel-policy-list {
       list-style: none; margin: 0; padding: 0;
       display: flex; flex-direction: column; gap: 12px;
@@ -425,7 +432,9 @@
     }
     .cancel-policy-legal a { color: var(--red, #c8321e); text-decoration: underline; }
     @media (max-width: 600px) {
-      .cancel-policy { margin-top: 40px; padding: 24px 20px 26px; border-radius: 12px; }
+      .cancel-policy { margin-top: 40px; padding: 2px 20px 4px; border-radius: 12px; }
+      .cancel-policy-toggle { padding: 19px 0; font-size: 12px; letter-spacing: 0.13em; }
+      .cancel-policy-inner { padding-bottom: 22px; }
       .cancel-policy-list li { font-size: 14px; }
     }
 
@@ -655,14 +664,21 @@
 
     <!-- CANCELLATION POLICY -->
     <div class="cancel-policy">
-      <h3 class="cancel-policy-title">Cancellation Policy</h3>
-      <ul class="cancel-policy-list">
-        <li><strong>More than 24 hours before the start time</strong> — cancel free of charge. Any payment already made is refunded in full.</li>
-        <li><strong>Within 24 hours of the start time</strong> — the full tour fee is charged. This also applies if you do not appear on the day without contacting us.</li>
-        <li><strong>Cancelled by us, or by a venue on the itinerary</strong> — full refund, including cases of unsafe weather.</li>
-      </ul>
-      <p class="cancel-policy-note">Plans change, and we would much rather hear from you than not. If something comes up, just let us know as early as you can and we will do our best to help — including moving your booking to another date.</p>
-      <p class="cancel-policy-legal">The mobile guide is a digital product and cannot be refunded once purchased. See our <a href="https://guide.inakatour.com/legal">legal notice</a> for full details.</p>
+      <button class="cancel-policy-toggle" onclick="toggleTour(this)" aria-label="Cancellation Policy">
+        <span>Cancellation Policy</span>
+        <span class="toggle-icon">+</span>
+      </button>
+      <div class="tour-body">
+        <div class="cancel-policy-inner">
+          <ul class="cancel-policy-list">
+            <li><strong>More than 24 hours before the start time</strong> — cancel free of charge. Any payment already made is refunded in full.</li>
+            <li><strong>Within 24 hours of the start time</strong> — the full tour fee is charged. This also applies if you do not appear on the day without contacting us.</li>
+            <li><strong>Cancelled by us, or by a venue on the itinerary</strong> — full refund, including cases of unsafe weather.</li>
+          </ul>
+          <p class="cancel-policy-note">Plans change, and we would much rather hear from you than not. If something comes up, just let us know as early as you can and we will do our best to help — including moving your booking to another date.</p>
+          <p class="cancel-policy-legal">The mobile guide is a digital product and cannot be refunded once purchased. See our <a href="https://guide.inakatour.com/legal">legal notice</a> for full details.</p>
+        </div>
+      </div>
     </div>
   </section>
 
