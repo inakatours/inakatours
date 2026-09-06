@@ -856,7 +856,6 @@
       <a href="images/IMG_0950.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/IMG_0950.jpg" alt="Guests exploring a historic wooden temple in Ise-Shima"></a>
       <a href="images/IMG_0951.jpg" class="glightbox gl-hidden" data-gallery="shima"><img loading="lazy" src="images/IMG_0951.jpg" alt="Guests on the red bridge of a hidden gem temple in Ise-Shima"></a>
     </div>
-    <p class="img-note">Photos are for illustration purposes / 写真はイメージです</p>
     <div class="gallery-more-wrap">
       <button id="gallery-more-btn" class="gallery-more-btn" type="button" aria-expanded="false" aria-controls="gallery">
         <span class="icon" aria-hidden="true">
@@ -1016,6 +1015,38 @@
       });
       document.getElementById('reviewSlider').scrollTo({ left: 0 });
     }
+    // レビューは投稿フォームから自由入力で届くため、国名が日本語で保存されることがある。
+    // サイトは英語表記なので、表示時に英語へ揃える（未知の国名はそのまま出す）。
+    var COUNTRY_JA_TO_EN = {
+      'オーストリア': 'Austria',       'オーストラリア': 'Australia',
+      'アメリカ': 'US',                'アメリカ合衆国': 'US',
+      'イギリス': 'UK',                '英国': 'UK',
+      'イタリア': 'Italy',             'フランス': 'France',
+      'ドイツ': 'Germany',             'スペイン': 'Spain',
+      'オランダ': 'Netherlands',       'ベルギー': 'Belgium',
+      'スイス': 'Switzerland',         'スウェーデン': 'Sweden',
+      'ノルウェー': 'Norway',          'デンマーク': 'Denmark',
+      'フィンランド': 'Finland',       'ポーランド': 'Poland',
+      'スコットランド': 'Scotland',    'アイルランド': 'Ireland',
+      'カナダ': 'Canada',              'メキシコ': 'Mexico',
+      'ブラジル': 'Brazil',            'アルゼンチン': 'Argentina',
+      'ニュージーランド': 'New Zealand','シンガポール': 'Singapore',
+      '台湾': 'Taiwan',                '香港': 'Hong Kong',
+      '韓国': 'South Korea',           '中国': 'China',
+      'タイ': 'Thailand',              'マレーシア': 'Malaysia',
+      'インドネシア': 'Indonesia',     'フィリピン': 'Philippines',
+      'インド': 'India',               'イスラエル': 'Israel',
+      'ポルトガル': 'Portugal',        'チェコ': 'Czechia',
+      'ハンガリー': 'Hungary',         'ギリシャ': 'Greece',
+      'トルコ': 'Turkey',              'ロシア': 'Russia',
+      '南アフリカ': 'South Africa',    '日本': 'Japan'
+    };
+    function displayCountry(c) {
+      if (!c) return '';
+      var key = String(c).trim();
+      return COUNTRY_JA_TO_EN[key] || key;
+    }
+
     // お客様が投稿したレビューを読み込んでスライダーに追加する
     (function loadSubmittedReviews() {
       fetch('https://guide.inakatour.com/api/reviews')
@@ -1035,7 +1066,7 @@
             text.textContent = r.body;
             var reviewer = document.createElement('p');
             reviewer.className = 'reviewer';
-            reviewer.textContent = '– ' + (r.reviewer_name || 'Guest') + ' From ' + r.country;
+            reviewer.textContent = '– ' + (r.reviewer_name || 'Guest') + ' From ' + displayCountry(r.country);
             var source = document.createElement('p');
             source.className = 'source';
             source.textContent = 'Source: Website';
