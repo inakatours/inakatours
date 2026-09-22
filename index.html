@@ -266,6 +266,18 @@
     .review-tab:hover { background: #f3ede0; }
     .review-tab.active { background: #c0392b; color: #fff; border-color: #c0392b; }
     .review-card.is-hidden { display: none; }
+    /* ホストからの返信（ゲストのレビューの下に表示する） */
+    .review-reply {
+      margin: 0 0 16px; padding: 14px 16px 12px;
+      background: #fff; border: 1px solid #e0d8c8; border-radius: 10px;
+    }
+    .review-reply-label {
+      display: flex; align-items: baseline; gap: 8px;
+      font-size: 12px; font-weight: 600; color: #777; margin-bottom: 7px;
+    }
+    .review-reply-label .who { color: #c0392b; }
+    .review-reply-date { font-size: 11px; color: #aaa; font-weight: 400; }
+    .review-reply-text { font-size: 14px; line-height: 1.75; color: #444; margin: 0; }
     .write-review-btn {
       display: inline-flex; align-items: center; gap: 8px;
       margin-left: 8px; text-decoration: none;
@@ -1082,6 +1094,28 @@
             var text = document.createElement('p');
             text.className = 'review-text';
             text.textContent = r.body;
+            var reply = null;
+            if (r.reply) {
+              reply = document.createElement('div');
+              reply.className = 'review-reply';
+              var replyLabel = document.createElement('div');
+              replyLabel.className = 'review-reply-label';
+              var who = document.createElement('span');
+              who.className = 'who';
+              who.textContent = 'Reply from Inaka Tours Japan';
+              replyLabel.appendChild(who);
+              if (r.replied_at) {
+                var when = document.createElement('span');
+                when.className = 'review-reply-date';
+                when.textContent = new Date(r.replied_at).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' });
+                replyLabel.appendChild(when);
+              }
+              var replyText = document.createElement('p');
+              replyText.className = 'review-reply-text';
+              replyText.textContent = r.reply;
+              reply.appendChild(replyLabel);
+              reply.appendChild(replyText);
+            }
             var reviewer = document.createElement('p');
             reviewer.className = 'reviewer';
             reviewer.textContent = '– ' + (r.reviewer_name || 'Guest') + ' From ' + displayCountry(r.country);
@@ -1090,6 +1124,7 @@
             source.textContent = 'Source: Website';
             card.appendChild(stars);
             card.appendChild(text);
+            if (reply) card.appendChild(reply);
             card.appendChild(reviewer);
             card.appendChild(source);
             slider.appendChild(card);
