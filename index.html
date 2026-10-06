@@ -49,11 +49,7 @@
     "Toba",
     "Ise-Shima National Park"
   ],
-  "knowsLanguage": [
-    "en",
-    "ja",
-    "fr"
-  ],
+  "knowsLanguage": ["en", "ja", "fr", "de", "es"],
   "sameAs": [
     "https://www.instagram.com/stoked_inaka_tours/"
   ],
@@ -327,7 +323,7 @@
     }
     .tour-toggle.open .toggle-icon { transform: rotate(45deg); }
     .tour-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
-    .tour-body.open { max-height: 4000px; }
+    .tour-body.open { max-height: 6000px; }
     h4.section-title { height: 0; overflow: hidden; border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 38px 0; padding: 0; }
     .tour-body h4:not(.section-title) {
       font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em;
@@ -338,6 +334,14 @@
       display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.65rem;
       font-weight: 500; color: var(--red); margin-top: 40px; padding-top: 28px;
       border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    .tour-price-top {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--red);
+      margin: 10px 0 0; letter-spacing: 0.01em;
+    }
+    .tour-price-top small {
+      font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase; opacity: 0.55; margin-left: 7px;
     }
     .group-price { font-family: 'Inter', sans-serif; font-size: 0.87rem; opacity: 0.6; margin-top: 6px; }
     .tour-body-inner { padding-top: 28px; }
@@ -588,6 +592,7 @@
       <div class="tour-card">
         <img width="1280" height="1280" src="images/bay.jpg" alt="Ago Bay ria coastline in Shima — Ise-Shima Basic Tour" />
         <h3>Basic Tour</h3>
+          <p class="tour-price-top">¥30,000~36,000 <small>per person</small></p>
         <button class="tour-toggle" onclick="toggleTour(this)">
           <span>Details</span>
           <span class="toggle-icon">+</span>
@@ -628,6 +633,7 @@
         <img loading="lazy" decoding="async" width="1280" height="720" src="images/Oharaimachi4.jpg" alt="Oharaimachi, the historic pilgrim town beside Ise Jingu — private guided tour" />
         <div class="tour-badge">New</div>
         <h3>Ise Jingu Tour</h3>
+          <p class="tour-price-top">¥15,000 <small>per person</small></p>
         <button class="tour-toggle" onclick="toggleTour(this)">
           <span>Details</span>
           <span class="toggle-icon">+</span>
@@ -674,6 +680,7 @@
         <div class="tour-badge">New</div>
         <h3>Goma Fire Ritual in Ise-Shima</h3>
         <p class="tour-sub">A Shingon fire ceremony to burn away misfortune, at a temple founded in 742</p>
+          <p class="tour-price-top">¥40,000 <small>per person</small></p>
         <button class="tour-toggle" onclick="toggleTour(this)">
           <span>Details</span>
           <span class="toggle-icon">+</span>
@@ -708,7 +715,7 @@
             <p>Please also refrain from sharing the location afterwards. Photographs are welcome — we simply ask that you post them without the temple's name or location data.</p>
             <h4 class="section-title">　</h4>
             <h4>Important Notes</h4>
-            <p>Please book at least 24 hours in advance. The temple may occasionally need to cancel; in that case you receive a full refund.</p>
+            <p>Please book at least 48 hours in advance. The temple may occasionally need to cancel; in that case you receive a full refund.</p>
             <p>Maximum 5 guests. Minimum age 15.</p>
             <p>The goma ritual takes place indoors and runs as planned in the rain. On rainy days, the temple walk covers only what can be done comfortably with an umbrella.</p>
             <p>Cancellations within 48 hours of the start time are charged at 50% of the tour fee, and within 24 hours at the full fee. Cancelling more than 48 hours ahead is free of charge — see our full cancellation policy below.</p>
