@@ -335,14 +335,6 @@
       font-weight: 500; color: var(--red); margin-top: 40px; padding-top: 28px;
       border-top: 1px solid rgba(0,0,0,0.1);
     }
-    .tour-price-top {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--red);
-      margin: 10px 0 0; letter-spacing: 0.01em;
-    }
-    .tour-price-top small {
-      font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.1em;
-      text-transform: uppercase; opacity: 0.55; margin-left: 7px;
-    }
     .group-price { font-family: 'Inter', sans-serif; font-size: 0.87rem; opacity: 0.6; margin-top: 6px; }
     .tour-body-inner { padding-top: 28px; }
   </style>
@@ -360,34 +352,14 @@
     .digital-guide-content ul { list-style: none; padding: 0; margin: 0 0 28px; }
     .digital-guide-content ul li { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #444; padding: 6px 0 6px 20px; position: relative; line-height: 1.6; }
     .digital-guide-content ul li::before { content: '—'; position: absolute; left: 0; color: #8B5E3C; }
+    .guide-facts {
+      font-family: 'Inter', sans-serif; font-size: 0.86rem; letter-spacing: 0.04em;
+      color: #8B5E3C; margin: 22px 0 0; opacity: 0.85;
+    }
     .digital-guide-price { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #8B5E3C; margin-bottom: 24px; }
     .digital-guide-price span { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #888; font-weight: 300; }
     .digital-guide-btn { display: inline-block; background: #3C3028; color: #fff; font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 36px; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
     .digital-guide-btn:hover { background: #5a4538; }
-    .howto-note { font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #8B5E3C; margin-bottom: 10px; }
-    .howto-toggle {
-      display: flex; align-items: center; gap: 10px;
-      background: none; border: 1px solid rgba(139,94,60,0.3); border-radius: 6px;
-      padding: 10px 16px; cursor: pointer; margin-bottom: 28px;
-      font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase; color: #8B5E3C;
-      transition: background 0.2s;
-    }
-    .howto-toggle:hover { background: rgba(139,94,60,0.06); }
-    .howto-toggle .toggle-icon { font-size: 1.1rem; font-weight: 300; transition: transform 0.3s ease; display: inline-block; }
-    .howto-toggle.open .toggle-icon { transform: rotate(45deg); }
-    .howto-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .howto-body.open { max-height: 600px; }
-    .howto-tabs-nav { display: flex; gap: 8px; margin-bottom: 16px; }
-    .howto-tab {
-      background: none; border: 1px solid rgba(139,94,60,0.25); border-radius: 100px;
-      padding: 6px 20px; cursor: pointer; font-family: 'Inter', sans-serif;
-      font-size: 0.78rem; letter-spacing: 0.06em; color: #8B5E3C; transition: all 0.2s;
-    }
-    .howto-tab.active { background: #8B5E3C; color: #fff; border-color: #8B5E3C; }
-    .howto-tab-content { display: none; }
-    .howto-tab-content.active { display: block; }
-    .howto-tab-content ol { font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #444; line-height: 1.9; padding-left: 20px; margin: 0 0 20px; }
     .guide-lang-toggle { display: flex; gap: 8px; margin-bottom: 18px; }
     .guide-lang-btn { background: none; border: 1px solid rgba(139,94,60,0.3); border-radius: 100px; padding: 6px 18px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; color: #8B5E3C; transition: all 0.2s; }
     .guide-lang-btn.active { background: #8B5E3C; color: #fff; border-color: #8B5E3C; }
@@ -592,7 +564,6 @@
       <div class="tour-card">
         <img width="1280" height="1280" src="images/bay.jpg" alt="Ago Bay ria coastline in Shima — Ise-Shima Basic Tour" />
         <h3>Basic Tour</h3>
-          <p class="tour-price-top">¥30,000~36,000 <small>per person</small></p>
         <button class="tour-toggle" onclick="toggleTour(this)">
           <span>Details</span>
           <span class="toggle-icon">+</span>
@@ -633,7 +604,6 @@
         <img loading="lazy" decoding="async" width="1280" height="720" src="images/Oharaimachi4.jpg" alt="Oharaimachi, the historic pilgrim town beside Ise Jingu — private guided tour" />
         <div class="tour-badge">New</div>
         <h3>Ise Jingu Tour</h3>
-          <p class="tour-price-top">¥15,000 <small>per person</small></p>
         <button class="tour-toggle" onclick="toggleTour(this)">
           <span>Details</span>
           <span class="toggle-icon">+</span>
@@ -680,7 +650,6 @@
         <div class="tour-badge">New</div>
         <h3>Goma Fire Ritual in Ise-Shima</h3>
         <p class="tour-sub">A Shingon fire ceremony to burn away misfortune, at a temple founded in 742</p>
-          <p class="tour-price-top">¥40,000 <small>per person</small></p>
         <button class="tour-toggle" onclick="toggleTour(this)">
           <span>Details</span>
           <span class="toggle-icon">+</span>
@@ -781,47 +750,10 @@
         </div>
         <div class="digital-guide-eyebrow" data-en="Digital Guide" data-jp="デジタルガイド" data-fr="Guide numérique" data-de="Digitaler Guide" data-es="Guía digital">Digital Guide</div>
         <h2 data-en="Mobile Guide&lt;br&gt;Ise-Shima" data-jp="モバイルガイド&lt;br&gt;伊勢志摩" data-fr="Guide Mobile&lt;br&gt;Ise-Shima" data-de="Mobiler Guide&lt;br&gt;Ise-Shima" data-es="Guía móvil&lt;br&gt;Ise-Shima">Mobile Guide<br>Ise-Shima</h2>
-        <p data-en="Your complete travel companion for Ise-Shima, built by a local guide. Whether you're exploring by car or by rental bicycle, discover hidden spots, plan your itinerary, and navigate with confidence — everything you need, in one app." data-jp="伊勢志摩を知り尽くしたローカルガイドが作った、旅の完全ガイド。車でもレンタル自転車でも、隠れた名所を見つけ、旅程を計画し、自信を持ってナビゲートできます — 必要なものはすべてこの1つのアプリに。" data-fr="Votre compagnon de voyage complet pour Ise-Shima, conçu par un guide local. Que vous exploriez en voiture ou à vélo de location, découvrez des lieux cachés, planifiez votre itinéraire et déplacez-vous en toute confiance — tout ce dont vous avez besoin, dans une seule application." data-de="Ihr kompletter Reisebegleiter für Ise-Shima, erstellt von einem einheimischen Guide. Ob mit dem Auto oder dem Leihfahrrad – entdecken Sie versteckte Orte, planen Sie Ihren Tag und finden Sie sicher den Weg. Alles, was Sie brauchen, in einer App." data-es="Su compañero de viaje completo para Ise-Shima, creado por un guía local. Ya explore en coche o en bicicleta de alquiler, descubra lugares escondidos, planifique su itinerario y muévase con confianza: todo lo que necesita, en una sola app.">Your complete travel companion for Ise-Shima, built by a local guide. Whether you're exploring by car or by rental bicycle, discover hidden spots, plan your itinerary, and navigate with confidence — everything you need, in one app.</p>
-        <ul>
-          <li data-en="Built for road trips and bicycle exploring — routes and pacing designed for getting around Ise-Shima by car or rental cycle" data-jp="車での旅行や自転車での散策を想定して設計 — 伊勢志摩を車やレンタルサイクルで巡るためのルートとペース配分" data-fr="Conçu pour les road trips et les balades à vélo — itinéraires et rythme pensés pour parcourir Ise-Shima en voiture ou à vélo de location" data-de="Für Roadtrips und Fahrradtouren gemacht – Routen und Zeitplanung für Ise-Shima mit Auto oder Leihrad" data-es="Pensada para viajes en coche y en bicicleta: rutas y tiempos diseñados para recorrer Ise-Shima">Built for road trips and bicycle exploring — routes and pacing designed for getting around Ise-Shima by car or rental cycle</li>
-          <li data-en="Available in English, Japanese, French, German and Spanish — easy for anyone to use" data-jp="英語・日本語・フランス語・ドイツ語・スペイン語に対応 — どなたでも気軽にご利用いただけます" data-fr="Disponible en anglais, japonais, français, allemand et espagnol — facile à utiliser pour tous" data-de="Verfügbar auf Englisch, Japanisch, Französisch, Deutsch und Spanisch – für alle leicht zu bedienen" data-es="Disponible en inglés, japonés, francés, alemán y español: fácil de usar para cualquiera">Available in English, Japanese, French, German and Spanish — easy for anyone to use</li>
-          <li data-en="All-in-one: find places, build a 2-day itinerary &amp;amp; get directions — no other app needed" data-jp="オールインワン：スポット検索、2日間の旅程作成、道案内まで — 他のアプリは不要" data-fr="Tout-en-un : trouvez des lieux, créez un itinéraire de 2 jours et obtenez des directions — aucune autre application nécessaire" data-de="Alles in einem: Orte finden, eine 2-Tages-Route planen &amp;amp; Wegbeschreibungen erhalten – keine weitere App nötig" data-es="Todo en uno: encuentre lugares, cree un itinerario de 2 días y obtenga indicaciones, sin necesidad de otra app">All-in-one: find places, build a 2-day itinerary &amp; get directions — no other app needed</li>
-          <li data-en="One-time purchase — yours to keep and use on every future visit" data-jp="買い切り型 — 一度購入すれば、今後の再訪でもずっとご利用いただけます" data-fr="Achat unique — à vous pour toujours, réutilisable à chaque futur voyage" data-de="Einmaliger Kauf – bleibt Ihnen erhalten und ist bei jedem weiteren Besuch nutzbar" data-es="Compra única: es suya y puede usarla en cada visita futura">One-time purchase — yours to keep and use on every future visit</li>
-          <li data-en="Ready-made routes so you can travel stress-free from day one" data-jp="作成済みのルートで、初日からストレスフリーに旅行を楽しめます" data-fr="Des itinéraires prêts à l'emploi pour voyager sans stress dès le premier jour" data-de="Fertige Routen, damit Sie vom ersten Tag an entspannt unterwegs sind" data-es="Rutas ya preparadas para viajar sin estrés desde el primer día">Ready-made routes so you can travel stress-free from day one</li>
-          <li data-en="Regularly updated with new spots — great for researching your next trip too" data-jp="新しいスポットが定期的に追加更新 — 次回の旅の下調べにも最適" data-fr="Mis à jour régulièrement avec de nouveaux lieux — idéal aussi pour préparer votre prochain voyage" data-de="Regelmäßig um neue Orte ergänzt – auch ideal für die Planung Ihrer nächsten Reise" data-es="Se actualiza con nuevos lugares con regularidad: ideal también para planear su próximo viaje">Regularly updated with new spots — great for researching your next trip too</li>
-          <li data-en="Local insider knowledge you won't find in any guidebook" data-jp="どんなガイドブックにも載っていない、地元ならではの情報満載" data-fr="Des connaissances locales que vous ne trouverez dans aucun guide" data-de="Lokales Insiderwissen, das in keinem Reiseführer steht" data-es="Conocimiento local que no encontrará en ninguna guía impresa">Local insider knowledge you won't find in any guidebook</li>
-          <li data-en="Includes a detailed Ise Jingu Inner Shrine guide — walk through with real understanding" data-jp="伊勢神宮内宮の詳細ガイドも収録 — 本当の意味を理解しながら参拝できます" data-fr="Comprend un guide détaillé du sanctuaire intérieur d'Ise Jingu — pour une visite pleinement éclairée" data-de="Mit ausführlichem Guide zum Inneren Schrein von Ise Jingu – gehen Sie mit echtem Verständnis hindurch" data-es="Incluye una guía detallada del santuario interior de Ise Jingu para recorrerlo entendiéndolo de verdad">Includes a detailed Ise Jingu Inner Shrine guide — walk through with real understanding</li>
-          <li data-en="The perfect gift for anyone planning a trip to Ise-Shima" data-jp="伊勢志摩への旅を計画している方への最高の贈り物にも" data-fr="Le cadeau parfait pour quiconque prévoit un voyage à Ise-Shima" data-de="Das perfekte Geschenk für alle, die eine Reise nach Ise-Shima planen" data-es="El regalo perfecto para quien esté planeando un viaje a Ise-Shima">The perfect gift for anyone planning a trip to Ise-Shima</li>
-        </ul>
-        <p class="howto-note" data-en="This guide can be added to your home screen as a web app." data-jp="このガイドはウェブアプリとしてホーム画面に追加できます。" data-fr="Ce guide peut être ajouté à votre écran d'accueil comme une application web." data-de="Dieser Guide lässt sich als Web-App zum Home-Bildschirm hinzufügen." data-es="Esta guía se puede añadir a la pantalla de inicio como aplicación web.">This guide can be added to your home screen as a web app.</p>
-        <button class="howto-toggle" onclick="toggleHowto(this)">
-          <span data-en="How to add" data-jp="追加方法" data-fr="Comment l'ajouter" data-de="So fügen Sie ihn hinzu" data-es="Cómo añadirla">How to add</span>
-          <span class="toggle-icon">+</span>
-        </button>
-        <div class="howto-body">
-          <div class="howto-tabs-nav">
-            <button class="howto-tab active" onclick="switchHowtoTab(this, 'iphone')">iPhone</button>
-            <button class="howto-tab" onclick="switchHowtoTab(this, 'android')">Android</button>
-          </div>
-          <div id="howto-iphone" class="howto-tab-content active">
-            <ol>
-              <li data-en="Open the guide in &lt;strong&gt;your browser&lt;/strong&gt;" data-jp="&lt;strong&gt;お使いのブラウザ&lt;/strong&gt;でガイドを開く" data-fr="Ouvrez le guide dans &lt;strong&gt;votre navigateur&lt;/strong&gt;" data-de="Öffnen Sie den Guide in &lt;strong&gt;Ihrem Browser&lt;/strong&gt;" data-es="Abra la guía en &lt;strong&gt;su navegador&lt;/strong&gt;">Open the guide in <strong>your browser</strong></li>
-              <li data-en="Tap the &lt;strong&gt;Share icon (□↑)&lt;/strong&gt; at the bottom of the screen" data-jp="画面下部の&lt;strong&gt;共有アイコン（□↑）&lt;/strong&gt;をタップ" data-fr="Appuyez sur l'&lt;strong&gt;icône de partage (□↑)&lt;/strong&gt; en bas de l'écran" data-de="Tippen Sie unten auf das &lt;strong&gt;Teilen-Symbol (□↑)&lt;/strong&gt;" data-es="Toque el &lt;strong&gt;icono Compartir (□↑)&lt;/strong&gt; en la parte inferior de la pantalla">Tap the <strong>Share icon (□↑)</strong> at the bottom of the screen</li>
-              <li data-en="Select &lt;strong&gt;&quot;Add to Home Screen&quot;&lt;/strong&gt;" data-jp="&lt;strong&gt;「ホーム画面に追加」&lt;/strong&gt;を選択" data-fr="Sélectionnez &lt;strong&gt;« Sur l'écran d'accueil »&lt;/strong&gt;" data-de="Wählen Sie &lt;strong&gt;„Zum Home-Bildschirm“&lt;/strong&gt;" data-es="Seleccione &lt;strong&gt;«Añadir a pantalla de inicio»&lt;/strong&gt;">Select <strong>"Add to Home Screen"</strong></li>
-              <li data-en="Tap &lt;strong&gt;&quot;Add&quot;&lt;/strong&gt;" data-jp="&lt;strong&gt;「追加」&lt;/strong&gt;をタップ" data-fr="Appuyez sur &lt;strong&gt;« Ajouter »&lt;/strong&gt;" data-de="Tippen Sie auf &lt;strong&gt;„Hinzufügen“&lt;/strong&gt;" data-es="Toque &lt;strong&gt;«Añadir»&lt;/strong&gt;">Tap <strong>"Add"</strong></li>
-            </ol>
-          </div>
-          <div id="howto-android" class="howto-tab-content">
-            <ol>
-              <li data-en="Open the guide in &lt;strong&gt;your browser&lt;/strong&gt;" data-jp="&lt;strong&gt;お使いのブラウザ&lt;/strong&gt;でガイドを開く" data-fr="Ouvrez le guide dans &lt;strong&gt;votre navigateur&lt;/strong&gt;" data-de="Öffnen Sie den Guide in &lt;strong&gt;Ihrem Browser&lt;/strong&gt;" data-es="Abra la guía en &lt;strong&gt;su navegador&lt;/strong&gt;">Open the guide in <strong>your browser</strong></li>
-              <li data-en="Tap the &lt;strong&gt;menu icon (⋮)&lt;/strong&gt; in the top right" data-jp="右上の&lt;strong&gt;メニューアイコン（⋮）&lt;/strong&gt;をタップ" data-fr="Appuyez sur l'&lt;strong&gt;icône du menu (⋮)&lt;/strong&gt; en haut à droite" data-de="Tippen Sie oben rechts auf das &lt;strong&gt;Menü-Symbol (⋮)&lt;/strong&gt;" data-es="Toque el &lt;strong&gt;icono de menú (⋮)&lt;/strong&gt; arriba a la derecha">Tap the <strong>menu icon (⋮)</strong> in the top right</li>
-              <li data-en="Select &lt;strong&gt;&quot;Add to Home Screen&quot;&lt;/strong&gt;" data-jp="&lt;strong&gt;「ホーム画面に追加」&lt;/strong&gt;を選択" data-fr="Sélectionnez &lt;strong&gt;« Sur l'écran d'accueil »&lt;/strong&gt;" data-de="Wählen Sie &lt;strong&gt;„Zum Home-Bildschirm“&lt;/strong&gt;" data-es="Seleccione &lt;strong&gt;«Añadir a pantalla de inicio»&lt;/strong&gt;">Select <strong>"Add to Home Screen"</strong></li>
-              <li data-en="Tap &lt;strong&gt;&quot;Add&quot;&lt;/strong&gt;" data-jp="&lt;strong&gt;「追加」&lt;/strong&gt;をタップ" data-fr="Appuyez sur &lt;strong&gt;« Ajouter »&lt;/strong&gt;" data-de="Tippen Sie auf &lt;strong&gt;„Hinzufügen“&lt;/strong&gt;" data-es="Toque &lt;strong&gt;«Añadir»&lt;/strong&gt;">Tap <strong>"Add"</strong></li>
-            </ol>
-          </div>
-        </div>
+        <p data-en="Most visitors see the shrine and move on. This one is for those who want to stay a little longer — the places we actually go, in your pocket." data-jp="ほとんどの旅行者は神社を見て、次へ向かいます。これは、もう少しだけ滞在したい方のために。私たちが実際に通う場所を、そのままポケットに。" data-fr="La plupart des voyageurs voient le sanctuaire puis repartent. Ce guide est pour ceux qui veulent rester un peu plus longtemps — les lieux où nous allons vraiment, dans votre poche." data-de="Die meisten Besucher sehen den Schrein und reisen weiter. Dieser Guide ist für alle, die etwas länger bleiben möchten – die Orte, an die wir wirklich gehen, in Ihrer Tasche." data-es="La mayoría de los viajeros ven el santuario y siguen su camino. Esta guía es para quienes quieren quedarse un poco más: los lugares a los que vamos de verdad, en su bolsillo.">Most visitors see the shrine and move on. This one is for those who want to stay a little longer — the places we actually go, in your pocket.</p>
+        <p class="guide-facts" data-en="47 places · 5 languages · yours to keep" data-jp="47スポット · 5言語 · 買い切り" data-fr="47 lieux · 5 langues · à vous pour toujours" data-de="47 Orte · 5 Sprachen · bleibt Ihnen" data-es="47 lugares · 5 idiomas · suya para siempre">47 places · 5 languages · yours to keep</p>
         <div class="digital-guide-price">¥1,100 <span data-en="· one-time purchase" data-jp="・買い切り" data-fr="· achat unique" data-de="· einmaliger Kauf" data-es="· compra única">· one-time purchase</span></div>
-        <a href="https://guide.inakatour.com" class="digital-guide-btn" target="_blank" rel="noopener" data-en="Get Your Guide" data-jp="ガイドを入手する" data-fr="Obtenir votre guide" data-de="Guide holen" data-es="Obtener la guía">Get Your Guide</a>
+        <a href="https://guide.inakatour.com" class="digital-guide-btn" target="_blank" rel="noopener" data-en="See what's inside" data-jp="中身を見る" data-fr="Voir l'intérieur" data-de="Hineinschauen" data-es="Ver el interior">See what's inside</a>
       </div>
     </div>
   </section>
@@ -1166,17 +1098,6 @@
       const body = btn.nextElementSibling;
       btn.classList.toggle('open');
       body.classList.toggle('open');
-    }
-    function toggleHowto(btn) {
-      const body = btn.nextElementSibling;
-      btn.classList.toggle('open');
-      body.classList.toggle('open');
-    }
-    function switchHowtoTab(btn, id) {
-      btn.closest('.howto-body').querySelectorAll('.howto-tab').forEach(t => t.classList.remove('active'));
-      btn.closest('.howto-body').querySelectorAll('.howto-tab-content').forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('howto-' + id).classList.add('active');
     }
     function setGuideLang(lang, btn) {
       document.querySelectorAll('#guide [data-en]').forEach(el => {
