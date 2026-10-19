@@ -8,7 +8,34 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-79HEW88DH0');
+    // guide.inakatour.com へ遷移してもセッションが切れないようにする
+    // （これが無いと、販売ページでの購入が「別サイトからの流入」として計測される）
+    gtag('config', 'G-79HEW88DH0', {
+      linker: { domains: ['inakatour.com', 'guide.inakatour.com'] }
+    });
+
+    // 主要なボタンのクリックを計測する
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      var name = null;
+      if (a.classList.contains('digital-guide-btn')) name = 'click_mobile_guide';
+      else if (href.indexOf('/book') >= 0)           name = 'click_book_tour';
+      else if (href.indexOf('/review') >= 0)         name = 'click_review';
+      else if (href.indexOf('instagram.com') >= 0)   name = 'click_instagram';
+      else if (href.indexOf('wa.me') >= 0 || href.indexOf('mailto:') >= 0 || href.indexOf('tel:') >= 0) name = 'click_contact';
+      if (name) gtag('event', name, { link_url: href });
+    });
+
+    // ツアーの詳細を開いた回数（どの商品に関心があるかが分かる）
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('.tour-toggle');
+      if (!b) return;
+      var card = b.closest('.tour-card');
+      var h3 = card && card.querySelector('h3');
+      gtag('event', 'open_tour_details', { tour_name: h3 ? h3.textContent.trim() : 'unknown' });
+    });
   </script>
   <link rel="icon" href="./favicon.ico?v=2" type="image/x-icon" />
   <title>Ise-Shima Tours | Inaka Tours</title>
