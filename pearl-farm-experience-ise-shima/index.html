@@ -110,12 +110,12 @@
         {
           "@type": "Question",
           "name": "Is this a real pearl farm or a museum?",
-          "acceptedAnswer": { "@type": "Answer", "text": "It is a real, family-run akoya pearl farm on Ago Bay. The people who show you the work are the people who do it for a living, and the oysters come from the farm's own rafts. There is no exhibition hall and no visitor circuit — you are in the workshop where the pearls are actually produced, with a small shop beside it selling the jewellery they make from their own pearls." }
+          "acceptedAnswer": { "@type": "Answer", "text": "It is a real, family-run akoya pearl farm on Ago Bay. The people who show you the work are the people who do it for a living, and the pearl oysters come from the farm's own rafts. There is no exhibition hall and no visitor circuit — you are in the workshop where the pearls are actually produced, with a small shop beside it selling the jewellery they make from their own pearls." }
         },
         {
           "@type": "Question",
           "name": "Is the experience private?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every booking is fully private — only your own group, up to five guests. You are not joined to other travellers, and the pace of the visit follows you." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every booking is fully private — only your own group, up to five guests. You are not joined to other travellers, so the craftsman works with you directly and your questions are answered as they come up." }
         },
         {
           "@type": "Question",
@@ -130,17 +130,17 @@
         {
           "@type": "Question",
           "name": "What is the difference between the two experiences?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Pearl Harvesting takes one to two hours: you choose an oyster from the farm's stock and open it yourself. Nucleus Insertion and Harvesting takes three to four hours: a craftsman teaches you to place a nucleus and mantle tissue into six oysters, which then go back into the sea for about a year, and you also harvest a pearl on the day." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Pearl Harvesting takes one to two hours: you choose a pearl oyster from the farm's stock and open it yourself. Nucleus Insertion and Harvesting takes three to four hours: a craftsman teaches you to place a nucleus and mantle tissue into six pearl oysters, which then go back into the sea for about a year, and you also harvest a pearl on the day." }
         },
         {
           "@type": "Question",
-          "name": "What happens to the oysters I work on in the nucleation experience?",
-          "acceptedAnswer": { "@type": "Answer", "text": "They go into nets and back into Ago Bay for about a year. Any pearls that can be harvested from your own shells are collected and sent to your home address. Not every oyster survives the year, and in some cases no pearl can be collected — the odds vary considerably with the season." }
+          "name": "What happens to the oysters I work on in the nucleus insertion experience?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The pearl oysters go into nets and back into Ago Bay for about a year. Any pearls that can be harvested from your own shells are collected and sent to your home address. Not every pearl oyster survives the year, and in some cases no pearl can be collected — the odds vary considerably with the season." }
         },
         {
           "@type": "Question",
           "name": "Can children take part?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Children are welcome at the harvesting experience and usually enjoy it a great deal. The nucleation experience is close, delicate work with fine tools and may be difficult for younger children." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Children are welcome at the harvesting experience and usually enjoy it a great deal. The nucleus insertion experience is close, delicate work with fine tools and may be difficult for younger children." }
         },
         {
           "@type": "Question",
@@ -165,7 +165,7 @@
         {
           "@type": "Question",
           "name": "Can this be combined with Ise Jingu or other sightseeing?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Because you have a car and a guide for the day, the pearl farm pairs naturally with Ise Jingu, the Ago Bay coastline or a local lunch. Tell us what else you would like to see and we will plan the day around it." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, but please note that this is a single activity rather than a full day with a guide. Ise Jingu and our other tours are booked separately and priced separately. Many guests do both on the same trip, and we are happy to arrange them together — just tell us what else you would like to see." }
         }
       ]
     }
@@ -382,30 +382,30 @@
 
     /* ── 申し込み（濃い色で締める） ── */
     .p-cta {
-      background: var(--ink); border-radius: 3px;
+      background: var(--ivory-2); border: 1px solid var(--line); border-radius: 3px;
       width: calc(100% + 150px); margin: 96px 0 0 -75px;
       padding: 68px 60px 62px; text-align: center;
     }
     .p-cta h2 {
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
-      font-size: clamp(1.9rem, 3.6vw, 2.6rem); color: #fff;
+      font-size: clamp(1.9rem, 3.6vw, 2.6rem); color: var(--ink);
       margin: 0 0 20px; text-align: center; letter-spacing: 0.01em;
     }
     .p-cta p {
       max-width: 540px; margin: 0 auto 34px; line-height: 1.9;
-      color: rgba(255,255,255,0.74); font-size: 1rem;
+      color: var(--body); font-size: 1rem;
     }
     .p-cta-btn {
-      display: inline-block; background: var(--gold); color: #fff;
+      display: inline-block; background: var(--ink); color: var(--ivory);
       font-family: 'Inter', sans-serif; font-size: 0.76rem; font-weight: 500;
       letter-spacing: 0.2em; text-transform: uppercase;
       padding: 18px 46px; border-radius: 2px; text-decoration: none;
       transition: background 0.3s ease;
     }
-    .p-cta-btn:hover { background: var(--gold-2); }
+    .p-cta-btn:hover { background: var(--gold); color: #fff; }
     .p-cta p.p-cta-sub, .p-cta-sub {
       font-family: 'Inter', sans-serif; font-size: 0.74rem; font-weight: 300;
-      letter-spacing: 0.08em; color: rgba(255,255,255,0.45);
+      letter-spacing: 0.08em; color: var(--muted);
       margin: 26px auto 0 !important;
     }
 
@@ -490,7 +490,7 @@
   <main>
     <div class="p-hero">
       <img src="/images/pearl-workshop-guests.jpg" width="1600" height="900"
-           alt="Guests at the workbench of a working akoya pearl farm in Ise-Shima, learning to place a nucleus into a pearl oyster with the farmer" />
+           alt="Guests at the worktable of a working akoya pearl farm in Ise-Shima, learning to place a nucleus into a pearl oyster with the farmer" />
       <div class="p-hero-inner">
         <p class="p-eyebrow">Ise-Shima &nbsp;·&nbsp; Ago Bay</p>
         <h1>Private Pearl Farm Experience in Ise-Shima, with Hotel Pickup</h1>
@@ -503,7 +503,7 @@
 
       <dl class="p-facts">
         <div class="p-fact"><dt>Where</dt><dd>Ago Bay, Ise-Shima<br>Mie Prefecture</dd></div>
-        <div class="p-fact"><dt>Length</dt><dd>1–2 hours, or<br>3–4 hours</dd></div>
+        <div class="p-fact"><dt>When</dt><dd>Usually afternoons<br>1–2 h, or 3–4 h</dd></div>
         <div class="p-fact"><dt>Group</dt><dd>Fully private<br>Up to 5 guests</dd></div>
         <div class="p-fact"><dt>Transport</dt><dd>Hotel pickup<br>and drop-off</dd></div>
       </dl>
@@ -512,7 +512,7 @@
         <p class="p-kicker">Not a museum</p>
         <h2>A working farm, not a visitor attraction</h2>
         <p>Ise-Shima has plenty of places to look at pearls. There are museums, exhibition halls and shops with a demonstration counter, and they are well made. This is not one of them.</p>
-        <p>This is a small family farm that grows akoya pearls on rafts in Ago Bay and makes jewellery from them on the same site. Nothing has been built for visitors. There is no exhibition and no set route — there is a workshop, a bench, trays of pearl oysters, a small shop where the jewellery they make is sold, and the people who do this for a living.</p>
+        <p>This is a small family farm that grows akoya pearls on rafts in Ago Bay and makes jewellery from them on the same site. Nothing has been built for visitors. There is no exhibition and no set route — there is a workshop, a worktable with the craftsman's tools laid out, trays of pearl oysters, a small shop where the jewellery they make is sold, and the people who do this for a living.</p>
         <p>You are not watching pearl farming. For a couple of hours you are taking part in it, next to the person whose work it is.</p>
         <p>That is the part travellers remember, and it is the part that cannot be arranged at a counter.</p>
       </section>
@@ -520,9 +520,9 @@
       <section class="p-section">
         <p class="p-kicker">Why private matters here</p>
         <h2>Only your group — and a car from your door</h2>
-        <p>Every booking is fully private. You are never joined to another group, and the pace follows you: if you want to spend twenty minutes choosing an oyster, or stay at the bench asking questions, nothing is running on a timetable behind you.</p>
-        <p>This matters more than it sounds, because the farm is small. Two or three guests at a bench is a conversation; a coach party is a queue.</p>
-        <p>It also makes the journey possible. The farm sits at the end of a steep, narrow road with no bus service and nowhere obvious to park. Without a car you simply cannot get there. We collect you from your hotel, drive you in, and bring you back — the drive itself, winding down through the trees to the water, is part of the day.</p>
+        <p>Every booking is fully private. You are never joined to another group, so the craftsman is working with you rather than addressing a crowd, and your questions are answered as they come up.</p>
+        <p>This matters more than it sounds, because the farm is small. A few guests at the worktable is a conversation; a coach party is a queue.</p>
+        <p>It also makes the journey possible. The farm sits at the end of a steep, narrow road with no bus service and nowhere obvious to park. Without a car you simply cannot get there. We collect you from your hotel, drive you in, and bring you back — the drive itself, winding down through the trees to the water, is part of the experience.</p>
 
         <table class="p-compare">
           <tr><th>&nbsp;</th><th>This experience</th></tr>
@@ -541,39 +541,39 @@
 
       <section class="p-section">
         <p class="p-kicker">Choose your experience</p>
-        <h2>Two ways to spend the morning</h2>
+        <h2>Two ways to take part</h2>
 
         <div class="p-option">
           <h3>1 · Pearl Harvesting</h3>
           <p class="p-option-meta">1–2 hours &nbsp;·&nbsp; Fully private &nbsp;·&nbsp; Hotel pickup included</p>
-          <p>At the workshop you are shown the farm's cultured oysters and choose one yourself. Then you open the shell and lift out the pearl with your own hands.</p>
+          <p>At the workshop you are shown the farm's cultured akoya pearl oysters and choose one yourself. Then you open the shell and lift out the pearl with your own hands.</p>
           <p>Every pearl is different in shape, colour and size, and nobody — not even the farmer — knows what is inside until the shell is open. Some come out perfectly round; others are baroque, with their own irregular shape. That is the nature of it, and part of why it is worth doing.</p>
           <p>Afterwards there is time to feed the fish kept beside the rafts, and back at the shop you can have your pearl set into jewellery if you would like to.</p>
           <ul class="p-steps">
             <li>Pickup at your hotel by private car</li>
             <li>Drive up to the farm along the mountain road</li>
-            <li>Choose your oyster at the workshop</li>
+            <li>Choose your pearl oyster at the workshop</li>
             <li>Open the shell and take out your pearl</li>
             <li>Feed the fish</li>
             <li>Back at the shop — optional jewellery setting</li>
             <li>Drop-off</li>
           </ul>
-          <p>Good for: first-time visitors, families with children, and anyone with half a morning who wants something they could not have done anywhere else.</p>
+          <p>Good for: first-time visitors, families with children, and anyone with a free afternoon who wants something they could not have done anywhere else.</p>
         </div>
 
         <div class="p-option">
           <h3>2 · Nucleus Insertion &amp; Harvesting</h3>
           <p class="p-option-meta">3–4 hours &nbsp;·&nbsp; 6 oysters each &nbsp;·&nbsp; Fully private &nbsp;·&nbsp; Hotel pickup included</p>
-          <p>Nucleation is the technique at the heart of akoya pearl farming, and it has been handed down in Ago Bay for generations. Here a craftsman who does it for a living shows you how — and then you do it yourself.</p>
-          <p>Each guest works on six oysters, placing a nucleus and a small piece of mantle tissue inside each one. It is close, delicate work that asks for a steady hand and real concentration.</p>
-          <p>The oysters you have worked on go into nets and back into the sea. About a year later, any pearls that can be harvested from your own shells are collected and sent to your home address. You also choose an oyster from the farm's stock and harvest a pearl on the day — so you leave with a pearl in your hand, and another one growing in the bay.</p>
+          <p>Inserting the nucleus is the technique at the heart of akoya pearl farming, and it has been handed down in Ago Bay for generations. Here a craftsman who does it for a living shows you how — and then you do it yourself.</p>
+          <p>Each guest works on six pearl oysters, placing a nucleus and a small piece of mantle tissue inside each pearl oyster. It is close, delicate work that asks for a steady hand and real concentration.</p>
+          <p>The pearl oysters you have worked on go into nets and back into the sea. About a year later, any pearls that can be harvested from your own shells are collected and sent to your home address. You also choose a pearl oyster from the farm's stock and harvest a pearl on the day — so you leave with a pearl in your hand, and another one growing in the bay.</p>
           <ul class="p-steps">
             <li>Pickup at your hotel by private car</li>
             <li>Explanation and preparation at the workshop</li>
             <li>Demonstration by a professional</li>
             <li>You insert the nucleus and the mantle tissue — six oysters each</li>
             <li>Your oysters go into nets and back into the sea</li>
-            <li>Choose an oyster to harvest, open the shell and take out your pearl</li>
+            <li>Choose a pearl oyster to harvest, open the shell and take out your pearl</li>
             <li>Feed the fish</li>
             <li>Back at the shop — optional jewellery setting</li>
             <li>Drop-off</li>
@@ -605,7 +605,8 @@
           <li><strong>From Nagoya</strong> — about 2 hours by limited express train</li>
           <li><strong>From Kyoto</strong> — about 3 hours, usually with one change</li>
         </ul>
-        <p>Ise-Shima is reachable as a long day trip, but it is much better as an overnight. Most guests combine the pearl farm with Ise Jingu, the coastline, or a local lunch — and because you have the car and the guide for the day, that is simple to arrange.</p>
+        <p>Ise-Shima is reachable as a long day trip, but it is much better as an overnight stay.</p>
+        <p>Please note that this is a single activity, not a full day with a guide. The transport above is to and from the pearl farm for this experience. If you would also like to see Ise Jingu or the coastline, that is one of our other tours, booked and priced separately — we are happy to arrange both on the same trip.</p>
 
         <h3>What's included</h3>
         <ul>
@@ -623,16 +624,18 @@
 
         <h3>Good to know</h3>
         <ul>
+          <li>This is a single activity, not a full day with a guide. Our other tours are booked and priced separately.</li>
+          <li>The experience usually runs in the afternoon. We confirm the exact time with the farm when you book.</li>
           <li>Maximum 5 guests per booking.</li>
           <li>Most of the experience is indoors, so rain is rarely a problem.</li>
           <li>Jewellery setting depends on the workshop's schedule on the day — we check it for you with every booking.</li>
-          <li>The nucleation experience is technical and may be difficult for younger children.</li>
-          <li>Not every nucleated oyster survives the year; in some cases no pearl can be collected.</li>
+          <li>The nucleus insertion experience is technical and may be difficult for younger children.</li>
+          <li>Not every pearl oyster you work on survives the year; in some cases no pearl can be collected.</li>
         </ul>
 
         <img class="p-photo" src="/images/pearl-workshop-laughing.jpg" width="1600" height="900" loading="lazy"
              alt="Guests and the pearl farmer laughing together after opening the shells at a family-run akoya pearl farm in Ise-Shima" />
-        <p class="p-cap">A small farm, a long morning, and people who are glad you came.</p>
+        <p class="p-cap">A small farm, an afternoon's work, and people who are glad you came.</p>
       </section>
 
       <section class="p-section p-faq">
@@ -640,10 +643,10 @@
         <h2>Frequently asked</h2>
 
         <details><summary>Is this a real pearl farm or a museum?</summary>
-          <p>It is a real, family-run akoya pearl farm on Ago Bay. The people who show you the work are the people who do it for a living, and the oysters come from the farm's own rafts. There is no exhibition hall and no visitor circuit — you are in the workshop where the pearls are actually produced, with a small shop beside it selling the jewellery they make from their own pearls.</p></details>
+          <p>It is a real, family-run akoya pearl farm on Ago Bay. The people who show you the work are the people who do it for a living, and the pearl oysters come from the farm's own rafts. There is no exhibition hall and no visitor circuit — you are in the workshop where the pearls are actually produced, with a small shop beside it selling the jewellery they make from their own pearls.</p></details>
 
         <details><summary>Is the experience private?</summary>
-          <p>Yes. Every booking is fully private — only your own group, up to five guests. You are not joined to other travellers, and the pace of the visit follows you.</p></details>
+          <p>Yes. Every booking is fully private — only your own group, up to five guests. You are not joined to other travellers, so the craftsman works with you directly and your questions are answered as they come up.</p></details>
 
         <details><summary>Is hotel pickup included?</summary>
           <p>Yes. Pickup and drop-off by private car are included for guests staying in the Ise, Toba and Shima areas. If you are staying elsewhere, we can collect you from Ugata Station, which is reached from Osaka in about 2.5 hours by limited express train with no transfers. The farm is on a narrow mountain road with no bus service, so transport is part of the experience rather than an extra.</p></details>
@@ -652,13 +655,13 @@
           <p>Yes. The pearl you take out of the shell on the day is yours to keep. These are real akoya pearls, so some come out perfectly round and others are baroque, with their own irregular shape — nobody knows what is inside until the shell is opened.</p></details>
 
         <details><summary>What is the difference between the two experiences?</summary>
-          <p>Pearl Harvesting takes one to two hours: you choose an oyster from the farm's stock and open it yourself. Nucleus Insertion and Harvesting takes three to four hours: a craftsman teaches you to place a nucleus and mantle tissue into six oysters, which then go back into the sea for about a year, and you also harvest a pearl on the day.</p></details>
+          <p>Pearl Harvesting takes one to two hours: you choose a pearl oyster from the farm's stock and open it yourself. Nucleus Insertion and Harvesting takes three to four hours: a craftsman teaches you to place a nucleus and mantle tissue into six pearl oysters, which then go back into the sea for about a year, and you also harvest a pearl on the day.</p></details>
 
-        <details><summary>What happens to the oysters I work on in the nucleation experience?</summary>
-          <p>They go into nets and back into Ago Bay for about a year. Any pearls that can be harvested from your own shells are collected and sent to your home address. Not every oyster survives the year, and in some cases no pearl can be collected — the odds vary considerably with the season.</p></details>
+        <details><summary>What happens to the oysters I work on in the nucleus insertion experience?</summary>
+          <p>The pearl oysters go into nets and back into Ago Bay for about a year. Any pearls that can be harvested from your own shells are collected and sent to your home address. Not every pearl oyster survives the year, and in some cases no pearl can be collected — the odds vary considerably with the season.</p></details>
 
         <details><summary>Can children take part?</summary>
-          <p>Children are welcome at the harvesting experience and usually enjoy it a great deal. The nucleation experience is close, delicate work with fine tools and may be difficult for younger children.</p></details>
+          <p>Children are welcome at the harvesting experience and usually enjoy it a great deal. The nucleus insertion experience is close, delicate work with fine tools and may be difficult for younger children.</p></details>
 
         <details><summary>Can I have my pearl made into jewellery?</summary>
           <p>Often, yes. The same site makes jewellery, so a pearl can be set into a pendant or a ring at the workshop. This depends on the workshop's schedule on the day, so we check it for you with every booking.</p></details>
@@ -673,7 +676,7 @@
           <p>Most of the experience takes place inside the workshop, so rain is rarely a problem. Rough weather at sea can occasionally affect the farm's work, in which case we will contact you and arrange another date.</p></details>
 
         <details><summary>Can this be combined with Ise Jingu or other sightseeing?</summary>
-          <p>Yes. Because you have a car and a guide for the day, the pearl farm pairs naturally with Ise Jingu, the Ago Bay coastline or a local lunch. Tell us what else you would like to see and we will plan the day around it.</p></details>
+          <p>Yes, but please note that this is a single activity rather than a full day with a guide. Ise Jingu and our other tours are booked separately and priced separately. Many guests do both on the same trip, and we are happy to arrange them together — just tell us what else you would like to see.</p></details>
       </section>
 
       <section class="p-cta">
