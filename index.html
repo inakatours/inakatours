@@ -224,11 +224,9 @@
     .tour-card video.tour-media { display: none; }
     .tour-card.video-ready video.tour-media { display: block; }
     .tour-card.video-ready .tour-media-fallback { display: none; }
-    /* 動きを減らす設定の利用者には静止画のまま見せる */
-    @media (prefers-reduced-motion: reduce) {
-      .tour-card video.tour-media { display: none !important; }
-      .tour-card .tour-media-fallback { display: block !important; }
-    }
+    /* 「視差効果を減らす」設定の方にも動画を見せる。
+       音も字幕もない短い映像のため、設定にかかわらず再生する
+       （モバイルガイドの雰囲気動画と同じ扱いに揃えている） */
     /* ツアーカードの副題 */
     .tour-sub {
       font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.86rem;
@@ -483,7 +481,7 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
     .tour-modal-close:hover { background: #fff; color: #000; }
-    .tour-modal-img { display: block; width: 100%; height: 280px; object-fit: cover; }
+    .tour-modal-media { display: block; width: 100%; height: 280px; object-fit: cover; background: #21302A; }
     .tour-modal-inner { padding: 36px 48px 52px; }
     .tour-modal-inner h3 {
       font-family: 'Cormorant Garamond', serif; font-weight: 400;
@@ -502,7 +500,7 @@
       /* スマホでは下から上がるシートにして、親指の届く位置で閉じられるようにする */
       .tour-modal { padding: 0; align-items: flex-end; }
       .tour-modal-panel { width: 100%; max-height: 92vh; border-radius: 20px 20px 0 0; }
-      .tour-modal-img { height: 210px; }
+      .tour-modal-media { height: 210px; }
       .tour-modal-inner { padding: 28px 22px 44px; }
       .tour-modal-inner h3 { font-size: 1.8rem; }
     }
@@ -814,59 +812,6 @@
         </div>
       </div>
 
-      <!-- Goma Fire Ritual -->
-      <div class="tour-card">
-        <video class="tour-media" poster="images/tour-goma-poster.jpg" width="960" height="540"
-               muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
-               data-src="images/tour-goma.mp4"></video>
-        <img loading="lazy" decoding="async" class="tour-media tour-media-fallback" src="images/tour-goma-poster.jpg" width="960" height="540"
-             alt="A Shingon temple surrounded by forest in Ise-Shima National Park, where the goma fire ritual is held indoors — even on rainy days" />
-        <div class="tour-badge">New</div>
-        <h3>Goma Fire Ritual in Ise-Shima</h3>
-        <p class="tour-sub">A Shingon fire ceremony to burn away misfortune, at a temple founded in 742</p>
-        <button class="tour-toggle" onclick="openTourModal(this)">
-          <span>Details</span>
-          <span class="toggle-icon">+</span>
-        </button>
-        <div class="tour-body">
-          <div class="tour-body-inner">
-            <p>Take part in <em>goma</em> — the sacred fire ritual of esoteric Shingon Buddhism — inside a temple founded in 742, in Ise-Shima National Park.<br>Monks chant sutras while <em>gomagi</em> prayer sticks burn: a <em>yakuyoke</em> ceremony to ward off bad luck and purify your wishes.<br>A morning of roughly 2.5 hours. Departs at 9:00. The tour typically ends around 11:30–12:00, though this may vary depending on travel time. For guests aged 15 and over.<br>Held indoors in the temple hall, the ritual goes ahead rain or shine — a good choice for a rainy day in Shima.</p>
-            <h4 class="section-title">　</h4>
-            <h4>About this experience</h4>
-            <div class="tour-description">
-              <p>This experience was created for travellers who want two things at once: the nature of Ise-Shima National Park, and Japanese culture as it is actually practised — not performed for visitors.</p>
-              <p>The temple was founded in 742, when Emperor Shomu prayed here for the safe construction of Todai-ji in Nara. According to temple tradition, Kukai — the founder of Shingon, Japan's esoteric Buddhist school — established its teachings here in 807, and the temple has kept them ever since.</p>
-              <p>At the heart of your visit is the <em>goma</em> ritual. Wooden prayer sticks are burned in a sacred hearth, and the rising flames carry prayers to Fudo Myoo, the fierce guardian of Shingon Buddhism. The fire is believed to burn away worldly desires and misfortune, purifying each wish before it reaches him.</p>
-              <p>You sit close to the fire, in the clear air of Ise-Shima, as the sutras are chanted. It is a quiet, direct encounter with Japan's spiritual culture — and something very few visitors ever see.</p>
-            </div>
-            <h4 class="section-title">　</h4>
-            <h4>Itinerary</h4>
-            <p>Pickup<br>Goma ritual experience &amp; temple walk<br>Drop-off</p>
-            <h4 class="section-title">　</h4>
-            <h4>What's Included</h4>
-            <p>The ritual participation fee is included in the price — there are no additional charges on the day, and we add no booking fee.</p>
-            <p>Private car transport, pickup and drop-off, and an English-speaking local guide throughout.</p>
-            <h4 class="section-title">　</h4>
-            <h4>What's Not Included</h4>
-            <p>Personal shopping and any expenses of a personal nature are not included.</p>
-            <h4 class="section-title">　</h4>
-            <h4>Access &amp; Pick-up</h4>
-            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pickup is available at Ugata Station.<br>This station can be reached from Osaka in about 2.5 hours by limited express train, with no transfers required.</p>
-            <h4 class="section-title">　</h4>
-            <h4>A Note on Respect</h4>
-            <p>This is a working temple, and the experience depends on the goodwill of the community. We ask that you keep your voice low, take your rubbish with you, and treat the place as the sacred site it is.</p>
-            <p>Please also refrain from sharing the location afterwards. Photographs are welcome — we simply ask that you post them without the temple's name or location data.</p>
-            <h4 class="section-title">　</h4>
-            <h4>Important Notes</h4>
-            <p>Please book at least 48 hours in advance. The temple may occasionally need to cancel; in that case you receive a full refund.</p>
-            <p>Maximum 5 guests. Minimum age 15.</p>
-            <p>The goma ritual takes place indoors and runs as planned in the rain. On rainy days, the temple walk covers only what can be done comfortably with an umbrella.</p>
-            <p>Cancellations within 48 hours of the start time are charged at 50% of the tour fee, and within 24 hours at the full fee. Cancelling more than 48 hours ahead is free of charge — see our full cancellation policy below.</p>
-            <span class="price">¥40,000 / per person</span>
-          </div>
-        </div>
-      </div>
-
       <!-- Pearl Experience -->
       <div class="tour-card" id="tour-pearl">
         <img loading="lazy" decoding="async" width="1600" height="900" src="images/pearl-workshop-guests.jpg"
@@ -983,6 +928,59 @@
         </div>
       </div>
 
+
+      <!-- Goma Fire Ritual -->
+      <div class="tour-card">
+        <video class="tour-media" poster="images/tour-goma-poster.jpg" width="960" height="540"
+               muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"
+               data-src="images/tour-goma.mp4"></video>
+        <img loading="lazy" decoding="async" class="tour-media tour-media-fallback" src="images/tour-goma-poster.jpg" width="960" height="540"
+             alt="A Shingon temple surrounded by forest in Ise-Shima National Park, where the goma fire ritual is held indoors — even on rainy days" />
+        <div class="tour-badge">New</div>
+        <h3>Goma Fire Ritual in Ise-Shima</h3>
+        <p class="tour-sub">A Shingon fire ceremony to burn away misfortune, at a temple founded in 742</p>
+        <button class="tour-toggle" onclick="openTourModal(this)">
+          <span>Details</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="tour-body">
+          <div class="tour-body-inner">
+            <p>Take part in <em>goma</em> — the sacred fire ritual of esoteric Shingon Buddhism — inside a temple founded in 742, in Ise-Shima National Park.<br>Monks chant sutras while <em>gomagi</em> prayer sticks burn: a <em>yakuyoke</em> ceremony to ward off bad luck and purify your wishes.<br>A morning of roughly 2.5 hours. Departs at 9:00. The tour typically ends around 11:30–12:00, though this may vary depending on travel time. For guests aged 15 and over.<br>Held indoors in the temple hall, the ritual goes ahead rain or shine — a good choice for a rainy day in Shima.</p>
+            <h4 class="section-title">　</h4>
+            <h4>About this experience</h4>
+            <div class="tour-description">
+              <p>This experience was created for travellers who want two things at once: the nature of Ise-Shima National Park, and Japanese culture as it is actually practised — not performed for visitors.</p>
+              <p>The temple was founded in 742, when Emperor Shomu prayed here for the safe construction of Todai-ji in Nara. According to temple tradition, Kukai — the founder of Shingon, Japan's esoteric Buddhist school — established its teachings here in 807, and the temple has kept them ever since.</p>
+              <p>At the heart of your visit is the <em>goma</em> ritual. Wooden prayer sticks are burned in a sacred hearth, and the rising flames carry prayers to Fudo Myoo, the fierce guardian of Shingon Buddhism. The fire is believed to burn away worldly desires and misfortune, purifying each wish before it reaches him.</p>
+              <p>You sit close to the fire, in the clear air of Ise-Shima, as the sutras are chanted. It is a quiet, direct encounter with Japan's spiritual culture — and something very few visitors ever see.</p>
+            </div>
+            <h4 class="section-title">　</h4>
+            <h4>Itinerary</h4>
+            <p>Pickup<br>Goma ritual experience &amp; temple walk<br>Drop-off</p>
+            <h4 class="section-title">　</h4>
+            <h4>What's Included</h4>
+            <p>The ritual participation fee is included in the price — there are no additional charges on the day, and we add no booking fee.</p>
+            <p>Private car transport, pickup and drop-off, and an English-speaking local guide throughout.</p>
+            <h4 class="section-title">　</h4>
+            <h4>What's Not Included</h4>
+            <p>Personal shopping and any expenses of a personal nature are not included.</p>
+            <h4 class="section-title">　</h4>
+            <h4>Access &amp; Pick-up</h4>
+            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pickup is available at Ugata Station.<br>This station can be reached from Osaka in about 2.5 hours by limited express train, with no transfers required.</p>
+            <h4 class="section-title">　</h4>
+            <h4>A Note on Respect</h4>
+            <p>This is a working temple, and the experience depends on the goodwill of the community. We ask that you keep your voice low, take your rubbish with you, and treat the place as the sacred site it is.</p>
+            <p>Please also refrain from sharing the location afterwards. Photographs are welcome — we simply ask that you post them without the temple's name or location data.</p>
+            <h4 class="section-title">　</h4>
+            <h4>Important Notes</h4>
+            <p>Please book at least 48 hours in advance. The temple may occasionally need to cancel; in that case you receive a full refund.</p>
+            <p>Maximum 5 guests. Minimum age 15.</p>
+            <p>The goma ritual takes place indoors and runs as planned in the rain. On rainy days, the temple walk covers only what can be done comfortably with an umbrella.</p>
+            <p>Cancellations within 48 hours of the start time are charged at 50% of the tour fee, and within 24 hours at the full fee. Cancelling more than 48 hours ahead is free of charge — see our full cancellation policy below.</p>
+            <span class="price">¥40,000 / per person</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ツアー詳細のモーダル
@@ -995,7 +993,9 @@
         <div class="tour-modal-closebar">
           <button type="button" class="tour-modal-close" onclick="closeTourModal()" aria-label="Close">&times;</button>
         </div>
-        <img id="tour-modal-img" class="tour-modal-img" alt="" />
+        <video id="tour-modal-video" class="tour-modal-media" muted loop playsinline preload="none"
+               aria-hidden="true" tabindex="-1" style="display:none"></video>
+        <img id="tour-modal-img" class="tour-modal-media" alt="" />
         <div class="tour-modal-inner">
           <h3 id="tour-modal-title"></h3>
           <p id="tour-modal-sub" class="tour-modal-sub"></p>
@@ -1379,10 +1379,9 @@
         })
         .catch(function() { /* 読み込み失敗時は既存レビューのみ表示 */ });
     })();
-    // ツアーカードの動画：画面に入ってから読み込み、動きを減らす設定なら静止画のまま
+    // ツアーカードの動画：画面に入ってから読み込んで再生する。
+    // 「視差効果を減らす」設定でも再生する（モーダル側と同じ扱い）。
     (function () {
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-      if (reduce.matches) return;
       var v = document.querySelector('.tour-card video.tour-media');
       if (!v || !('IntersectionObserver' in window)) return;
       var card = v.closest('.tour-card');
@@ -1437,16 +1436,40 @@
       subEl.textContent = sub ? sub.textContent.trim() : '';
       subEl.style.display = sub ? 'block' : 'none';
 
-      // カード上部の写真をそのまま見出し画像に使う（動画のカードはポスター画像）
+      // カード上部の映像を見出しに使う。
+      // 動画のあるカード（護摩）はモーダルの中でも動画を再生する。
+      // カード側はIntersectionObserverで再生しているため、モーダルでは別途再生し直す。
       const img = document.getElementById('tour-modal-img');
+      const vid = document.getElementById('tour-modal-video');
+      const cardVid = card.querySelector('video.tour-media');
+      const vidSrc = cardVid ? (cardVid.dataset.src || cardVid.getAttribute('src') || '') : '';
       const cardImg = card.querySelector('img');
-      if (cardImg) {
-        img.src = cardImg.currentSrc || cardImg.src;
-        img.alt = cardImg.alt || '';
-        img.style.display = 'block';
-      } else {
-        img.removeAttribute('src');
+
+      function showModalImage() {
+        vid.pause();
+        vid.style.display = 'none';
+        if (cardImg) {
+          img.src = cardImg.currentSrc || cardImg.src;
+          img.alt = cardImg.alt || '';
+          img.style.display = 'block';
+        } else {
+          img.removeAttribute('src');
+          img.style.display = 'none';
+        }
+      }
+
+      if (vidSrc) {
+        const poster = cardVid.getAttribute('poster');
+        if (poster) vid.setAttribute('poster', poster);
+        if (vid.getAttribute('src') !== vidSrc) vid.setAttribute('src', vidSrc);
         img.style.display = 'none';
+        vid.style.display = 'block';
+        vid.currentTime = 0;
+        const play = vid.play();
+        // 自動再生が許可されない場合だけ静止画に戻す
+        if (play && play.catch) play.catch(showModalImage);
+      } else {
+        showModalImage();
       }
 
       modalReturn = { btn: btn, body: body };
@@ -1470,6 +1493,10 @@
       const modal = document.getElementById('tour-modal');
       if (!modal.classList.contains('open')) return;
       modal.classList.remove('visible');
+
+      // 閉じたあとに裏で再生・読み込みが続かないよう止める
+      const vid = document.getElementById('tour-modal-video');
+      if (vid) vid.pause();
 
       setTimeout(function () {
         modal.classList.remove('open');
