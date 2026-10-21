@@ -34,24 +34,27 @@
       if (!b) return;
       var card = b.closest('.tour-card');
       var h3 = card && card.querySelector('h3');
-      gtag('event', 'open_tour_details', { tour_name: h3 ? h3.textContent.trim() : 'unknown' });
+      // 真珠体験のように1枚のカードに体験が2つある場合は、
+      // data-track でどちらを開いたかが分かるようにしている
+      var name = b.getAttribute('data-track') || (h3 ? h3.textContent.trim() : 'unknown');
+      gtag('event', 'open_tour_details', { tour_name: name });
     });
   </script>
   <link rel="icon" href="./favicon.ico?v=2" type="image/x-icon" />
   <title>Ise-Shima Tours | Inaka Tours</title>
   <!-- ── SEO ── -->
-  <meta name="description" content="Private Ise-Shima tours with an English-speaking local guide. Indoor goma fire ritual, rain or shine — ideal for a rainy day in Shima." />
+  <meta name="description" content="Private Ise-Shima tours with an English-speaking local guide. Harvest a real akoya pearl at a working pearl farm, or join an indoor goma fire ritual — rain or shine." />
   <link rel="canonical" href="https://www.inakatour.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Inaka Tours Japan" />
   <meta property="og:title" content="Ise-Shima Tours, Things to Do &amp; Hidden Gems | Inaka Tours Japan" />
-  <meta property="og:description" content="Private Ise-Shima tours with an English-speaking local guide. Indoor goma fire ritual, rain or shine — ideal for a rainy day in Shima." />
+  <meta property="og:description" content="Private Ise-Shima tours with an English-speaking local guide. Harvest a real akoya pearl at a working pearl farm, or join an indoor goma fire ritual — rain or shine." />
   <meta property="og:url" content="https://www.inakatour.com/" />
   <meta property="og:image" content="https://www.inakatour.com/images/bay.jpg" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ise-Shima Tours, Things to Do &amp; Hidden Gems | Inaka Tours Japan" />
-  <meta name="twitter:description" content="Private Ise-Shima tours with an English-speaking local guide. Indoor goma fire ritual, rain or shine — ideal for a rainy day in Shima." />
+  <meta name="twitter:description" content="Private Ise-Shima tours with an English-speaking local guide. Harvest a real akoya pearl at a working pearl farm, or join an indoor goma fire ritual — rain or shine." />
   <meta name="twitter:image" content="https://www.inakatour.com/images/bay.jpg" />
   <script type="application/ld+json">
 {
@@ -142,6 +145,50 @@
           "Solo travellers"
         ]
       }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "TouristTrip",
+        "name": "Pearl Harvesting in Ise-Shima",
+        "description": "Harvest a real akoya pearl with your own hands at a working pearl farm on Ago Bay in Ise-Shima, Mie — the birthplace of the cultured pearl. Choose an oyster from the farm's own stock, open the shell yourself and take out the pearl, then have it set into jewellery at the workshop if you wish. Includes private car transport and an English-speaking local guide. Approximately 1 to 2 hours.",
+        "image": "https://www.inakatour.com/images/pearl-harvested-in-hand.jpg",
+        "touristType": [
+          "Couples",
+          "Families",
+          "Solo travellers"
+        ]
+      },
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 5,
+        "unitCode": "IE",
+        "unitText": "person"
+      },
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "TouristTrip",
+        "name": "Pearl Nucleus Insertion and Harvesting in Ise-Shima",
+        "description": "Learn akoya pearl nucleation from a working craftsman at a pearl farm on Ago Bay in Ise-Shima, Mie. Each guest places a nucleus and mantle tissue into six oysters, which are then returned to the sea; about a year later any pearls harvested from your own shells are sent to your home. You also harvest a pearl on the day. Includes private car transport and an English-speaking local guide. Approximately 3 to 4 hours.",
+        "image": "https://www.inakatour.com/images/pearl-nucleus-insertion.jpg",
+        "touristType": [
+          "Couples",
+          "Families",
+          "Solo travellers"
+        ]
+      },
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 5,
+        "unitCode": "IE",
+        "unitText": "person"
+      },
+      "availability": "https://schema.org/InStock"
     }
   ]
 }
@@ -364,6 +411,41 @@
     }
     .group-price { font-family: 'Inter', sans-serif; font-size: 0.87rem; opacity: 0.6; margin-top: 6px; }
     .tour-body-inner { padding-top: 28px; }
+
+    /* ── 1枚のカードの中で体験を選ぶ（真珠体験）────────────────── */
+    .option-card {
+      border: 1px solid rgba(0,0,0,0.12); border-radius: 14px;
+      background: #fcfaf6; padding: 26px 24px 4px; margin-bottom: 20px;
+    }
+    .tour-body h4.option-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+      font-weight: 500; letter-spacing: 0.01em; text-transform: none;
+      color: #2b2118; margin: 0 0 8px;
+    }
+    .option-meta {
+      font-family: 'Inter', sans-serif; font-size: 0.74rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--red); margin: 0 0 14px;
+    }
+    .option-lead { font-size: 0.95rem; color: #555; margin: 0 0 4px; }
+    .option-card .tour-toggle { border-top: 1px solid rgba(0,0,0,0.1); margin-top: 14px; }
+    .option-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+    .option-body.open { max-height: 6000px; }
+    .option-body-inner { padding-top: 10px; padding-bottom: 20px; }
+    .option-body-inner h4 { margin-top: 30px !important; }
+    .option-body-inner .price { font-size: 1.35rem; margin-top: 32px; padding-top: 24px; }
+
+    /* 本文中の写真。カード上部の大きな写真（.tour-card img）とは別の見せ方にする */
+    .tour-card img.tour-photo {
+      width: 100%; margin: 26px 0 8px; height: auto;
+      max-height: 420px; object-fit: cover;
+      border-radius: 12px; display: block;
+    }
+    /* 縦位置の写真は高さを少し多めに取る */
+    .tour-card img.tour-photo.tall { max-height: 560px; object-position: center 35%; }
+    .photo-caption {
+      font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 300;
+      letter-spacing: 0.04em; color: #9a9389; line-height: 1.6; margin: 0 0 26px;
+    }
   </style>
   <style>
     .digital-guide-section { padding: 80px 40px; background: #f3ede0; }
@@ -584,7 +666,7 @@
 
   <section id="tours" class="tours">
     <h2>Our Ise-Shima Tours</h2>
-    <p class="tours-intro">All of our Ise-Shima tours are private, small-group and guided in English. Looking for the best things to do in Ise-Shima? Explore Japan's most sacred shrine and the hidden gems of the ria coastline — quiet fishing villages, ama divers and local food culture — on a fully private tour with an English-speaking local guide.</p>
+    <p class="tours-intro">All of our Ise-Shima tours are private, small-group and guided in English. Looking for the best things to do in Ise-Shima? Explore Japan's most sacred shrine and the hidden gems of the ria coastline — quiet fishing villages, ama divers and local food culture — on a fully private tour with an English-speaking local guide. You can also take part in the work of the region itself: a goma fire ritual at a temple founded in 742, or harvesting a real akoya pearl at a working pearl farm in Ago Bay, where the cultured pearl began.</p>
       <div class="tour-grid">
 
       <!-- Basic Tour -->
@@ -716,6 +798,122 @@
             <p>The goma ritual takes place indoors and runs as planned in the rain. On rainy days, the temple walk covers only what can be done comfortably with an umbrella.</p>
             <p>Cancellations within 48 hours of the start time are charged at 50% of the tour fee, and within 24 hours at the full fee. Cancelling more than 48 hours ahead is free of charge — see our full cancellation policy below.</p>
             <span class="price">¥40,000 / per person</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pearl Experience -->
+      <div class="tour-card" id="tour-pearl">
+        <img loading="lazy" decoding="async" width="1600" height="900" src="images/pearl-workshop-guests.jpg"
+             alt="Guests at the workbench of a working pearl farm in Ise-Shima, learning to place a nucleus into an akoya oyster" />
+        <div class="tour-badge">New</div>
+        <h3>Pearl Experience in Ise-Shima</h3>
+        <p class="tour-sub">Harvest a real akoya pearl at a working pearl farm on Ago Bay — where cultured pearls began</p>
+        <button class="tour-toggle" onclick="toggleTour(this)">
+          <span>Details</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="tour-body">
+          <div class="tour-body-inner">
+            <p>Ise-Shima is where the cultured pearl began. A narrow mountain road — just wide enough for a small Japanese car — leads down to a working pearl farm on Ago Bay, where akoya pearls are grown and made into jewellery on the same site.<br>This is not a visitor attraction. It is a working farm, and you take part in what happens there.<br>Two experiences are available. Choose the one you prefer below. Maximum 5 guests.</p>
+            <h4 class="section-title">　</h4>
+            <h4>About this experience</h4>
+            <div class="tour-description">
+              <p>The world's first cultured pearl was grown here in Ise-Shima, and Ago Bay has been the centre of akoya pearl farming ever since. More than a century later, small family farms still work their own rafts across the bay.</p>
+              <p>One of them takes guests. You drive in along a steep, narrow mountain road, arrive at the workshop, and from there you are not watching pearl farming — you are doing it, alongside the people who do it every day.</p>
+              <p>Sightseeing shows you the surface of a place. This takes you into the work that the region is actually built on.</p>
+            </div>
+            <h4 class="section-title">　</h4>
+            <h4>Choose your experience</h4>
+
+            <div class="option-card">
+              <h4 class="option-title">1 · Pearl Harvesting</h4>
+              <p class="option-meta">1–2 hours &nbsp;·&nbsp; Maximum 5 guests</p>
+              <p class="option-lead">Choose an oyster from the farm's own stock and open it with your own hands.</p>
+              <button class="tour-toggle option-toggle" onclick="toggleOption(this)" data-track="Pearl — Harvesting">
+                <span>See this experience</span>
+                <span class="toggle-icon">+</span>
+              </button>
+              <div class="option-body">
+                <div class="option-body-inner">
+                  <div class="tour-description">
+                    <p>At the workshop you are shown the farm's cultured oysters and choose one yourself. Then you open the shell and lift out the pearl with your own hands.</p>
+                    <p>Every pearl is different in shape, colour and size, and nobody — not even the farmer — knows what is inside until the shell is open.</p>
+                    <p>Afterwards there is time to feed the fish kept beside the rafts, and back at the shop you can have your pearl set into jewellery if you would like to.</p>
+                  </div>
+                  <img loading="lazy" decoding="async" class="tour-photo" width="1600" height="900"
+                       src="images/pearl-harvested-in-hand.jpg"
+                       alt="Two akoya pearls resting in a guest's palm, just taken from the shell at a pearl farm in Ise-Shima" />
+                  <p class="photo-caption">The pearls, moments after the shell was opened.</p>
+                  <h4>Itinerary</h4>
+                  <p>Drive up to the farm along the mountain road<br>Choose your oyster at the workshop<br>Open the shell and take out your pearl<br>Feed the fish<br>Back at the shop — optional jewellery setting<br>Finish</p>
+                  <h4>Important Notes</h4>
+                  <p>These are real pearls. Some come out perfectly round; others are baroque, with their own irregular shape. Which one you find cannot be chosen in advance — that is the nature of it, and part of why it is worth doing.</p>
+                  <p>Having your pearl set into jewellery depends on the workshop's schedule on the day. We check this for you with every booking.</p>
+                  <span class="price">Price on enquiry</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="option-card">
+              <h4 class="option-title">2 · Nucleus Insertion &amp; Harvesting</h4>
+              <p class="option-meta">3–4 hours &nbsp;·&nbsp; 6 oysters per person &nbsp;·&nbsp; Maximum 5 guests</p>
+              <p class="option-lead">Learn the craft itself — place the nucleus into six oysters, then return them to the sea.</p>
+              <button class="tour-toggle option-toggle" onclick="toggleOption(this)" data-track="Pearl — Nucleus Insertion">
+                <span>See this experience</span>
+                <span class="toggle-icon">+</span>
+              </button>
+              <div class="option-body">
+                <div class="option-body-inner">
+                  <div class="tour-description">
+                    <p>Nucleation is the technique at the heart of akoya pearl farming, and it has been handed down in Ago Bay for generations. Here a craftsman who does it for a living shows you how — and then you do it yourself.</p>
+                    <p>Each guest works on six oysters, placing a nucleus and a small piece of mantle tissue inside each one. It is close, delicate work that asks for a steady hand and real concentration.</p>
+                    <p>The oysters you have worked on go into nets and back into the sea. About a year later, any pearls that can be harvested from your own shells are collected and sent to your home address.</p>
+                    <p>You also choose an oyster from the farm's stock and harvest a pearl on the day — so you leave with a pearl in your hand, and another one growing in the bay.</p>
+                    <p>Learning the craft from a craftsman, returning your own shells to the sea, and finding out a year later what grew inside them. This is as close to Ise-Shima pearl farming as a visitor can get.</p>
+                  </div>
+                  <img loading="lazy" decoding="async" class="tour-photo" width="1600" height="900"
+                       src="images/pearl-nucleus-closeup.jpg"
+                       alt="A pearl nucleus held on a fine needle beside an akoya oyster opened in a clamp" />
+                  <p class="photo-caption">The nucleus — the small bead that becomes the centre of the pearl.</p>
+                  <img loading="lazy" decoding="async" class="tour-photo" width="1600" height="900"
+                       src="images/pearl-nucleus-insertion.jpg"
+                       alt="A young guest carefully inserting a nucleus into an akoya oyster held in a clamp" />
+                  <p class="photo-caption">Close, careful work — guided by the craftsman at every step.</p>
+                  <img loading="lazy" decoding="async" class="tour-photo tall" width="900" height="1600"
+                       src="images/pearl-shells-to-sea.jpg"
+                       alt="Guests holding a net of akoya oysters ready to be returned to Ago Bay for about a year" />
+                  <p class="photo-caption">Your own shells, in the net, on their way back into the bay.</p>
+                  <h4>Itinerary</h4>
+                  <p>Drive up to the farm along the mountain road<br>Explanation and preparation at the workshop<br>Demonstration by a professional<br>You insert the nucleus and the mantle tissue<br>Your oysters go into nets and back into the sea<br>Choose an oyster to harvest<br>Open the shell and take out your pearl<br>Feed the fish<br>Back at the shop — optional jewellery setting<br>Finish</p>
+                  <h4>Important Notes</h4>
+                  <p>The pearl you harvest on the day is yours to take home.</p>
+                  <p>Not every oyster survives the year. Where pearls can be harvested from your shells, all of them are sent to you — but in some cases none of the shells survive and no pearl can be collected. The odds vary considerably with the season.</p>
+                  <p>This is technical work and may be difficult for younger children.</p>
+                  <p>Having your pearl set into jewellery depends on the workshop's schedule on the day. We check this for you with every booking.</p>
+                  <span class="price">Price on enquiry</span>
+                </div>
+              </div>
+            </div>
+
+            <h4 class="section-title">　</h4>
+            <h4>What's Included</h4>
+            <p>The experience fee at the pearl farm, private car transport to and from the farm, and an English-speaking local guide throughout.</p>
+            <h4 class="section-title">　</h4>
+            <h4>What's Not Included</h4>
+            <p>Meals, personal shopping, and the cost of having a pearl set into jewellery are not included.</p>
+            <h4 class="section-title">　</h4>
+            <h4>Access &amp; Pick-up</h4>
+            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pickup is available at Ugata Station.<br>This station can be reached from Osaka in about 2.5 hours by limited express train, with no transfers required.</p>
+            <h4 class="section-title">　</h4>
+            <h4>Booking</h4>
+            <p>This is a small working farm, so every booking is confirmed with them before it is final. Send us your preferred date, the number of guests and which of the two experiences you would like, and we will come back to you with availability and the price — usually the same day.</p>
+            <p><a href="mailto:inakatoursjp@gmail.com?subject=Pearl%20Experience%20enquiry">Send an enquiry about the Pearl Experience →</a></p>
+            <p>Cancellations are handled under our standard cancellation policy — please see the full terms below.</p>
+            <img loading="lazy" decoding="async" class="tour-photo" width="1600" height="900"
+                 src="images/pearl-workshop-laughing.jpg"
+                 alt="Guests and the pearl farmer laughing together in the workshop after opening the shells" />
+            <p class="photo-caption">A small farm, a long morning, and people who are glad you came.</p>
           </div>
         </div>
       </div>
@@ -1125,7 +1323,57 @@
       const body = btn.nextElementSibling;
       btn.classList.toggle('open');
       body.classList.toggle('open');
+      // 入れ子を開いたときに付けた高さを一度戻す
+      body.style.maxHeight = '';
+      // 中の体験が開いたままなら、CSSの上限（6000px）では足りないことがあるので測り直す
+      if (body.classList.contains('open') && body.querySelector('.option-body.open')) {
+        fitParent(body);
+      }
     }
+
+    // 1枚のカードの中に入れ子で置いた体験（真珠体験）の開閉。
+    // 親の .tour-body は max-height で開閉しているため、中が伸びると下が切れてしまう。
+    function toggleOption(btn) {
+      const body = btn.nextElementSibling;
+      const parent = btn.closest('.tour-body');
+      btn.classList.toggle('open');
+      body.classList.toggle('open');
+      if (!parent || !parent.classList.contains('open')) return;
+      fitParent(parent);
+      // アニメーションが終わったら端数を合わせ直す
+      body.addEventListener('transitionend', function once(e) {
+        if (e.target !== body || e.propertyName !== 'max-height') return;
+        body.removeEventListener('transitionend', once);
+        if (parent.classList.contains('open')) fitParent(parent);
+      });
+    }
+
+    // 中の体験を開いたあとの、親に必要な高さを求めて渡す。
+    //
+    // 押した直後の中の高さは「開いている途中」なので、そのまま測っても使えない。
+    // そこで、親の内容の高さから中の今の高さをいったん全部差し引き、
+    // 開いているものについて本来の高さを足し直す。
+    // こうすると、アニメーションが途中でも終わっていても同じ答えになる。
+    function fitParent(parent) {
+      let h = parent.scrollHeight;
+      parent.querySelectorAll('.option-body').forEach(function (b) {
+        h -= b.clientHeight;
+        if (b.classList.contains('open')) h += b.firstElementChild.scrollHeight;
+      });
+      parent.style.maxHeight = h + 'px';
+    }
+
+    // 画面の幅が変わると文字の折り返しが変わり、固定した高さが合わなくなる。
+    // （スマホを横向きにしたときなど）開いているものだけ測り直す。
+    let fitResizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(fitResizeTimer);
+      fitResizeTimer = setTimeout(function () {
+        document.querySelectorAll('.tour-body.open[style*="max-height"]').forEach(function (el) {
+          el.style.maxHeight = el.scrollHeight + 'px';
+        });
+      }, 200);
+    });
     function setGuideLang(lang, btn) {
       document.querySelectorAll('#guide [data-en]').forEach(el => {
         el.innerHTML = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
