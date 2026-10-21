@@ -110,7 +110,7 @@
         {
           "@type": "Question",
           "name": "Is this a real pearl farm or a museum?",
-          "acceptedAnswer": { "@type": "Answer", "text": "It is a real, family-run akoya pearl farm on Ago Bay. The people who show you the work are the people who do it for a living, and the oysters come from the farm's own rafts. There is no exhibition hall and no gift-shop circuit — you are in the workshop where the pearls are actually produced." }
+          "acceptedAnswer": { "@type": "Answer", "text": "It is a real, family-run akoya pearl farm on Ago Bay. The people who show you the work are the people who do it for a living, and the oysters come from the farm's own rafts. There is no exhibition hall and no visitor circuit — you are in the workshop where the pearls are actually produced, with a small shop beside it selling the jewellery they make from their own pearls." }
         },
         {
           "@type": "Question",
@@ -213,11 +213,17 @@
       display: block; width: 100%; height: clamp(440px, 78vh, 780px);
       object-fit: cover; object-position: center 42%;
     }
+    /* 写真の下半分をしっかり沈めて、白い見出しが背景の明暗に邪魔されないようにする。
+       上端はナビの白文字が読めるぶんだけ暗くし、中央は写真をきれいに見せる */
     .p-hero::after {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(14,12,10,0.55) 0%, rgba(14,12,10,0.08) 26%,
-                                rgba(14,12,10,0.46) 58%, rgba(14,12,10,0.88) 100%);
+        linear-gradient(180deg,
+          rgba(12,10,9,0.58)  0%,
+          rgba(12,10,9,0.10) 18%,
+          rgba(12,10,9,0.50) 38%,
+          rgba(12,10,9,0.86) 57%,
+          rgba(12,10,9,0.95) 100%);
     }
     .p-hero-inner {
       position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
@@ -232,7 +238,7 @@
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
       font-size: clamp(2.4rem, 5.4vw, 4.1rem); line-height: 1.1;
       letter-spacing: 0.005em; margin: 0 0 24px; color: #fff;
-      text-shadow: 0 2px 26px rgba(0,0,0,0.3);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.38), 0 2px 34px rgba(0,0,0,0.5);
     }
     .p-lede {
       font-family: 'Inter', sans-serif; font-weight: 300; font-size: 1rem;
@@ -506,7 +512,7 @@
         <p class="p-kicker">Not a museum</p>
         <h2>A working farm, not a visitor attraction</h2>
         <p>Ise-Shima has plenty of places to look at pearls. There are museums, exhibition halls and shops with a demonstration counter, and they are well made. This is not one of them.</p>
-        <p>This is a small family farm that grows akoya pearls on rafts in Ago Bay and makes jewellery from them on the same site. Nothing has been built for visitors. There is no exhibition, no set route and no gift-shop circuit — there is a workshop, a bench, trays of oysters, and the people who do this for a living.</p>
+        <p>This is a small family farm that grows akoya pearls on rafts in Ago Bay and makes jewellery from them on the same site. Nothing has been built for visitors. There is no exhibition and no set route — there is a workshop, a bench, trays of pearl oysters, a small shop where the jewellery they make is sold, and the people who do this for a living.</p>
         <p>You are not watching pearl farming. For a couple of hours you are taking part in it, next to the person whose work it is.</p>
         <p>That is the part travellers remember, and it is the part that cannot be arranged at a counter.</p>
       </section>
@@ -634,7 +640,7 @@
         <h2>Frequently asked</h2>
 
         <details><summary>Is this a real pearl farm or a museum?</summary>
-          <p>It is a real, family-run akoya pearl farm on Ago Bay. The people who show you the work are the people who do it for a living, and the oysters come from the farm's own rafts. There is no exhibition hall and no gift-shop circuit — you are in the workshop where the pearls are actually produced.</p></details>
+          <p>It is a real, family-run akoya pearl farm on Ago Bay. The people who show you the work are the people who do it for a living, and the oysters come from the farm's own rafts. There is no exhibition hall and no visitor circuit — you are in the workshop where the pearls are actually produced, with a small shop beside it selling the jewellery they make from their own pearls.</p></details>
 
         <details><summary>Is the experience private?</summary>
           <p>Yes. Every booking is fully private — only your own group, up to five guests. You are not joined to other travellers, and the pace of the visit follows you.</p></details>
