@@ -434,17 +434,82 @@
     .option-body-inner h4 { margin-top: 30px !important; }
     .option-body-inner .price { font-size: 1.35rem; margin-top: 32px; padding-top: 24px; }
 
-    /* 本文中の写真。カード上部の大きな写真（.tour-card img）とは別の見せ方にする */
-    .tour-card img.tour-photo {
+    /* 本文中の写真。カード上部の大きな写真（.tour-card img）とは別の見せ方にする。
+       モーダルへ移したあとも同じ見え方になるよう、.tour-card を条件にしない */
+    img.tour-photo {
       width: 100%; margin: 26px 0 8px; height: auto;
       max-height: 420px; object-fit: cover;
       border-radius: 12px; display: block;
     }
     /* 縦位置の写真は高さを少し多めに取る */
-    .tour-card img.tour-photo.tall { max-height: 560px; object-position: center 35%; }
+    img.tour-photo.tall { max-height: 560px; object-position: center 35%; }
     .photo-caption {
       font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 300;
       letter-spacing: 0.04em; color: #9a9389; line-height: 1.6; margin: 0 0 26px;
+    }
+
+    /* ── ツアー詳細のモーダル ──────────────────────────────────
+       読みやすい幅（本文で約70〜75文字）に収め、画面の中央に静かに開く */
+    .tour-modal {
+      position: fixed; inset: 0; z-index: 1000; display: none;
+      align-items: center; justify-content: center;
+      padding: 28px; box-sizing: border-box;
+      background: rgba(28, 24, 20, 0.52);
+      -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .tour-modal.open { display: flex; }
+    .tour-modal.visible { opacity: 1; }
+    .tour-modal-panel {
+      position: relative; background: #fff; border-radius: 20px;
+      width: min(760px, 100%); max-height: min(88vh, 1040px);
+      overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+      transform: translateY(16px) scale(0.985);
+      transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+      outline: none;
+    }
+    .tour-modal.visible .tour-modal-panel { transform: none; }
+    /* 高さ0の帯を上端に貼り付けておき、本文を送っても閉じるボタンが残るようにする */
+    .tour-modal-closebar { position: sticky; top: 0; height: 0; z-index: 3; text-align: right; }
+    .tour-modal-close {
+      position: relative; top: 15px; right: 15px;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.92);
+      -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.14);
+      font-size: 1.45rem; line-height: 1; color: #4a4036; cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .tour-modal-close:hover { background: #fff; color: #000; }
+    .tour-modal-img { display: block; width: 100%; height: 280px; object-fit: cover; }
+    .tour-modal-inner { padding: 36px 48px 52px; }
+    .tour-modal-inner h3 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: 2.2rem; line-height: 1.2; letter-spacing: 0.01em;
+      margin: 0 0 12px; color: #2b2118;
+    }
+    .tour-modal-sub {
+      font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.92rem;
+      color: #8a8378; line-height: 1.7; margin: 0;
+    }
+    /* モーダルの中では開閉の高さ制限を外し、全文をそのまま見せる */
+    .tour-body.in-modal { max-height: none !important; overflow: visible; transition: none; }
+    .tour-body.in-modal > .tour-body-inner { padding-top: 26px; }
+
+    @media (max-width: 680px) {
+      /* スマホでは下から上がるシートにして、親指の届く位置で閉じられるようにする */
+      .tour-modal { padding: 0; align-items: flex-end; }
+      .tour-modal-panel { width: 100%; max-height: 92vh; border-radius: 20px 20px 0 0; }
+      .tour-modal-img { height: 210px; }
+      .tour-modal-inner { padding: 28px 22px 44px; }
+      .tour-modal-inner h3 { font-size: 1.8rem; }
+    }
+    /* 動きを減らす設定の方には、動かさずに表示する */
+    @media (prefers-reduced-motion: reduce) {
+      .tour-modal, .tour-modal-panel { transition: none; }
+      .tour-modal-panel { transform: none; }
     }
   </style>
   <style>
@@ -673,7 +738,7 @@
       <div class="tour-card">
         <img width="1280" height="1280" src="images/bay.jpg" alt="Ago Bay ria coastline in Shima — Ise-Shima Basic Tour" />
         <h3>Basic Tour</h3>
-        <button class="tour-toggle" onclick="toggleTour(this)">
+        <button class="tour-toggle" onclick="openTourModal(this)">
           <span>Details</span>
           <span class="toggle-icon">+</span>
         </button>
@@ -713,7 +778,7 @@
         <img loading="lazy" decoding="async" width="1280" height="720" src="images/Oharaimachi4.jpg" alt="Oharaimachi, the historic pilgrim town beside Ise Jingu — private guided tour" />
         <div class="tour-badge">New</div>
         <h3>Ise Jingu Tour</h3>
-        <button class="tour-toggle" onclick="toggleTour(this)">
+        <button class="tour-toggle" onclick="openTourModal(this)">
           <span>Details</span>
           <span class="toggle-icon">+</span>
         </button>
@@ -759,7 +824,7 @@
         <div class="tour-badge">New</div>
         <h3>Goma Fire Ritual in Ise-Shima</h3>
         <p class="tour-sub">A Shingon fire ceremony to burn away misfortune, at a temple founded in 742</p>
-        <button class="tour-toggle" onclick="toggleTour(this)">
+        <button class="tour-toggle" onclick="openTourModal(this)">
           <span>Details</span>
           <span class="toggle-icon">+</span>
         </button>
@@ -809,7 +874,7 @@
         <div class="tour-badge">New</div>
         <h3>Pearl Experience in Ise-Shima</h3>
         <p class="tour-sub">Harvest a real akoya pearl at a working pearl farm on Ago Bay — where cultured pearls began</p>
-        <button class="tour-toggle" onclick="toggleTour(this)">
+        <button class="tour-toggle" onclick="openTourModal(this)">
           <span>Details</span>
           <span class="toggle-icon">+</span>
         </button>
@@ -918,6 +983,25 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- ツアー詳細のモーダル
+         カードが横に並ぶと1枚が細くなり本文が読みにくいため、
+         「Details」を押したらカードの中身をここへ移して画面中央に表示する。
+         （中身を複製せず移動させているので、文章はページに1つだけ＝検索にも影響しない） -->
+    <div id="tour-modal" class="tour-modal" role="dialog" aria-modal="true" aria-labelledby="tour-modal-title"
+         onclick="if(event.target===this)closeTourModal()">
+      <div class="tour-modal-panel" id="tour-modal-panel" tabindex="-1">
+        <div class="tour-modal-closebar">
+          <button type="button" class="tour-modal-close" onclick="closeTourModal()" aria-label="Close">&times;</button>
+        </div>
+        <img id="tour-modal-img" class="tour-modal-img" alt="" />
+        <div class="tour-modal-inner">
+          <h3 id="tour-modal-title"></h3>
+          <p id="tour-modal-sub" class="tour-modal-sub"></p>
+          <div id="tour-modal-body"></div>
+        </div>
+      </div>
     </div>
 
     <!-- CANCELLATION POLICY -->
@@ -1319,17 +1403,119 @@
       if (y) y.textContent = new Date().getFullYear();
     })();
 
+    // その場で開くアコーディオン（キャンセルポリシーで使用）
     function toggleTour(btn) {
       const body = btn.nextElementSibling;
       btn.classList.toggle('open');
       body.classList.toggle('open');
-      // 入れ子を開いたときに付けた高さを一度戻す
       body.style.maxHeight = '';
-      // 中の体験が開いたままなら、CSSの上限（6000px）では足りないことがあるので測り直す
       if (body.classList.contains('open') && body.querySelector('.option-body.open')) {
         fitParent(body);
       }
     }
+
+    // ── ツアー詳細のモーダル ──────────────────────────────────
+    // カードの中身（.tour-body）をモーダルへ「移動」させて中央に表示する。
+    // 複製ではなく移動なので、同じ文章がページに二重に存在せず、
+    // 中で動いている開閉やGA4のイベントもそのまま使える。
+    let modalReturn = null;   // 閉じたときに中身を戻す場所
+    let modalScrollY = 0;
+
+    function openTourModal(btn) {
+      const card = btn.closest('.tour-card');
+      const body = btn.nextElementSibling;
+      if (!card || !body) return;
+
+      const modal = document.getElementById('tour-modal');
+      const panel = document.getElementById('tour-modal-panel');
+
+      const h3 = card.querySelector('h3');
+      document.getElementById('tour-modal-title').textContent = h3 ? h3.textContent.trim() : '';
+
+      const sub = card.querySelector('.tour-sub');
+      const subEl = document.getElementById('tour-modal-sub');
+      subEl.textContent = sub ? sub.textContent.trim() : '';
+      subEl.style.display = sub ? 'block' : 'none';
+
+      // カード上部の写真をそのまま見出し画像に使う（動画のカードはポスター画像）
+      const img = document.getElementById('tour-modal-img');
+      const cardImg = card.querySelector('img');
+      if (cardImg) {
+        img.src = cardImg.currentSrc || cardImg.src;
+        img.alt = cardImg.alt || '';
+        img.style.display = 'block';
+      } else {
+        img.removeAttribute('src');
+        img.style.display = 'none';
+      }
+
+      modalReturn = { btn: btn, body: body };
+      document.getElementById('tour-modal-body').appendChild(body);
+      body.style.maxHeight = '';
+      body.classList.add('in-modal', 'open');
+      btn.classList.add('open');
+
+      lockPageScroll(true);
+      modal.classList.add('open');
+      panel.scrollTop = 0;
+      // いったんレイアウトを確定させてから visible を足す。
+      // これで開く動きが付く。requestAnimationFrame は裏のタブでは呼ばれず
+      // 表示されないままになることがあるため、ここでは使わない。
+      void panel.offsetHeight;
+      modal.classList.add('visible');
+      panel.focus({ preventScroll: true });
+    }
+
+    function closeTourModal() {
+      const modal = document.getElementById('tour-modal');
+      if (!modal.classList.contains('open')) return;
+      modal.classList.remove('visible');
+
+      setTimeout(function () {
+        modal.classList.remove('open');
+        if (modalReturn) {
+          const body = modalReturn.body;
+          body.classList.remove('in-modal', 'open');
+          body.style.maxHeight = '';
+          // 中で開いていた体験は閉じた状態に戻しておく
+          body.querySelectorAll('.option-body.open, .option-toggle.open')
+              .forEach(function (el) { el.classList.remove('open'); });
+          modalReturn.btn.classList.remove('open');
+          modalReturn.btn.after(body);          // 元のカードへ戻す
+          modalReturn.btn.focus({ preventScroll: true });
+          modalReturn = null;
+        }
+        lockPageScroll(false);
+      }, 300);
+    }
+
+    // モーダルを開いている間、後ろのページが動かないようにする。
+    // iOSでは overflow:hidden だけでは背景が動いてしまうため位置を固定する。
+    function lockPageScroll(on) {
+      const b = document.body;
+      if (on) {
+        modalScrollY = window.scrollY || window.pageYOffset || 0;
+        b.style.position = 'fixed';
+        b.style.top = (-modalScrollY) + 'px';
+        b.style.left = '0';
+        b.style.right = '0';
+        b.style.width = '100%';
+      } else {
+        b.style.position = '';
+        b.style.top = '';
+        b.style.left = '';
+        b.style.right = '';
+        b.style.width = '';
+        const prev = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';   // 戻るときに滑らせない
+        window.scrollTo(0, modalScrollY);
+        document.documentElement.style.scrollBehavior = prev;
+      }
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' || e.key === 'Esc') closeTourModal();
+    });
 
     // 1枚のカードの中に入れ子で置いた体験（真珠体験）の開閉。
     // 親の .tour-body は max-height で開閉しているため、中が伸びると下が切れてしまう。
@@ -1339,6 +1525,8 @@
       btn.classList.toggle('open');
       body.classList.toggle('open');
       if (!parent || !parent.classList.contains('open')) return;
+      // モーダルの中では高さの制限が外れているので、計算は要らない
+      if (parent.classList.contains('in-modal')) return;
       fitParent(parent);
       // アニメーションが終わったら端数を合わせ直す
       body.addEventListener('transitionend', function once(e) {
