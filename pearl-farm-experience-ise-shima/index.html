@@ -59,7 +59,7 @@
     {
       "@type": "TouristTrip",
       "name": "Private Pearl Farm Experience in Ise-Shima with Hotel Pickup",
-      "description": "A fully private visit to a working akoya pearl farm on Ago Bay in Ise-Shima, Mie, Japan — the region where the cultured pearl was invented. Harvest a real akoya pearl with your own hands, or learn nucleus insertion from a working craftsman and return your own oysters to the sea. Hotel pickup, private car transport and an English-speaking local guide are included. This is a family-run working farm, not a museum or a visitor centre.",
+      "description": "A fully private visit to a working akoya pearl farm on Ago Bay in Ise-Shima, Mie, Japan — the region where the cultured pearl was invented. Harvest a real akoya pearl with your own hands, or learn nucleus insertion from a working craftsman and return your own oysters to the sea. Hotel pickup, private car transport and an English-speaking local guide are included. This is a family-run working farm, not a museum or a visitor centre. Available April to November; the experience is held indoors and runs rain or shine.",
       "url": "https://www.inakatour.com/pearl-farm-experience-ise-shima/",
       "image": [
         "https://www.inakatour.com/images/pearl-harvested-in-hand.jpg",
@@ -120,7 +120,7 @@
         {
           "@type": "Question",
           "name": "Is hotel pickup included?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Pickup and drop-off by private car are included for guests staying in the Ise, Toba and Shima areas. If you are staying elsewhere, we can collect you from Ugata Station, which is reached from Osaka in about 2.5 hours by limited express train with no transfers. The farm is on a narrow mountain road with no bus service, so transport is part of the experience rather than an extra." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Pickup and drop-off are included at no extra cost for guests staying in the Ise, Toba and Shima areas, if you need it. If you are staying elsewhere, we can collect you from Ugata Station, which is reached from Osaka in about 2.5 hours by limited express train with no transfers. The farm is on a narrow mountain road with no bus service, so transport is part of the experience rather than an extra." }
         },
         {
           "@type": "Question",
@@ -150,7 +150,7 @@
         {
           "@type": "Question",
           "name": "How much does it cost?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The price depends on which experience you choose and how many guests are coming, because private car transport and the guide are shared across the group. Send us your dates and group size, and tell us whether you would like to be collected and from where, and we will come back to you with the price." }
+          "acceptedAnswer": { "@type": "Answer", "text": "The price depends on which experience you choose and how many guests are coming. Send us your dates and group size, and tell us whether you would like to be collected and from where, and we will come back to you with the price." }
         },
         {
           "@type": "Question",
@@ -159,13 +159,18 @@
         },
         {
           "@type": "Question",
+          "name": "What months is the experience available?",
+          "acceptedAnswer": { "@type": "Answer", "text": "April to November. From December to March the farm moves its pearl oysters to warmer water to protect them from the cold, so the experience cannot run in those months. If your trip falls in winter, we are happy to suggest one of our other tours instead. For the nucleus insertion experience, around June is the best time of all \u2014 that is when the farm does most of its own nucleation." }
+        },
+        {
+          "@type": "Question",
           "name": "What if it rains?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Most of the experience takes place inside the workshop, so rain is rarely a problem. Rough weather at sea can occasionally affect the farm's work, in which case we will contact you and arrange another date." }
+          "acceptedAnswer": { "@type": "Answer", "text": "The work takes place inside the workshop, so the experience runs rain or shine. It is one of the better things to do in Ise-Shima on a wet day, when the coastline and the lookouts are less rewarding. Rough weather at sea can occasionally affect the farm's own work, in which case we will contact you and arrange another date." }
         },
         {
           "@type": "Question",
           "name": "Can this be combined with Ise Jingu or other sightseeing?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, but please note that this is a single activity rather than a full day with a guide. Ise Jingu and our other tours are booked separately and priced separately. Many guests do both on the same trip, and we are happy to arrange them together — just tell us what else you would like to see." }
+          "acceptedAnswer": { "@type": "Answer", "text": "This is a single activity rather than a full day with a guide. Ise Jingu and our other tours are priced separately, and you are welcome to book one alongside this experience. They need to be booked in advance, so please tell us what else you would like to see when you enquire." }
         }
       ]
     }
@@ -262,7 +267,7 @@
     }
     .p-fact:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 24px; }
     .p-fact:nth-child(even) { padding-left: 24px; }
-    .p-fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .p-fact:not(:nth-last-child(-n+2)) { border-bottom: 1px solid var(--line); }
     .p-fact dt {
       font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--gold); margin-bottom: 10px; font-weight: 500;
@@ -446,14 +451,28 @@
       .p-cta { width: 100%; margin-left: 0; }
     }
     @media (max-width: 700px) {
-      .nav { padding: 20px 22px; }
+      /* スマホではナビの項目が折り返して写真の上に散らばり、見栄えが悪くなる。
+         写真に重ねるのをやめ、濃い地の帯に整理して置く。
+         1行目＝ロゴと問い合わせ、2行目＝メニュー（中央寄せ） */
+      .nav {
+        position: static; background: var(--ink);
+        padding: 14px 18px 12px; flex-wrap: wrap; row-gap: 12px;
+      }
+      .nav .logo { order: 1; }
+      .nav .logo img { height: 30px; }
+      .nav .cta { order: 2; padding: 9px 18px; font-size: 0.66rem; letter-spacing: 0.14em; }
+      .nav-links {
+        order: 3; flex-basis: 100%; justify-content: center;
+        flex-wrap: wrap; gap: 4px 16px;
+      }
+      .nav-links a { font-size: 0.86rem; line-height: 1.25; }
+      .nav-names { padding: 3px 2px; }
       .page-wrap { padding: 0 22px; }
       /* スマホではナビが折り返して高くなり、写真に重ねた見出しと重なってしまう。
          写真と見出しを上下に分け、見出しは濃い地の上に置く */
       .p-hero img { height: 340px; }
-      .p-hero::after {
-        background: linear-gradient(180deg, rgba(14,12,10,0.62) 0%, rgba(14,12,10,0) 48%);
-      }
+      /* ナビを写真に重ねなくなったので、写真を暗くする必要はない */
+      .p-hero::after { display: none; }
       .p-hero-inner {
         position: static; max-width: none; background: var(--ink);
         padding: 36px 22px 42px;
@@ -494,7 +513,7 @@
       <div class="p-hero-inner">
         <p class="p-eyebrow">Ise-Shima &nbsp;·&nbsp; Ago Bay</p>
         <h1>Private Pearl Farm Experience in Ise-Shima, with Hotel Pickup</h1>
-        <p class="p-lede">The cultured pearl was invented here. A narrow mountain road, just wide enough for a small Japanese car, leads down to a family-run akoya pearl farm on Ago Bay — where you harvest a real pearl with your own hands, or learn to place the nucleus yourself. Fully private, guided in English, with a car from your hotel door.</p>
+        <p class="p-lede">The cultured pearl was invented in Ise-Shima. A narrow mountain road, just wide enough for a small Japanese car, leads down to a family-run akoya pearl farm on Ago Bay — where you harvest a real pearl with your own hands, or learn to place the nucleus yourself. Fully private, guided in English, and held indoors — so it runs rain or shine. April to November.</p>
       </div>
     </div>
 
@@ -503,9 +522,11 @@
 
       <dl class="p-facts">
         <div class="p-fact"><dt>Where</dt><dd>Ago Bay, Ise-Shima<br>Mie Prefecture</dd></div>
+        <div class="p-fact"><dt>Season</dt><dd>April to November<br>Closed December–March</dd></div>
         <div class="p-fact"><dt>When</dt><dd>Usually afternoons<br>1–2 h, or 3–4 h</dd></div>
+        <div class="p-fact"><dt>Indoors</dt><dd>Runs rain or shine<br>Good on a wet day</dd></div>
         <div class="p-fact"><dt>Group</dt><dd>Fully private<br>Up to 5 guests</dd></div>
-        <div class="p-fact"><dt>Transport</dt><dd>Hotel pickup<br>and drop-off</dd></div>
+        <div class="p-fact"><dt>Transport</dt><dd>Pickup available<br>if you need it</dd></div>
       </dl>
 
       <section class="p-section">
@@ -545,8 +566,8 @@
 
         <div class="p-option">
           <h3>1 · Pearl Harvesting</h3>
-          <p class="p-option-meta">1–2 hours &nbsp;·&nbsp; Fully private &nbsp;·&nbsp; Hotel pickup included</p>
-          <p>At the workshop you are shown the farm's cultured akoya pearl oysters and choose one yourself. Then you open the shell and lift out the pearl with your own hands.</p>
+          <p class="p-option-meta">1–2 hours &nbsp;·&nbsp; Fully private &nbsp;·&nbsp; Pickup available</p>
+          <p>At the workshop you are shown the akoya pearl oysters the farm grows on its own rafts in the bay, and you choose one yourself. Then you open the shell and lift out the pearl with your own hands.</p>
           <p>Every pearl is different in shape, colour and size, and nobody — not even the farmer — knows what is inside until the shell is open. Some come out perfectly round; others are baroque, with their own irregular shape. That is the nature of it, and part of why it is worth doing.</p>
           <p>Afterwards there is time to feed the fish kept beside the rafts, and back at the shop you can have your pearl set into jewellery if you would like to.</p>
           <ul class="p-steps">
@@ -563,7 +584,7 @@
 
         <div class="p-option">
           <h3>2 · Nucleus Insertion &amp; Harvesting</h3>
-          <p class="p-option-meta">3–4 hours &nbsp;·&nbsp; 6 oysters each &nbsp;·&nbsp; Fully private &nbsp;·&nbsp; Hotel pickup included</p>
+          <p class="p-option-meta">3–4 hours &nbsp;·&nbsp; 6 oysters each &nbsp;·&nbsp; Fully private &nbsp;·&nbsp; Best around June</p>
           <p>Inserting the nucleus is the technique at the heart of akoya pearl farming, and it has been handed down in Ago Bay for generations. Here a craftsman who does it for a living shows you how — and then you do it yourself.</p>
           <p>Each guest works on six pearl oysters, placing a nucleus and a small piece of mantle tissue inside each pearl oyster. It is close, delicate work that asks for a steady hand and real concentration.</p>
           <p>The pearl oysters you have worked on go into nets and back into the sea. About a year later, any pearls that can be harvested from your own shells are collected and sent to your home address. You also choose a pearl oyster from the farm's stock and harvest a pearl on the day — so you leave with a pearl in your hand, and another one growing in the bay.</p>
@@ -578,6 +599,7 @@
             <li>Back at the shop — optional jewellery setting</li>
             <li>Drop-off</li>
           </ul>
+          <p><strong>Around June is the best time for this one.</strong> It is when the farm does most of its own nucleus insertion, so the conditions — and the craftsman's hands — are at their best. It can be arranged at other times between April and November, but June is the month to aim for.</p>
           <p>Good for: travellers who want to understand how a pearl is actually made, and who like the idea of something of theirs still growing in Ago Bay a year after the trip ends.</p>
         </div>
 
@@ -599,19 +621,19 @@
         <h2>Getting here, and what to expect</h2>
 
         <h3>Pickup and travel times</h3>
-        <p>Hotel pickup and drop-off are included for guests staying in the <strong>Ise, Toba and Shima</strong> areas. If you are staying elsewhere, we meet you at <strong>Ugata Station</strong>.</p>
+        <p>Pickup and drop-off are included at no extra cost for guests staying in the <strong>Ise, Toba and Shima</strong> areas, if you need it. If you are staying elsewhere, we meet you at <strong>Ugata Station</strong>.</p>
         <ul>
           <li><strong>From Osaka</strong> — about 2.5 hours by limited express train, no transfers</li>
           <li><strong>From Nagoya</strong> — about 2 hours by limited express train</li>
           <li><strong>From Kyoto</strong> — about 3 hours, usually with one change</li>
         </ul>
         <p>Ise-Shima is reachable as a long day trip, but it is much better as an overnight stay.</p>
-        <p>Please note that this is a single activity, not a full day with a guide. The transport above is to and from the pearl farm for this experience. If you would also like to see Ise Jingu or the coastline, that is one of our other tours, booked and priced separately — we are happy to arrange both on the same trip.</p>
+        <p>This is a single activity, not a full day with a guide. The transport above is to and from the pearl farm for this experience. We also run other tours — Ise Jingu, or a full day along the coastline — and you are welcome to book one of those alongside this experience. They are priced separately and need to be booked in advance.</p>
 
         <h3>What's included</h3>
         <ul>
           <li>The experience fee at the pearl farm</li>
-          <li>Private car transport, pickup and drop-off</li>
+          <li>Transport to and from the farm, with pickup and drop-off if you need it</li>
           <li>An English-speaking local guide throughout</li>
           <li>The pearl you harvest on the day</li>
         </ul>
@@ -619,15 +641,15 @@
         <h3>What's not included</h3>
         <ul>
           <li>Meals and personal shopping</li>
-          <li>The cost of having a pearl set into jewellery</li>
+          <li>The cost of having a pearl set into jewellery, if you choose to have this done</li>
         </ul>
 
         <h3>Good to know</h3>
         <ul>
-          <li>This is a single activity, not a full day with a guide. Our other tours are booked and priced separately.</li>
-          <li>The experience usually runs in the afternoon. We confirm the exact time with the farm when you book.</li>
-          <li>Maximum 5 guests per booking.</li>
-          <li>Most of the experience is indoors, so rain is rarely a problem.</li>
+          <li><strong>The experience runs from April to November only.</strong> From December to March the pearl oysters are moved to warmer water to protect them from the cold, so the farm cannot take guests.</li>
+          <li>We confirm the exact time with the farm when you book.</li>
+          <li>Maximum 5 guests per booking. If your group is larger, please ask — we will see what can be arranged.</li>
+          <li>The work takes place inside the workshop, so the experience runs rain or shine — a good choice for a wet day in Ise-Shima.</li>
           <li>Jewellery setting depends on the workshop's schedule on the day — we check it for you with every booking.</li>
           <li>The nucleus insertion experience is technical and may be difficult for younger children.</li>
           <li>Not every pearl oyster you work on survives the year; in some cases no pearl can be collected.</li>
@@ -649,7 +671,7 @@
           <p>Yes. Every booking is fully private — only your own group, up to five guests. You are not joined to other travellers, so the craftsman works with you directly and your questions are answered as they come up.</p></details>
 
         <details><summary>Is hotel pickup included?</summary>
-          <p>Yes. Pickup and drop-off by private car are included for guests staying in the Ise, Toba and Shima areas. If you are staying elsewhere, we can collect you from Ugata Station, which is reached from Osaka in about 2.5 hours by limited express train with no transfers. The farm is on a narrow mountain road with no bus service, so transport is part of the experience rather than an extra.</p></details>
+          <p>Yes. Pickup and drop-off are included at no extra cost for guests staying in the Ise, Toba and Shima areas, if you need it. If you are staying elsewhere, we can collect you from Ugata Station, which is reached from Osaka in about 2.5 hours by limited express train with no transfers. The farm is on a narrow mountain road with no bus service, so transport is part of the experience rather than an extra.</p></details>
 
         <details><summary>Do I keep the pearl I harvest?</summary>
           <p>Yes. The pearl you take out of the shell on the day is yours to keep. These are real akoya pearls, so some come out perfectly round and others are baroque, with their own irregular shape — nobody knows what is inside until the shell is opened.</p></details>
@@ -667,20 +689,23 @@
           <p>Often, yes. The same site makes jewellery, so a pearl can be set into a pendant or a ring at the workshop. This depends on the workshop's schedule on the day, so we check it for you with every booking.</p></details>
 
         <details><summary>How much does it cost?</summary>
-          <p>The price depends on which experience you choose and how many guests are coming, because private car transport and the guide are shared across the group. Send us your dates and group size, and tell us whether you would like to be collected and from where, and we will come back to you with the price.</p></details>
+          <p>The price depends on which experience you choose and how many guests are coming. Send us your dates and group size, and tell us whether you would like to be collected and from where, and we will come back to you with the price.</p></details>
 
         <details><summary>How far in advance should I book?</summary>
           <p>As early as you can. This is a small working farm and every booking has to be confirmed with them before it is final, so a few days' notice makes a real difference — especially in spring and autumn.</p></details>
 
+        <details><summary>What months is the experience available?</summary>
+          <p>April to November. From December to March the farm moves its pearl oysters to warmer water to protect them from the cold, so the experience cannot run in those months. If your trip falls in winter, we are happy to suggest one of our other tours instead. For the nucleus insertion experience, around June is the best time of all — that is when the farm does most of its own nucleation.</p></details>
+
         <details><summary>What if it rains?</summary>
-          <p>Most of the experience takes place inside the workshop, so rain is rarely a problem. Rough weather at sea can occasionally affect the farm's work, in which case we will contact you and arrange another date.</p></details>
+          <p>The work takes place inside the workshop, so the experience runs rain or shine. It is one of the better things to do in Ise-Shima on a wet day, when the coastline and the lookouts are less rewarding. Rough weather at sea can occasionally affect the farm's own work, in which case we will contact you and arrange another date.</p></details>
 
         <details><summary>Can this be combined with Ise Jingu or other sightseeing?</summary>
-          <p>Yes, but please note that this is a single activity rather than a full day with a guide. Ise Jingu and our other tours are booked separately and priced separately. Many guests do both on the same trip, and we are happy to arrange them together — just tell us what else you would like to see.</p></details>
+          <p>This is a single activity rather than a full day with a guide. Ise Jingu and our other tours are priced separately, and you are welcome to book one alongside this experience. They need to be booked in advance, so please tell us what else you would like to see when you enquire.</p></details>
       </section>
 
       <section class="p-cta">
-        <h2>Ask about a date</h2>
+        <h2>Ask us</h2>
         <p>This is a small working farm, so every booking is confirmed with them before it is final. Send your dates, the number of guests, which of the two experiences you would like, and whether you would like us to collect you — we will check with the farm and come back to you with availability and the price.</p>
         <a class="p-cta-btn" href="mailto:inakatoursjp@gmail.com?subject=Pearl%20Farm%20Experience%20enquiry&amp;body=Hello%2C%0A%0AI%20would%20like%20to%20ask%20about%20the%20pearl%20farm%20experience.%0A%0APreferred%20date%28s%29%3A%20%0ANumber%20of%20guests%3A%20%0AExperience%3A%20harvesting%20%2F%20nucleus%20insertion%20%2B%20harvesting%0A%0ADo%20you%20need%20pickup%3F%3A%20yes%20%2F%20no%0AIf%20yes%2C%20where%20should%20we%20collect%20you%3F%20%28hotel%20name%2C%20or%20station%29%3A%20%0A%0AThank%20you.">Send an enquiry</a>
         <p class="p-cta-sub">inakatoursjp@gmail.com &nbsp;·&nbsp; +81 90-5366-1544</p>
