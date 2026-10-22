@@ -314,6 +314,13 @@
       max-width: none; height: auto; max-height: 520px; object-fit: cover;
     }
     .p-photo.tall { max-height: 640px; object-position: center 35%; }
+    /* 本文中のリンク。標準の青ではなくページの差し色に揃える */
+    .p-section a.p-link {
+      color: var(--gold); text-decoration: none;
+      border-bottom: 1px solid rgba(165, 133, 63, 0.42);
+      transition: border-color 0.25s ease;
+    }
+    .p-section a.p-link:hover { border-bottom-color: var(--gold); }
     .p-section p.p-cap, .p-cap {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
       font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin: 0 0 10px;
@@ -654,6 +661,12 @@
           <li>The nucleus insertion experience is technical and may be difficult for younger children.</li>
           <li>Not every pearl oyster you work on survives the year; in some cases no pearl can be collected.</li>
         </ul>
+
+        <h3>Taking part — please read</h3>
+        <p>The workshop is a working space, and the nucleus insertion uses fine, sharp hand tools. <strong>You take part at your own risk and remain responsible for your own health and safety.</strong> Please follow the craftsman's and the guide's instructions at all times, and stay within the areas you are shown.</p>
+        <p>Please tell us in advance about any medical condition, allergy, pregnancy or mobility need that could affect your visit, so that we can advise you honestly. Children remain the responsibility of the adult accompanying them.</p>
+        <p>We are not responsible for injury, illness, loss or damage other than where it is caused by our own fault.</p>
+        <p>Cancellations are handled under our standard cancellation policy — the full terms are on our <a class="p-link" href="/#tours">main site</a> and in our <a class="p-link" href="https://guide.inakatour.com/legal" target="_blank" rel="noopener">legal notice</a>.</p>
 
         <img class="p-photo" src="/images/pearl-workshop-laughing.jpg" width="1600" height="900" loading="lazy"
              alt="Guests and the pearl farmer laughing together after opening the shells at a family-run akoya pearl farm in Ise-Shima" />
