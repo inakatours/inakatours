@@ -665,6 +665,68 @@
       font-size: 13.5px; line-height: 1.85;
       color: #5a5a5a;
     }
+    /* ── なぜ伊勢志摩なのか ── */
+    .why-region { background: #f7f4ee; padding: 86px 40px 92px; }
+    .why-inner { max-width: 1000px; margin: 0 auto; }
+    .why-kicker {
+      font-family: 'Inter', sans-serif; font-size: 0.66rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--red);
+      margin: 0 0 16px; text-align: center;
+    }
+    .why-region h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(1.9rem, 3.6vw, 2.7rem); line-height: 1.25;
+      margin: 0 0 32px; text-align: center; color: #2b2118;
+    }
+    .why-lead { max-width: 660px; margin: 0 auto; }
+    .why-lead p { line-height: 1.95; color: #4a443b; margin: 0 0 1.1em; }
+    .why-closing {
+      margin-top: 1.6em !important; padding-top: 1.4em;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      font-size: 1.12rem; color: #2b2118;
+    }
+    .why-cols {
+      display: flex; flex-wrap: wrap; gap: 30px;
+      max-width: 880px; margin: 54px auto 0;
+    }
+    .why-col { flex: 1 1 340px; background: #fff; border-radius: 14px; padding: 32px 30px 28px; }
+    .why-col h3 {
+      font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--red);
+      margin: 0 0 18px;
+    }
+    .why-col-cons h3 { color: #8a8378; }
+    .why-col ul { margin: 0; padding: 0; list-style: none; }
+    .why-col li {
+      position: relative; padding-left: 20px; margin-bottom: 0.8em;
+      line-height: 1.8; font-size: 0.97rem; color: #4a443b;
+    }
+    .why-col li::before {
+      content: ''; position: absolute; left: 2px; top: 0.78em;
+      width: 5px; height: 5px; border-radius: 50%; background: #c9b27a;
+    }
+    .why-note {
+      margin: 20px 0 0; padding-top: 16px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.9rem; line-height: 1.8; color: #6a645b;
+    }
+    @media (max-width: 700px) {
+      .why-region { padding: 60px 22px 64px; }
+      .why-cols { gap: 18px; margin-top: 38px; }
+      .why-col { padding: 26px 22px 22px; }
+    }
+
+    .cancel-policy-heading {
+      margin: 26px 0 0; padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--red);
+    }
+    /* 続けて並ぶ注意書きは、区切り線を重ねない */
+    .cancel-policy-heading + .cancel-policy-note,
+    .cancel-policy-note + .cancel-policy-note {
+      margin-top: 12px; padding-top: 0; border-top: none;
+    }
     .cancel-policy-legal {
       margin: 10px 0 0;
       font-size: 12px; line-height: 1.7; color: #8a8a8a;
@@ -763,6 +825,42 @@
     <h1>Ise-Shima Tours</h1>
     <p class="hero-tag">Immerse yourself in<br />rural Japan</p>
     <p class="hero-sub">Private tours, hidden gems &amp; things to do in Ise-Shima, guided by a local</p>
+  </section>
+
+  <!-- なぜ伊勢志摩なのか。短所を先に認めたうえで、それでも来る価値を書く -->
+  <section id="why" class="why-region">
+    <div class="why-inner">
+      <p class="why-kicker">Why come to Ise-Shima</p>
+      <h2>There are plenty of drawbacks here</h2>
+      <div class="why-lead">
+        <p>But if you can work around them, this is the day that is waiting for you.</p>
+        <p>The unique ria coastline you will not see anywhere else. The place where the world's first cultured pearl was grown, where you can learn about real pearls and take one out of the shell yourself. The seafood of Ise-Shima, eaten close to the ama diving culture that still brings it in. And Jingu — the shrine Japanese people call the spiritual home of the nation, and say you should visit once in your life. Then, if the weather is kind, you end the day with a sunset chosen as one of Japan's hundred finest.</p>
+        <p>All of it at a relaxed pace, without crowds around you.</p>
+        <p class="why-closing">Time here is never in a hurry. People call it <em>Shima time</em>, and I think that, more than anything else, is what makes Ise-Shima worth the journey.</p>
+      </div>
+
+      <div class="why-cols">
+        <div class="why-col">
+          <h3>What is good about it</h3>
+          <ul>
+            <li>Rural, but not too rural — there are plenty of shops and places to eat</li>
+            <li>A great deal that exists only here, with a long history behind it: the birthplace of cultured pearls, the ria coastline, Jingu, the ama diving culture, a national park, and a sunset chosen among Japan's hundred finest</li>
+            <li>Time runs slowly — what we call <em>Shima time</em></li>
+            <li>Close to the sea: in summer especially, there is surfing, SUP, fishing, kayaking and plenty more</li>
+            <li>Because so little is written about it, you are not surrounded by crowds almost anywhere you go</li>
+          </ul>
+        </div>
+        <div class="why-col why-col-cons">
+          <h3>And what is not</h3>
+          <ul>
+            <li>Getting around is not easy, and the places are spread a little far apart from one another</li>
+            <li>In most places, only Japanese is spoken</li>
+            <li>There is little information, so it is hard to know what to do</li>
+          </ul>
+          <p class="why-note">That is the gap we exist to close — with a guide for the day, or with the mobile guide if you would rather explore on your own.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="tours" class="tours">
@@ -1057,7 +1155,7 @@
     <!-- CANCELLATION POLICY -->
     <div class="cancel-policy">
       <button class="cancel-policy-toggle" onclick="toggleTour(this)" aria-label="Cancellation Policy">
-        <span>Cancellation Policy</span>
+        <span>Cancellation Policy &amp; Safety</span>
         <span class="toggle-icon">+</span>
       </button>
       <div class="tour-body">
@@ -1087,7 +1185,11 @@
             </tbody>
           </table>
           <p class="cancel-policy-note">Percentages apply to the total tour fee. If your plans change, please contact us as early as you can — where the schedule allows, we will offer to move your booking to another date rather than charge a cancellation fee.</p>
-          <p class="cancel-policy-legal">The mobile guide is a digital product and is non-refundable once purchased. Full terms are set out in our <a href="https://guide.inakatour.com/legal">legal notice</a>.</p>
+          <h4 class="cancel-policy-heading">Taking part — please read</h4>
+          <p class="cancel-policy-note">Depending on the tour, the day may involve walking on uneven ground, steps without handrails, boats, open flame, or fine hand tools. <strong>You take part at your own risk and remain responsible for your own health and safety.</strong> Please follow the guide's and the venue's instructions at all times, and stay within the areas you are shown.</p>
+          <p class="cancel-policy-note">Please tell us in advance about any medical condition, allergy, pregnancy or mobility need that could affect your visit, so that we can advise you honestly or suggest something more suitable. Children remain the responsibility of the adult accompanying them.</p>
+          <p class="cancel-policy-note">We are not responsible for injury, illness, loss or damage other than where it is caused by our own fault. <strong>We strongly recommend arranging travel insurance</strong> that covers the activities you intend to join.</p>
+          <p class="cancel-policy-legal">Full terms are set out in our <a href="https://guide.inakatour.com/legal">legal notice</a>.</p>
         </div>
       </div>
     </div>
