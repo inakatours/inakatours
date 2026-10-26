@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Book Your Tour — Inaka Tours Japan</title>
+<!-- 予約ページは guide.inakatour.com にある。
+     www.inakatour.com/book は過去のリンクやブックマークから来る人がいて404になっていたため、
+     このページで予約ページへ転送する。GitHub Pages ではサーバー側のリダイレクトが使えないので、
+     canonical・meta refresh・JavaScript の3段構えにしてある。 -->
+<link rel="canonical" href="https://guide.inakatour.com/book" />
+<meta name="robots" content="noindex, follow" />
+<meta http-equiv="refresh" content="0; url=https://guide.inakatour.com/book" />
+<script>window.location.replace("https://guide.inakatour.com/book");</script>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #faf8f4;
+    color: #4a443b;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    text-align: center;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  p { margin: 0 0 18px; line-height: 1.7; }
+  a {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #b23b2e;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+  <p>Taking you to the booking page&hellip;</p>
+  <p><a href="https://guide.inakatour.com/book">Book Your Tour</a></p>
+</body>
+</html>
