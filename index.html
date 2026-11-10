@@ -21,11 +21,17 @@
       var href = a.getAttribute('href') || '';
       var name = null;
       if (a.classList.contains('digital-guide-btn')) name = 'click_mobile_guide';
+      // 地域の話題ボタン。海女・真珠・国立公園・神宮のどれに関心が集まるかを見る
+      else if (a.classList.contains('why-tag'))      name = 'click_topic';
       else if (href.indexOf('/book') >= 0)           name = 'click_book_tour';
       else if (href.indexOf('/review') >= 0)         name = 'click_review';
       else if (href.indexOf('instagram.com') >= 0)   name = 'click_instagram';
       else if (href.indexOf('wa.me') >= 0 || href.indexOf('mailto:') >= 0 || href.indexOf('tel:') >= 0) name = 'click_contact';
-      if (name) gtag('event', name, { link_url: href });
+      if (!name) return;
+      var params = { link_url: href };
+      // 話題ボタンは、どれが押されたかをボタンの文字で残す
+      if (name === 'click_topic') params.topic = a.textContent.trim();
+      gtag('event', name, params);
     });
 
     // ツアーの詳細を開いた回数（どの商品に関心があるかが分かる）
