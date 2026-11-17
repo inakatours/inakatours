@@ -367,6 +367,8 @@
       max-width: 660px; margin: -8px auto 36px; padding: 0 20px;
       text-align: center; color: #6b6b6b; font-size: 15px; line-height: 1.75;
       font-family: 'Inter', sans-serif; font-weight: 300;
+      /* 最終行に1単語だけ残る「孤立行」を防ぐ。非対応のブラウザでは無視されるだけ */
+      text-wrap: pretty;
     }
   </style>
 
@@ -540,7 +542,8 @@
       text-align: center; color: #5a5a5a; font-size: 15px; line-height: 1.85;
       font-family: 'Inter', sans-serif; font-weight: 300;
     }
-    .tours-ethos p { color: inherit; line-height: inherit; margin-bottom: 0.65em; }
+    /* 短い中央揃えの段落なので、行の長さを揃える balance が最も収まりが良い */
+    .tours-ethos p { color: inherit; line-height: inherit; margin-bottom: 0.65em; text-wrap: balance; }
     @media (max-width: 640px) {
       .tour-story { padding: 22px 19px 10px; }
       .tour-story-portrait { width: 40px; height: 40px; flex: 0 0 40px; }
@@ -553,7 +556,7 @@
       font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em;
       text-transform: uppercase; color: var(--red); font-weight: 500; margin-bottom: 14px; margin-top: 0;
     }
-    .tour-body p, .tour-description p { line-height: 1.9; color: #444; margin-bottom: 0.8em; }
+    .tour-body p, .tour-description p { line-height: 1.9; color: #444; margin-bottom: 0.8em; text-wrap: pretty; }
     .price {
       display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.65rem;
       font-weight: 500; color: var(--red); margin-top: 40px; padding-top: 28px;
@@ -1014,7 +1017,7 @@
                      src="images/about1.jpg" alt="Shota, founder and English-speaking local guide of Inaka Tours Japan in Ise-Shima" />
                 <h4>The Story Behind the Tour</h4>
               </div>
-              <p>I made this tour for people who arrive already curious about Ise-Shima, and who want to go deeper &mdash; and comfortably &mdash; into the hidden places a local guide would choose, knowing the story behind each one, and to leave even more interested in this region than when they came.</p>
+              <p>I made this tour both for people visiting this region for the first time and for those who arrive already curious about Ise-Shima &mdash; people who want to go deeper, and comfortably, into the hidden places a local guide would choose, knowing the story behind each one, and to leave even more interested in this region than when they came.</p>
               <p>The place where we live overflows with remarkable things that belong to this region alone. At the same time, the area has real weaknesses. Public transport is poor. The places sit a little apart from one another. There is very little written explanation. And there is so little information to begin with that visitors cannot tell what is even here &mdash; so the places worth seeing, and the interesting stories hidden inside them, are easily missed.</p>
               <p>This tour focuses on two things: that the experience belongs to Ise-Shima alone, and that you get inside local life. The goal is simply that you come to know Ise-Shima clearly, first.</p>
               <p>Quiet, wonderful, local hidden places are waiting. I would be honoured if this became the highlight of your trip to Japan.</p>
