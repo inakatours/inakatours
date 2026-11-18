@@ -111,7 +111,7 @@
       "itemOffered": {
         "@type": "TouristTrip",
         "name": "Ise-Shima Basic Tour",
-        "description": "A fully private day tour of the Shima area — panoramic ria coastline at Yokoyama Lookout, hidden fishing villages, local lunch and more, with car transport between stops.",
+        "description": "A fully private day tour of the Shima area — panoramic ria coastline at Yokoyama Lookout, hidden fishing villages, a stop for local lunch at your own expense and more, with car transport between stops.",
         "touristType": [
           "Couples",
           "Families",
@@ -135,6 +135,13 @@
             "name": "Ria coastline"
           }
         ]
+      },
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 5,
+        "unitCode": "IE",
+        "unitText": "person"
       }
     },
     {
@@ -142,11 +149,10 @@
       "itemOffered": {
         "@type": "TouristTrip",
         "name": "Goma Fire Ritual in Ise-Shima",
-        "description": "Take part in goma, the sacred fire ritual of esoteric Shingon Buddhism, at a temple founded in 742 in Ise-Shima National Park, Mie. Sutras are chanted while gomagi prayer sticks burn in a yakuyoke ceremony to ward off bad luck. Includes a guided tour of the temple grounds, private car transport and an English-speaking local guide. Held indoors in the temple hall, the ritual goes ahead rain or shine, making it a good choice for a rainy day in Shima; in wet weather the temple walk covers only what can be done comfortably with an umbrella.",
+        "description": "Take part in goma, the sacred fire ritual of esoteric Shingon Buddhism, at a temple founded in 742 in Ise-Shima National Park, Mie. Sutras are chanted while gomagi prayer sticks burn in a yakuyoke ceremony to ward off bad luck. Includes a guided tour of the temple grounds, private car transport and an English-speaking local guide. Held indoors in the temple hall, the ritual goes ahead rain or shine, making it a good choice for a rainy day in Shima; in wet weather the temple walk covers only what can be done comfortably with an umbrella. For guests aged 15 and over. Maximum 5 guests.",
         "image": "https://www.inakatour.com/images/tour-goma-poster.jpg",
         "touristType": [
           "Couples",
-          "Families",
           "Solo travellers"
         ],
         "about": [
@@ -212,6 +218,13 @@
             "name": "Oharaimachi"
           }
         ]
+      },
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 5,
+        "unitCode": "IE",
+        "unitText": "person"
       }
     },
     {
@@ -364,7 +377,7 @@
     .tour-card .img-note { margin: 10px 0 0; }
     .gallery .img-note { text-align: center; margin: 18px 0 0; }
     .tours-intro {
-      max-width: 660px; margin: -8px auto 36px; padding: 0 20px;
+      max-width: 660px; margin: 54px auto 0; padding: 0 20px;
       text-align: center; color: #6b6b6b; font-size: 15px; line-height: 1.75;
       font-family: 'Inter', sans-serif; font-weight: 300;
       /* 最終行に1単語だけ残る「孤立行」を防ぐ。非対応のブラウザでは無視されるだけ */
@@ -520,34 +533,52 @@
     .tour-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
 
     /* ツアーのビハインドストーリー。
-       モーダル内の既存の囲み（.option-card）と同じ作法に揃える。
-       サイトの罫線は1px・極薄が基本なので、色や太さで目立たせない。 */
+       既定は閉じておく。開くかどうかは読み手に委ね、ツアー情報へ先に辿り着けるようにする。
+       見た目はモーダル内の既存の囲み（.option-card）と同じ作法。 */
     .tour-story {
       border: 1px solid rgba(0,0,0,0.12); border-radius: 14px;
-      background: #fcfaf6; padding: 26px 24px 12px; margin: 26px 0 0;
+      background: #fcfaf6; padding: 0; margin: 26px 0 0;
     }
-    .tour-story-head { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
-    .tour-story-portrait {
+    .tour-story-head {
+      display: flex; align-items: center; gap: 13px;
+      padding: 17px 22px; cursor: pointer; list-style: none;
+    }
+    .tour-story-head::-webkit-details-marker { display: none; }
+    .tour-story-head:hover .tour-story-icon { opacity: 0.6; }
+    /* .tour-card img（詳細度0,1,1）に負けないよう、img を付けて同じ詳細度にする。
+       img.tour-photo が同じ理由でそう書かれているのに揃える。 */
+    img.tour-story-portrait {
       width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
-      flex: 0 0 44px; display: block;
+      flex: 0 0 44px; min-width: 0; margin: 0; display: block;
     }
-    .tour-body .tour-story-head h4 { margin: 0; }
+    /* 下の .tour-body h4:not(.section-title) と詳細度が同点で、あちらが後に来るため
+       margin-bottom を上書きされてしまう。打ち消さないと見出しが上にずれる。 */
+    .tour-body .tour-story-head h4 { margin: 0 !important; flex: 1 1 auto; }
+    .tour-story-icon {
+      font-size: 1.15rem; line-height: 1; flex: 0 0 auto;
+      color: var(--red, #c8321e); transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    .tour-story[open] .tour-story-icon { transform: rotate(45deg); }
+    /* styles.css に * { margin: 0 } があり p の既定マージンが消えるため、
+       上の余白はここで明示する。これが無いと見出し行に本文が密着する。 */
+    .tour-story-body { padding: 4px 22px 14px; }
     .tour-story-sign {
       font-family: 'Inter', sans-serif; font-size: 0.7rem; letter-spacing: 0.08em;
       color: #8a8178 !important; margin-top: 1.2em !important;
     }
     /* ツアー共通の考え方。前後の .tours-intro と同じ組版に揃える */
     .tours-ethos {
-      max-width: 660px; margin: 0 auto 38px; padding: 0 20px;
+      max-width: 660px; margin: 0 auto; padding: 0 20px;
       text-align: center; color: #5a5a5a; font-size: 15px; line-height: 1.85;
       font-family: 'Inter', sans-serif; font-weight: 300;
     }
     /* 短い中央揃えの段落なので、行の長さを揃える balance が最も収まりが良い */
     .tours-ethos p { color: inherit; line-height: inherit; margin-bottom: 0.65em; text-wrap: balance; }
     @media (max-width: 640px) {
-      .tour-story { padding: 22px 19px 10px; }
+      .tour-story-head { padding: 15px 17px; }
+      .tour-story-body { padding: 4px 17px 12px; }
       .tour-story-portrait { width: 40px; height: 40px; flex: 0 0 40px; }
-      .tours-ethos { margin-bottom: 30px; }
+      .tours-intro { margin-top: 40px; }
     }
 
     .tour-body.open { max-height: 14000px; }
@@ -991,13 +1022,6 @@
 
   <section id="tours" class="tours">
     <h2>Our Ise-Shima Tours</h2>
-    <p class="tours-intro">All of our Ise-Shima tours are private, small-group and guided in English. Looking for the best things to do in Ise-Shima? Explore Ise Jingu (Ise Grand Shrine), Japan's most sacred Shinto shrine, and the hidden gems of the ria coastline — quiet fishing villages, ama divers and local food culture — on a fully private tour with an English-speaking local guide. You can also take part in the work of the region itself: a goma fire ritual at a temple founded in 742, or harvesting a real akoya pearl at a working pearl farm in Ago Bay, in the region where the cultured pearl was invented. At Inaka Tours Japan, we focus on authentic local experiences, and we'd love for you to enjoy something truly special that you can only experience here.</p>
-
-      <!-- ツアー共通の考え方。伊勢志摩を代表する5トピックを名前で挙げ、検索とAIに拾わせる -->
-      <div class="tours-ethos">
-        <p>Every tour here is built on the same three things: an experience you can have only in this region, real access to local life, and a journey that stays comfortable from beginning to end.</p>
-        <p>Across these experiences you will meet the five subjects that define Ise-Shima &mdash; pearl farming, Ise Jingu, <em>ama</em> diving culture, Ise-Shima National Park, and what we call <em>Shima time</em>.</p>
-      </div>
       <div class="tour-grid">
 
       <!-- Basic Tour -->
@@ -1010,19 +1034,22 @@
         </button>
         <div class="tour-body">
           <div class="tour-body-inner">
-            <p>This is a fully private walking tour designed exclusively for you and your family.<br>You will explore each location on foot, with transportation between points provided by car.<br>The tour is planned to begin around 9:00 a.m and conclude around 5:30 p.m, without dinner included.</p>
-            <div class="tour-story">
-              <div class="tour-story-head">
+            <p>This is a fully private walking tour designed exclusively for you and your family.<br>You will explore each location on foot, with transportation between points provided by car.<br>The tour is planned to begin around 9:00 a.m. and conclude around 5:30 p.m. Dinner is not included.</p>
+            <details class="tour-story">
+              <summary class="tour-story-head">
                 <img class="tour-story-portrait" loading="lazy" decoding="async" width="46" height="46"
-                     src="images/about1.jpg" alt="Shota, founder and English-speaking local guide of Inaka Tours Japan in Ise-Shima" />
+                     src="images/about1.jpg" alt="" />
                 <h4>The Story Behind the Tour</h4>
+                <span class="tour-story-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="tour-story-body">
+                <p>I made this tour both for people visiting this region for the first time and for those who arrive already curious about Ise-Shima &mdash; people who want to go deeper, and comfortably, into the hidden places a local guide would choose, knowing the story behind each one, and to leave even more interested in this region than when they came.</p>
+                <p>The place where we live overflows with remarkable things that belong to this region alone. At the same time, the area has real weaknesses. Public transport is poor. The places sit a little apart from one another. Almost nothing is explained in English. And there is so little information to begin with that visitors cannot tell what is even here &mdash; so the places worth seeing, and the interesting stories hidden inside them, are easily missed.</p>
+                <p>This tour focuses on two things: that the experience belongs to Ise-Shima alone, and that you step into local life. The goal is simply that you come to know Ise-Shima clearly, first.</p>
+                <p>Quiet, wonderful, local hidden places are waiting. I would be honoured if this became the highlight of your trip to Japan.</p>
+                <p class="tour-story-sign">&mdash; Shota, founder &amp; guide</p>
               </div>
-              <p>I made this tour both for people visiting this region for the first time and for those who arrive already curious about Ise-Shima &mdash; people who want to go deeper, and comfortably, into the hidden places a local guide would choose, knowing the story behind each one, and to leave even more interested in this region than when they came.</p>
-              <p>The place where we live overflows with remarkable things that belong to this region alone. At the same time, the area has real weaknesses. Public transport is poor. The places sit a little apart from one another. There is very little written explanation. And there is so little information to begin with that visitors cannot tell what is even here &mdash; so the places worth seeing, and the interesting stories hidden inside them, are easily missed.</p>
-              <p>This tour focuses on two things: that the experience belongs to Ise-Shima alone, and that you get inside local life. The goal is simply that you come to know Ise-Shima clearly, first.</p>
-              <p>Quiet, wonderful, local hidden places are waiting. I would be honoured if this became the highlight of your trip to Japan.</p>
-              <p class="tour-story-sign">&mdash; Shota, founder &amp; guide</p>
-            </div>
+            </details>
             <h4 class="section-title">　</h4>
             <h4>About this tour</h4>
             <div class="tour-description">
@@ -1031,25 +1058,26 @@
               <p>The tour includes a harmonious blend of iconic highlights, such as Ise Grand Shrine, as well as hidden gems known mostly to locals.</p>
               <p>It is designed to help you explore the Ise-Shima area in an efficient yet immersive way, going beyond the typical tourist experience.</p>
               <p>Above all, I hope you will feel the unique atmosphere of this region.</p>
-              <p>In Ise-Shima, we call this "Shima Time" — a gentle, unhurried rhythm of life.</p>
+              <p>In Ise-Shima, we call this <em>Shima time</em> — a gentle, unhurried rhythm of life.</p>
             </div>
             <h4 class="section-title">　</h4>
             <h4>What's Not Included</h4>
             <p>Meal costs, optional personal experience fees, and shopping expenses are not included.</p>
+            <p>Maximum 5 guests.</p>
             <p>Transportation between locations is provided by car at no additional charge.</p>
             <h4 class="section-title">　</h4>
-            <h4>Access & Pick-up</h4>
-            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pickup is available at Ugata Station or Iseshi Station.<br>Both stations can be reached from Osaka in about 2 to 2.5 hours by limited express train, with no transfers required.</p>
+            <h4>Access &amp; Pick-up</h4>
+            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pick-up is available at Ugata Station or Iseshi Station.<br>Iseshi Station is about 2 hours from Osaka and Ugata Station about 2.5 hours, by limited express with no transfers required.<br>Iseshi Station is about 1 hour 40 minutes from Nagoya by limited express, and about 2.5 hours from Kyoto with one transfer.<br>Walking the Kumano Kodo? Iseshi Station is about 3 hours from Kii-Katsuura Station, where most visitors finish the Nakahechi route.</p>
             <h4 class="section-title">　</h4>
             <h4>Optional Dinner</h4>
-            <p>Dinner can be added for an additional 6,000 JPY per person.</p>
+            <p>Dinner can be added for an additional ¥6,000 per person.</p>
             <p>If you have any questions or special requests, please feel free to contact me. I would be very happy to help you plan a memorable day in Mie.</p>
             <h4 class="section-title">　</h4>
             <h4>Important Notes</h4>
             <p>This tour involves a fair amount of walking — about the same as a light hike.</p>
             <p>If you have any concerns about walking, please let us know in advance.</p>
             <p class="img-note">Photos are for illustration purposes / 写真はイメージです</p>
-            <span class="price">¥30,000~36,000 / per person</span>
+            <span class="price">¥30,000&ndash;36,000 per person</span>
           </div>
         </div>
       </div>
@@ -1065,18 +1093,21 @@
         <div class="tour-body">
           <div class="tour-body-inner">
             <p>A private guided tour of Ise Jingu's Inner Shrine (Naiku) — Japan's most sacred Shinto site.<br>Learn proper worship etiquette, experience purification rituals, and discover stories you won't find in any guidebook.<br>Departs at 9:00 or 14:00. Guided portion at Naiku is approximately 2 hours.</p>
-            <div class="tour-story">
-              <div class="tour-story-head">
+            <details class="tour-story">
+              <summary class="tour-story-head">
                 <img class="tour-story-portrait" loading="lazy" decoding="async" width="46" height="46"
-                     src="images/about1.jpg" alt="Shota, founder and English-speaking local guide of Inaka Tours Japan in Ise-Shima" />
+                     src="images/about1.jpg" alt="" />
                 <h4>The Story Behind the Tour</h4>
+                <span class="tour-story-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="tour-story-body">
+                <p>What is the first thing you think of when you hear Ise-Shima? Most people picture Ise Jingu.</p>
+                <p>And of those people, how many go home actually understanding this shrine &mdash; the place called the spiritual home of the Japanese people? There is almost no written explanation here, and yet a great many stories are hidden in it.</p>
+                <p>On this tour we explore Ise Jingu in the correct order and the correct way, and you learn everything from the basic facts to the kind of thing no guidebook carries.</p>
+                <p>By the time you leave, you will understand not only this place, but why it holds that name.</p>
+                <p class="tour-story-sign">&mdash; Shota, founder &amp; guide</p>
               </div>
-              <p>What is the first thing you think of when you hear Ise-Shima? Most people picture Ise Jingu.</p>
-              <p>And of those people, how many go home actually understanding this shrine &mdash; the place called the spiritual home of the Japanese people? There is almost no written explanation here, and yet a great many stories are hidden in it.</p>
-              <p>On this tour we explore Ise Jingu in the correct order and the correct way, and you learn everything from the basic facts to the kind of thing no guidebook carries.</p>
-              <p>By the time you leave, you will understand not only this place, but why it is called the spiritual home of the Japanese people.</p>
-              <p class="tour-story-sign">&mdash; Shota, founder &amp; guide</p>
-            </div>
+            </details>
             <h4 class="section-title">　</h4>
             <h4>About this tour</h4>
             <div class="tour-description">
@@ -1088,20 +1119,20 @@
             <h4 class="section-title">　</h4>
             <h4>What's Included</h4>
             <p>Guided tour of Ise Jingu Inner Shrine (approx. 2 hours).</p>
-            <p>Optional: visit to the Outer Shrine (Geku) with car transportation (+approx. 1.5 hours · ¥5,000 / per person).</p>
-            <p>Pickup from Ise Station or accommodations in the Ise, Shima, and Toba areas.</p>
+            <p>Optional: visit to the Outer Shrine (Geku) with car transportation (+approx. 1.5 hours · ¥5,000 per person).</p>
+            <p>Pick-up from Iseshi Station, or from accommodation in the Ise, Toba, and Shima areas.</p>
             <h4 class="section-title">　</h4>
             <h4>What's Not Included</h4>
             <p>Meal costs, personal shopping expenses, and optional activity fees are not included.</p>
             <h4 class="section-title">　</h4>
-            <h4>Access & Pick-up</h4>
-            <p>Hotel pick-up is available for guests staying in the Ise, Toba, and Shima areas.<br>Pickup at Iseshi Station is also available.<br>The tour concludes at the Inner Shrine (Naiku). Drop-off at your hotel is available upon request — please let us know in advance.</p>
+            <h4>Access &amp; Pick-up</h4>
+            <p>Hotel pick-up is available for guests staying in the Ise, Toba, and Shima areas.<br>Pick-up at Iseshi Station is also available.<br>Iseshi Station is about 1 hour 40 minutes from Nagoya and about 2 hours from Osaka by limited express, and about 2.5 hours from Kyoto with one transfer.<br>Walking the Kumano Kodo? Iseshi Station is about 3 hours from Kii-Katsuura Station, where most visitors finish the Nakahechi route.<br>The tour concludes at the Inner Shrine (Naiku). Drop-off at your hotel is available upon request — please let us know in advance.</p>
             <h4 class="section-title">　</h4>
             <h4>Important Notes</h4>
             <p>Maximum 5 guests. Comfortable walking shoes are required.</p>
             <p>This tour is not suitable for guests with mobility impairments.</p>
             <p class="img-note">Photos are for illustration purposes / 写真はイメージです</p>
-            <span class="price">¥15,000 / per person</span>
+            <span class="price">¥15,000 per person</span>
           </div>
         </div>
       </div>
@@ -1121,19 +1152,22 @@
           <div class="tour-body-inner">
             <p>The cultured pearl was invented in Ise-Shima, in the 1890s. A narrow mountain road — just wide enough for a small Japanese car — leads down to a working pearl farm on Ago Bay, where akoya pearls are grown and made into jewellery on the same site.<br>This is not a visitor attraction. It is a working farm, and you take part in what happens there.<br><strong>Every booking is fully private</strong> — only your group — and we collect you by car from your hotel. Two experiences are available; choose the one you prefer below. Maximum 5 guests.</p>
             <p><a class="text-link" href="/pearl-farm-experience-ise-shima/">Read the full page about this experience <span aria-hidden="true">→</span></a></p>
-            <div class="tour-story">
-              <div class="tour-story-head">
+            <details class="tour-story">
+              <summary class="tour-story-head">
                 <img class="tour-story-portrait" loading="lazy" decoding="async" width="46" height="46"
-                     src="images/about1.jpg" alt="Shota, founder and English-speaking local guide of Inaka Tours Japan in Ise-Shima" />
+                     src="images/about1.jpg" alt="" />
                 <h4>The Story Behind the Tour</h4>
+                <span class="tour-story-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="tour-story-body">
+                <p>Do you know where in the world pearl cultivation first succeeded? The answer is here &mdash; Ise-Shima, where we live.</p>
+                <p>And do you know how a pearl is actually made, or in what kind of place, by what kind of people?</p>
+                <p>On this experience you visit a genuine akoya pearl farm on Ago Bay, the water where pearl cultivation began, and you take a pearl out of an akoya oyster yourself, or insert a nucleus into the oyster with your own hands. If you wish, you can also have the pearl you harvested made into an original piece of jewellery.</p>
+                <p>This is not merely a pearl experience. It is the finest way there is to get inside local life in this region &mdash; because this is not a tourist facility. It is a real akoya pearl farm, and the experience is completely private.</p>
+                <p>Rather than simply buying a pearl as jewellery, take home a meaningful pearl that could exist only in this place. It should become something special: worth more than jewellery, and holding the memory of the day.</p>
+                <p class="tour-story-sign">&mdash; Shota, founder &amp; guide</p>
               </div>
-              <p>Do you know where in the world pearl cultivation first succeeded? The answer is the place where we live &mdash; Ise-Shima.</p>
-              <p>And do you know how a pearl is actually made, or in what kind of place, by what kind of people?</p>
-              <p>On this experience you visit a genuine akoya pearl farm on Ago Bay, the water where pearl cultivation began, and you take a pearl out of the akoya oyster yourself, or insert the nucleus into the oyster with your own hands. If you wish, you can also have the pearl you harvested made into an original piece of jewellery.</p>
-              <p>This is not merely a pearl experience. It is probably the finest way there is to get inside local life in this region &mdash; because this is not a tourist facility. It is a real akoya pearl farm, and the experience is completely private.</p>
-              <p>Rather than simply buying a pearl as jewellery, take home a meaningful pearl that could exist only in this place. It should become something special: worth more than jewellery, and holding the memory of the day.</p>
-              <p class="tour-story-sign">&mdash; Shota, founder &amp; guide</p>
-            </div>
+            </details>
             <h4 class="section-title">　</h4>
             <h4>About this experience</h4>
             <div class="tour-description">
@@ -1146,7 +1180,7 @@
 
             <div class="option-card">
               <h4 class="option-title">1 · Pearl Harvesting</h4>
-              <p class="option-meta">1–2 hours &nbsp;·&nbsp; Fully private &nbsp;·&nbsp; Pickup available &nbsp;·&nbsp; Max 5 guests</p>
+              <p class="option-meta">1–2 hours &nbsp;·&nbsp; Fully private &nbsp;·&nbsp; Pick-up available &nbsp;·&nbsp; Max 5 guests</p>
               <p class="option-lead">Choose an akoya pearl oyster from the farm's own stock and open it with your own hands.</p>
               <button class="tour-toggle option-toggle" onclick="toggleOption(this)" data-track="Pearl — Harvesting">
                 <span>See this experience</span>
@@ -1216,7 +1250,7 @@
 
             <h4 class="section-title">　</h4>
             <h4>What's Included</h4>
-            <p>The experience fee at the pearl farm, transport to and from the farm with pickup and drop-off if you need it, and an English-speaking local guide throughout.</p>
+            <p>The experience fee at the pearl farm, transport to and from the farm with pick-up and drop-off if you need it, and an English-speaking local guide throughout.</p>
             <h4 class="section-title">　</h4>
             <h4>What's Not Included</h4>
             <p>Meals, personal shopping, and the cost of having a pearl set into jewellery (only if you choose to have this done) are not included.</p>
@@ -1227,7 +1261,7 @@
             <p>The work takes place inside the workshop, so it runs rain or shine — a good choice for a wet day in Ise-Shima. We confirm the exact time with the farm when you book.</p>
             <h4 class="section-title">　</h4>
             <h4>Access &amp; Pick-up</h4>
-            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pickup is available at Ugata Station.<br>This station can be reached from Osaka in about 2.5 hours by limited express train, with no transfers required.</p>
+            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pick-up is available at Ugata Station.<br>This station can be reached from Osaka in about 2.5 hours by limited express train, with no transfers required.</p>
             <h4 class="section-title">　</h4>
             <h4>Booking</h4>
             <p>This is a small working farm, so every booking is confirmed with them before it is final. Send us your preferred date, the number of guests and which of the two experiences you would like, and we will check availability with the farm and come back to you with the price.</p>
@@ -1264,21 +1298,24 @@
         </button>
         <div class="tour-body">
           <div class="tour-body-inner">
-            <p>Take part in <em>goma</em> — the sacred fire ritual of esoteric Shingon Buddhism — inside a temple founded in 742, in Ise-Shima National Park.<br>Monks chant sutras while <em>gomagi</em> prayer sticks burn: a <em>yakuyoke</em> ceremony to ward off bad luck and purify your wishes.<br>A morning of roughly 2.5 hours. Departs at 9:00. The tour typically ends around 11:30–12:00, though this may vary depending on travel time. For guests aged 15 and over.<br>Held indoors in the temple hall, the ritual goes ahead rain or shine — a good choice for a rainy day in Shima.</p>
-            <div class="tour-story">
-              <div class="tour-story-head">
+            <p>Take part in <em>goma</em> — the sacred fire ritual of esoteric Shingon Buddhism — inside a temple founded in 742, in Ise-Shima National Park.<br>A monk chants sutras while <em>gomagi</em> prayer sticks burn: a <em>yakuyoke</em> ceremony to ward off bad luck and purify your wishes.<br>A morning of roughly 2.5 hours. Departs at 9:00. The tour typically ends around 11:30–12:00, though this may vary depending on travel time. For guests aged 15 and over.<br>Held indoors in the temple hall, the ritual goes ahead rain or shine — a good choice for a rainy day in Shima.</p>
+            <details class="tour-story">
+              <summary class="tour-story-head">
                 <img class="tour-story-portrait" loading="lazy" decoding="async" width="46" height="46"
-                     src="images/about1.jpg" alt="Shota, founder and English-speaking local guide of Inaka Tours Japan in Ise-Shima" />
+                     src="images/about1.jpg" alt="" />
                 <h4>The Story Behind the Tour</h4>
+                <span class="tour-story-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="tour-story-body">
+                <p>This place is special to me as well. It is where I go to rest my mind.</p>
+                <p>When I was creating this experience, what I wanted guests to feel was not the ritual itself &mdash; it was the nature of Ise-Shima, through something spiritual and relaxed that lets you feel it. I considered a meditation experience out in nature, but I kept sensing there was something that fitted better.</p>
+                <p>The place where this experience is held is an old temple founded in 742, inside Ise-Shima National Park. It stands near the summit of a mountain, with nothing else around it &mdash; just quiet forest, where you listen to the birds and the sound of the trees moving.</p>
+                <p>Deep inside that old temple, in that setting, you take part in <em>goma</em> &mdash; a ritual handed down in Shingon, one of the schools of Japanese Buddhism. A monk chants the sutras in front of you; you place your own wish on the blazing fire, and what is bad is burned away completely.</p>
+                <p>Afterwards you walk the temple grounds, feel the nature of Ise-Shima, and set off home with a clear mind.</p>
+                <p>This is exactly what I wanted guests to feel, and it is a retreat experience you can have only at this temple, here in Ise-Shima, Japan. The finest view, setting and experience are waiting for you.</p>
+                <p class="tour-story-sign">&mdash; Shota, founder &amp; guide</p>
               </div>
-              <p>This place is special to me as well. It is where I go to rest my mind.</p>
-              <p>When I was creating this experience, what I wanted guests to feel was not the ritual itself &mdash; it was the nature of Ise-Shima, through something spiritual and relaxed that lets you feel it. I considered a meditation experience out in nature, but I kept sensing there was something that fitted better.</p>
-              <p>The place where this experience is held is an old temple founded in 742, inside Ise-Shima National Park. It stands near the summit of a mountain, with nothing around it but the temple. A quiet forest, where you listen to the voices of the birds and the sound of the trees moving.</p>
-              <p>Deep inside that old temple, in that setting, you take part in <em>goma</em> &mdash; a ritual handed down in Shingon, one of the schools of Japanese Buddhism. A monk chants the sutras in front of you; you place your own wish on the blazing fire, and what is bad is burned away completely.</p>
-              <p>Afterwards you walk the temple grounds, feel the nature of Ise-Shima, and set off home with a clear mind.</p>
-              <p>This is exactly what I wanted guests to feel, and it is a retreat experience you can have only at this temple, here in Ise-Shima, Japan. The finest view, setting and experience are waiting for you.</p>
-              <p class="tour-story-sign">&mdash; Shota, founder &amp; guide</p>
-            </div>
+            </details>
             <h4 class="section-title">　</h4>
             <h4>About this experience</h4>
             <div class="tour-description">
@@ -1299,7 +1336,7 @@
             <p>Personal shopping and any expenses of a personal nature are not included.</p>
             <h4 class="section-title">　</h4>
             <h4>Access &amp; Pick-up</h4>
-            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pickup is available at Ugata Station.<br>This station can be reached from Osaka in about 2.5 hours by limited express train, with no transfers required.</p>
+            <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pick-up is available at Ugata Station.<br>This station can be reached from Osaka in about 2.5 hours by limited express train, with no transfers required.</p>
             <h4 class="section-title">　</h4>
             <h4>A Note on Respect</h4>
             <p>This is a working temple, and the experience depends on the goodwill of the community. We ask that you keep your voice low, take your rubbish with you, and treat the place as the sacred site it is.</p>
@@ -1310,11 +1347,19 @@
             <p>Maximum 5 guests. Minimum age 15.</p>
             <p>The goma ritual takes place indoors and runs as planned in the rain. On rainy days, the temple walk covers only what can be done comfortably with an umbrella.</p>
             <p>Cancellations within 48 hours of the start time are charged at 50% of the tour fee, and within 24 hours at the full fee. Cancelling more than 48 hours ahead is free of charge — see our full cancellation policy below.</p>
-            <span class="price">¥40,000 / per person</span>
+            <span class="price">¥40,000 per person</span>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 紹介文はカードの下に置く。先に読ませるとツアーに辿り着く前に離脱するため -->
+    <p class="tours-intro">Every tour is fully private &mdash; your group only &mdash; and guided in English. Explore Ise Jingu, Japan's most sacred Shinto shrine, and the hidden gems of the ria coastline &mdash; quiet fishing villages, <em>ama</em> divers and local food. Or take part in the work of the region itself: a goma fire ritual at a temple founded in 742, or harvesting a real akoya pearl on Ago Bay, where the cultured pearl was invented.</p>
+      <!-- ツアー共通の考え方。伊勢志摩を代表する5トピックを名前で挙げ、検索とAIに拾わせる -->
+      <div class="tours-ethos">
+        <p>Every tour here is built on the same three things: an experience you can have only in this region, real access to local life, and a journey that stays comfortable from beginning to end.</p>
+        <p>Across these experiences you will meet the five subjects that define Ise-Shima &mdash; pearl farming, Ise Jingu, <em>ama</em> diving culture, Ise-Shima National Park, and what we call <em>Shima time</em>.</p>
+      </div>
 
     <!-- ツアー詳細のモーダル
          カードが横に並ぶと1枚が細くなり本文が読みにくいため、
@@ -1417,9 +1462,9 @@
         <p>Living overseas gave me many new experiences and helped me learn about different cultures — but it also made me appreciate Japan even more.</p>
         <p>When I returned to Japan in October 2025, I decided to start Inaka Tours here.</p>
         <p>This region doesn't have a long list of famous attractions. But I believe that's exactly the beauty of rural Japan.</p>
-        <p>As I explored this region more deeply, I realized its greatest charm isn't places — it's what we call "Shima time," a slow and relaxed atmosphere.</p>
+        <p>As I explored this region more deeply, I realized its greatest charm isn't places — it's what we call <em>Shima time</em>, a slow and relaxed atmosphere.</p>
         <p>With Inaka Tours, my goal is to share it with visitors who want to experience the real Japan.</p>
-        <p>Leave everyday life behind and embrace "Shima time" in the beautiful Ise-Shima region — an unforgettable retreat experience during your trip to Japan.</p>
+        <p>Leave everyday life behind and embrace <em>Shima time</em> in the beautiful Ise-Shima region — an unforgettable retreat experience during your trip to Japan.</p>
         <p>I look forward to meeting you and sharing this special experience with you.</p>
       </div>
     </div>
@@ -1861,6 +1906,10 @@
           // 中で開いていた体験は閉じた状態に戻しておく
           body.querySelectorAll('.option-body.open, .option-toggle.open')
               .forEach(function (el) { el.classList.remove('open'); });
+          // ビハインドストーリーも閉じ直す。開いたままだと、次に同じツアーを
+          // 開いたときにツアー情報より先にストーリーが目に入ってしまう
+          body.querySelectorAll('details.tour-story[open]')
+              .forEach(function (el) { el.open = false; });
           modalReturn.btn.classList.remove('open');
           modalReturn.btn.after(body);          // 元のカードへ戻す
           modalReturn.btn.focus({ preventScroll: true });
