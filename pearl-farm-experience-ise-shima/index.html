@@ -420,6 +420,29 @@
     }
 
     /* ── FAQ ── */
+    /* 本文中の開閉ブロック。見出し(h3)の見た目のまま、FAQ と同じ +/− で開閉する */
+    details.p-disclose { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 42px 0 0; }
+    details.p-disclose > summary {
+      cursor: pointer; list-style: none; padding: 20px 40px 20px 0; position: relative;
+      font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.4rem;
+      color: var(--ink); letter-spacing: 0.01em; transition: color 0.25s ease;
+    }
+    details.p-disclose > summary:hover { color: var(--gold); }
+    details.p-disclose > summary::-webkit-details-marker { display: none; }
+    details.p-disclose > summary::after {
+      content: ''; position: absolute; right: 6px; top: 50%;
+      width: 11px; height: 1px; background: var(--gold);
+      transition: transform 0.3s ease;
+    }
+    details.p-disclose > summary::before {
+      content: ''; position: absolute; right: 11px; top: 50%; margin-top: -5px;
+      width: 1px; height: 11px; background: var(--gold);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    details.p-disclose[open] > summary::before { opacity: 0; transform: rotate(90deg); }
+    details.p-disclose > ul { margin-top: 0; }
+    details.p-disclose > *:last-child { margin-bottom: 24px; }
+
     .p-faq details { border-bottom: 1px solid var(--line); }
     .p-faq summary {
       cursor: pointer; list-style: none; padding: 22px 40px 22px 0; position: relative;
@@ -582,7 +605,7 @@
         <div class="p-fact"><dt>Jewellery</dt><dd>Necklace, bracelet<br>or earrings</dd></div>
         <div class="p-fact"><dt>Indoors</dt><dd>Runs rain or shine<br>Good on a wet day</dd></div>
         <div class="p-fact"><dt>Group</dt><dd>Fully private<br>Up to 5 guests</dd></div>
-        <div class="p-fact"><dt>Transport</dt><dd>Pickup available<br>if you need it</dd></div>
+        <div class="p-fact"><dt>Transport</dt><dd>Hotel pickup available if you need it</dd></div>
       </dl>
       <p class="p-facts-note">Travelling between December and March? Harvesting pauses over the winter, but the jewellery-making experience runs all year.</p>
 
@@ -597,10 +620,9 @@
 
       <section class="p-section">
         <p class="p-kicker">Why private matters here</p>
-        <h2>Only your group — and a car from your door</h2>
-        <p>Every booking is fully private. You are never joined to another group, so the craftsman is working with you rather than addressing a crowd, and your questions are answered as they come up.</p>
+        <h2>Only your group, never a crowd</h2>
+        <p>Every booking is fully private. You are never joined to another group, so the craftsman works alongside you rather than addressing a room, and your questions are answered as they come up.</p>
         <p>This matters more than it sounds, because the farm is small. A few guests at the worktable is a conversation; a coach party is a queue.</p>
-        <p>It also makes the journey possible. The farm sits at the end of a steep, narrow road with no bus service and nowhere obvious to park. Without a car you simply cannot get there. We collect you from your hotel, drive you in, and bring you back — the drive itself, winding down through the trees to the water, is part of the experience.</p>
 
         <table class="p-compare">
           <tr><th>&nbsp;</th><th>This experience</th></tr>
@@ -678,8 +700,8 @@
           <details class="p-option-more">
             <summary>See this experience</summary>
             <div class="p-option-body">
-          <p>The family grows its akoya pearls on rafts in Ago Bay, and makes jewellery from them at its own shop. This experience takes place at the shop, so there is no drive up the mountain road — that belongs to the two experiences at the farm itself.</p>
-          <p>You choose your pearls from the stock the family has already harvested, choose a setting, and assemble the piece yourself at the worktable. You can make a <strong>necklace</strong>, a <strong>bracelet</strong>, or <strong>earrings</strong>. Earrings are generally kept to simple, plain settings — with a good akoya pearl, anything more gets in the way.</p>
+          <p>The family grows its akoya pearls on rafts in Ago Bay, and makes jewellery from them at its own shop. This experience takes place at the shop, so there is no drive up the mountain road.</p>
+          <p>You choose your pearls from the stock the family has already harvested, choose a setting, and assemble the piece yourself at the worktable — with the craftsman who makes their jewellery for a living sitting beside you, showing you how it is done and taking over the parts that need a practised hand. You can make a <strong>necklace</strong>, a <strong>bracelet</strong>, or <strong>earrings</strong>. Earrings are generally kept to simple, plain settings — with a good akoya pearl, anything more gets in the way.</p>
           <p>This is not a souvenir workshop. The pearls are the family's own and the settings are the ones they sell, so what you take home is a real piece of akoya pearl jewellery that happens to have been made by you. And if you see a finished piece in the shop you like better, you are welcome to buy that instead.</p>
           <p>While you work there is time to ask the questions only someone who grows pearls can answer — how a pearl actually forms, and how long it takes. Ago Bay is where pearl culturing began, and this is an honest conversation about it as a working industry rather than a presentation.</p>
           <ul class="p-steps">
@@ -738,8 +760,6 @@
           <li><strong>From Nagoya</strong> — about 2 hours by limited express train</li>
           <li><strong>From Kyoto</strong> — about 3 hours, usually with one change</li>
         </ul>
-        <p>Ise-Shima is reachable as a long day trip, but it is much better as an overnight stay.</p>
-        <p>This is a single activity, not a full day with a guide. The transport above is to and from the pearl farm for this experience. We also run other tours — Ise Jingu, or a full day along the coastline — and you are welcome to book one of those alongside this experience. They are priced separately and need to be booked in advance.</p>
 
         <h3>What's included</h3>
         <ul>
@@ -757,7 +777,8 @@
         </ul>
         <p>On the jewellery-making experience you choose your own pearls and setting, so the materials are settled at the shop rather than in advance. <strong>Cards are accepted, and bringing your passport allows the purchase to be made tax-free.</strong> The price of the piece can be worked out flexibly around the budget you have in mind, so please just ask.</p>
 
-        <h3>Good to know</h3>
+        <details class="p-disclose">
+        <summary>Good to know</summary>
         <ul>
           <li><strong>Harvesting and nucleus insertion run from April to November only.</strong> From December to March the pearl oysters are moved to warmer water to protect them from the cold, so no pearls can be opened in those months.</li>
           <li><strong>The jewellery-making experience runs all year</strong>, including December to March, using pearls already harvested from the bay.</li>
@@ -769,6 +790,7 @@
           <li>The nucleus insertion experience is technical and may be difficult for younger children. The jewellery-making experience has no age limit and suits children accompanied by an adult.</li>
           <li>Not every pearl oyster you work on survives the year; in some cases no pearl can be collected.</li>
         </ul>
+        </details>
 
         <h3>Taking part — please read</h3>
         <p>The workshop is a working space, and the nucleus insertion uses fine, sharp hand tools. <strong>You take part at your own risk and remain responsible for your own health and safety.</strong> Please follow the craftsman's and the guide's instructions at all times, and stay within the areas you are shown.</p>
