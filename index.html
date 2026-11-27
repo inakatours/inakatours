@@ -871,17 +871,19 @@
         padding: 10px 20px;
         transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
       }
-      /* サイト内へ送るリンクなので、外部リンクの「↗」ではなく「→」を使う */
+      /* 既定はサイト内へ送るので「→」。外部へ出るものだけ「↗」に分ける */
       .why-tag::after {
         content: '→'; font-size: 0.8em; opacity: 0.5;
         transition: opacity 0.25s ease, transform 0.25s ease;
       }
+      .why-tag.is-external::after { content: '↗'; }
       .why-tag:hover {
         color: var(--red, #c8321e);
         border-color: var(--red, #c8321e);
         background: rgba(200, 50, 30, 0.05);
       }
       .why-tag:hover::after { opacity: 1; transform: translateX(2px); }
+      .why-tag.is-external:hover::after { transform: none; }
       @media (max-width: 640px) {
         .why-tags { gap: 8px; margin-top: 2em; }
         .why-tag { font-size: 0.67rem; letter-spacing: 0.08em; padding: 9px 15px; }
@@ -1013,7 +1015,7 @@
         <p class="why-more">We also have other appealing experiences that only Ise-Shima can offer.</p>
         <div class="why-tags">
           <a class="why-tag" href="#guide">Ama Divers</a>
-          <a class="why-tag" href="/pearl-farm-experience-ise-shima/">Pearl Farming</a>
+          <a class="why-tag is-external" href="https://www.google.com/search?q=akoya+pearl+farming+Japan" target="_blank" rel="noopener">Pearl Farming</a>
           <a class="why-tag" href="#gallery">National Park</a>
           <a class="why-tag" href="#tours">Ise Jingu</a>
         </div>
