@@ -333,6 +333,12 @@
       max-width: none; height: auto; max-height: 520px; object-fit: cover;
     }
     .p-photo.tall { max-height: 640px; object-position: center 35%; }
+    /* 動画も写真と同じ見え方に揃える。既定では静止画を出し、
+       再生できる環境に入ったときだけ動画に差し替える。 */
+    video.p-photo { background: #e9e3d6; }
+    video.p-media { display: none; }
+    .p-media-wrap.video-ready video.p-media { display: block; }
+    .p-media-wrap.video-ready .p-media-fallback { display: none; }
     /* 本文中のリンク。標準の青ではなくページの差し色に揃える */
     .p-section a.p-link {
       color: var(--gold); text-decoration: none;
@@ -704,6 +710,17 @@
              alt="Guests holding a net of akoya pearl oysters before returning them to Ago Bay for about a year" />
         <p class="p-cap">Your own shells, in the net, on their way back into the bay.</p>
 
+        <div class="p-media-wrap">
+          <video class="p-photo p-media" poster="/images/pearl-jewellery-making-poster.jpg"
+                 width="1280" height="720" muted loop playsinline preload="none"
+                 aria-hidden="true" tabindex="-1"
+                 data-src="/images/pearl-jewellery-making.mp4"></video>
+          <img class="p-photo p-media-fallback" src="/images/pearl-jewellery-making-poster.jpg"
+               width="1280" height="720" loading="lazy" decoding="async"
+               alt="A craftsman threading akoya pearls into a necklace at a family-run pearl farm workshop in Ise-Shima, Mie, Japan" />
+        </div>
+        <p class="p-cap">Threading the pearls, one at a time, at the farm's own worktable.</p>
+
         <img class="p-photo" src="/images/pearl-jewellery-workshop.jpg" width="1600" height="900" loading="lazy"
              alt="Guests making akoya pearl jewellery with the craftsman at a family-run pearl farm workshop in Ise-Shima, Mie, Japan" />
         <p class="p-cap">The workshop and the shop are one room — pearls on the table, finished pieces in the cases behind.</p>
@@ -857,6 +874,29 @@
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ジュエリー制作の動画：画面に入ってから読み込んで再生し、離れたら止める。
+    // 読み込めない・自動再生が許されない環境では静止画のままにする。
+    // 音も字幕もない短い映像なので、トップページのツアーカードと同じ扱い。
+    (function () {
+      var wrap = document.querySelector('.p-media-wrap');
+      if (!wrap) return;
+      var v = wrap.querySelector('video.p-media');
+      if (!v || !('IntersectionObserver' in window)) return;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) { if (!v.paused) v.pause(); return; }
+          if (!v.src) {
+            v.src = v.dataset.src;
+            v.addEventListener('error', function () { wrap.classList.remove('video-ready'); });
+            wrap.classList.add('video-ready');
+          }
+          var p = v.play();
+          if (p && p.catch) p.catch(function () { wrap.classList.remove('video-ready'); });
+        });
+      }, { rootMargin: '200px' });
+      io.observe(wrap);
+    })();
   </script>
 </body>
 </html>
