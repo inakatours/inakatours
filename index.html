@@ -337,6 +337,47 @@
         "unitText": "person"
       },
       "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "TouristTrip",
+        "name": "Ago Bay Cruise from a Working Akoya Pearl Farm in Ise-Shima",
+        "description": "Go out onto Ago Bay in Ise-Shima, Mie, on a working akoya pearl farm's own boat, with the people who farm it. Ago Bay is a ria coastline whose deeply folded inlets shelter the pearl rafts from open-sea waves, while small rivers from the surrounding Ise-Shima National Park forest carry nutrients into water that the shape of the bay holds and circulates — the reason this is one of the two places where pearl culturing began. Approximately 50 minutes, fully private, for up to 5 guests, guided in English by a local. Can be combined with the pearl farm experiences. Available on a limited number of dates, so please enquire before booking.",
+        "url": "https://www.inakatour.com/pearl-farm-experience-ise-shima/",
+        "image": "https://www.inakatour.com/images/bay.jpg",
+        "touristType": [
+          "Couples",
+          "Families",
+          "Solo travellers"
+        ],
+        "about": [
+          {
+            "@type": "Thing",
+            "name": "Ago Bay"
+          },
+          {
+            "@type": "Thing",
+            "name": "Ria coastline"
+          },
+          {
+            "@type": "Thing",
+            "name": "Ise-Shima National Park"
+          },
+          {
+            "@type": "Thing",
+            "name": "Akoya pearl farming"
+          }
+        ]
+      },
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 5,
+        "unitCode": "IE",
+        "unitText": "person"
+      },
+      "availability": "https://schema.org/InStock"
     }
   ],
   "founder": {
@@ -648,6 +689,11 @@
     }
     .option-lead { font-size: 0.95rem; color: #555; margin: 0 0 4px; }
     .option-card .tour-toggle { border-top: 1px solid rgba(0,0,0,0.1); margin-top: 14px; }
+    .combine-note {
+      margin: 26px 0 0; padding: 18px 22px;
+      border: 1px solid rgba(0,0,0,0.12); border-radius: 14px; background: #fcfaf6;
+      font-size: 0.95rem; line-height: 1.85;
+    }
     .option-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
     .option-body.open { max-height: 6000px; }
     .option-body-inner { padding-top: 10px; padding-bottom: 20px; }
@@ -1192,7 +1238,7 @@
         </button>
         <div class="tour-body">
           <div class="tour-body-inner">
-            <p>The cultured pearl was invented in Ise-Shima, in the 1890s. A narrow mountain road — just wide enough for a small Japanese car — leads down to a working pearl farm on Ago Bay, where the family grows its own akoya pearls. At their shop, those pearls are made into jewellery.<br>This is not a visitor attraction. It is a working farm, and you take part in what happens there.<br><strong>Every booking is fully private</strong> — only your group — and we collect you by car from your hotel. Three experiences are available; choose the one you prefer below. Maximum 5 guests.</p>
+            <p>The cultured pearl was invented in Ise-Shima, in the 1890s. A narrow mountain road — just wide enough for a small Japanese car — leads down to a working pearl farm on Ago Bay, where the family grows its own akoya pearls. At their shop, those pearls are made into jewellery.<br>This is not a visitor attraction. It is a working farm, and you take part in what happens there.<br><strong>Every booking is fully private</strong> — only your group — and we collect you by car from your hotel. Four experiences are available; choose the one you prefer below. Maximum 5 guests.</p>
             <p><a class="text-link" href="/pearl-farm-experience-ise-shima/">Read the full page about this experience <span aria-hidden="true">→</span></a></p>
             <details class="tour-story">
               <summary class="tour-story-head">
@@ -1321,6 +1367,36 @@
               </div>
             </div>
 
+            <div class="option-card">
+              <h4 class="option-title">4 · Ago Bay Cruise</h4>
+              <p class="option-meta">About 50 minutes &nbsp;·&nbsp; Limited dates &nbsp;·&nbsp; Fully private &nbsp;·&nbsp; Max 5 guests</p>
+              <p class="option-lead">Go out onto the bay itself, on the farm's own boat, with the people who work it.</p>
+              <button class="tour-toggle option-toggle" onclick="toggleOption(this)" data-track="Pearl — Ago Bay Cruise">
+                <span>See this experience</span>
+                <span class="toggle-icon">+</span>
+              </button>
+              <div class="option-body">
+                <div class="option-body-inner">
+                  <div class="tour-description">
+                    <p>Pearl culturing began in two places in the world: Toba, and this bay. Ago Bay is a ria coastline — a drowned valley system, so deeply folded that the sea reaches far inland between steep wooded ridges. That shape is not scenery alone. It is the reason the rafts are here, because the folds of the bay break up the open sea and the large waves never reach the oysters.</p>
+                    <p>The mountains around it are part of Ise-Shima National Park, and many small rivers run out of that forest into the bay, carrying the nutrients the oysters feed on. Because the bay is so intricate, that water does not simply wash straight back out to sea. It stays, and it circulates. This is what people mean when they say Ago Bay suits pearl farming — it is a matter of geography rather than luck.</p>
+                    <p>From the boat you see it as the farmers see it: the inlets, the ridgelines, the rafts sitting in the shelter of the headlands. It is the half of pearl farming that cannot be shown to you at a worktable.</p>
+                    <p>We would like people to leave understanding what a pearl actually is, and what it is actually worth. The workshop shows you one half of that. The bay shows you the other.</p>
+                  </div>
+                  <h4>Important Notes</h4>
+                  <p><strong>Please ask before you book.</strong> This cruise can only run on a limited number of dates. Tell us when you are travelling and we will find out what is possible for you.</p>
+                  <p>It can be combined with any of the experiences above.</p>
+                  <img loading="lazy" decoding="async" class="tour-photo" width="1185" height="667"
+                       src="images/pearl-ago-bay-cruise.jpg"
+                       alt="The pearl farm's own boat moored on Ago Bay in Ise-Shima, with pearl rafts and the wooded ria coastline behind" />
+                  <p class="photo-caption">The farm's own boat, and the rafts lying in the shelter of the inlet behind it.</p>
+                  <span class="price">Price on enquiry</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="combine-note">These pearl experiences can also be combined with one another. The farm's schedule has to be checked first, so please tell us what you would like to do when you enquire.</p>
+
             <h4 class="section-title">　</h4>
             <h4>What's Included</h4>
             <p>The experience fee at the pearl farm, transport to and from the farm with pick-up and drop-off if you need them, and an English-speaking local guide throughout.</p>
@@ -1338,9 +1414,9 @@
             <p>Hotel pick-up and drop-off are available for guests staying in the Ise, Toba, and Shima areas.<br>For all other guests, pick-up is available at Ugata Station.<br>Ugata Station is about 2 hours 20 minutes from Nagoya by limited express, and about 2.5 hours from Osaka with no transfers required.</p>
             <h4 class="section-title">　</h4>
             <h4>Booking</h4>
-            <p>This is a small working farm, so every booking is confirmed with them before it is final. Send us your preferred date, the number of guests and which of the three experiences you would like, and we will check availability with the farm and come back to you with the price.</p>
+            <p>This is a small working farm, so every booking is confirmed with them before it is final. Send us your preferred date, the number of guests and which of the experiences you would like, and we will check availability with the farm and come back to you with the price.</p>
             <div class="enquiry-wrap">
-              <a class="enquiry-btn" href="mailto:inakatoursjp@gmail.com?subject=Pearl%20Farm%20Experience%20enquiry&amp;body=Hello%2C%0A%0AI%20would%20like%20to%20ask%20about%20the%20pearl%20farm%20experience.%0A%0APreferred%20date%28s%29%3A%20%0ANumber%20of%20guests%3A%20%0AWhich%20country%20are%20you%20travelling%20from%3F%3A%20%0AExperience%3A%20harvesting%20%2F%20nucleus%20insertion%20%2B%20harvesting%20%2F%20jewellery%20making%0A%0ADo%20you%20need%20pick-up%3F%3A%20yes%20%2F%20no%0AIf%20yes%2C%20where%20should%20we%20collect%20you%3F%20%28hotel%20name%2C%20or%20station%29%3A%20%0A%0AThank%20you.">
+              <a class="enquiry-btn" href="mailto:inakatoursjp@gmail.com?subject=Pearl%20Farm%20Experience%20enquiry&amp;body=Hello%2C%0A%0AI%20would%20like%20to%20ask%20about%20the%20pearl%20farm%20experience.%0A%0APreferred%20date%28s%29%3A%20%0ANumber%20of%20guests%3A%20%0AWhich%20country%20are%20you%20travelling%20from%3F%3A%20%0AExperience%3A%20harvesting%20%2F%20nucleus%20insertion%20%2B%20harvesting%20%2F%20jewellery%20making%20%2F%20Ago%20Bay%20cruise%0A%0ADo%20you%20need%20pick-up%3F%3A%20yes%20%2F%20no%0AIf%20yes%2C%20where%20should%20we%20collect%20you%3F%20%28hotel%20name%2C%20or%20station%29%3A%20%0A%0AThank%20you.">
                 <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3 7 9 6 9-6"/>
                 </svg>
